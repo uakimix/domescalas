@@ -4,6 +4,8 @@ class Identificador(models.Model):
     codigo = models.CharField(
         max_length=100,
         )
+    fecha_ingreso = models.DateField(
+        )
 
 class Escala(models.Model):
     identificador = models.ForeignKey(
