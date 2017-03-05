@@ -38,6 +38,15 @@ class Bprs(Escala):
     item_16 = models.PositiveSmallIntegerField()
     item_17 = models.PositiveSmallIntegerField()
     item_18 = models.PositiveSmallIntegerField()
+    @property
+    def total(self):
+        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
+                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
+                self.item_09 + self.item_10 + self.item_11 + self.item_12 + 
+                self.item_13 + self.item_14 + self.item_15 + self.item_16 + 
+                self.item_17 + self.item_18)
+    def __str__(self):
+        return "%s: Total =  %s" % (self.fecha, str(self.total))
 
 class Cgi(Escala):
     class Meta:
@@ -45,6 +54,8 @@ class Cgi(Escala):
         verbose_name_plural = 'escalas CGI'
     cgi_a = models.PositiveSmallIntegerField()
     cgi_b = models.PositiveSmallIntegerField()
+    def __str__(self):
+        return "%s: CGI_s=%s / CGI_e=%s" % (self.fecha, self.cgi_a, self.cgi_b)
 
 class Eeag(Escala):
     class Meta:
