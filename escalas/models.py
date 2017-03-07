@@ -6,6 +6,8 @@ class Identificador(models.Model):
         )
     fecha_ingreso = models.DateField(
         )
+    def __str__(self):
+        return "%s: %s" % (self.fecha_ingreso, self.codigo)
 
 class Escala(models.Model):
     identificador = models.ForeignKey(
