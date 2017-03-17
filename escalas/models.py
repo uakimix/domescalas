@@ -48,7 +48,7 @@ class Bprs(Escala):
                 self.item_13 + self.item_14 + self.item_15 + self.item_16 + 
                 self.item_17 + self.item_18)
     def __str__(self):
-        return "%s: Total =  %s" % (self.fecha, str(self.total))
+        return "%s: BPRS=%s" % (self.fecha, str(self.total))
 
 class Cgi(Escala):
     class Meta:
@@ -64,6 +64,8 @@ class Eeag(Escala):
         verbose_name = 'escala EEAG'
         verbose_name_plural = 'escalas EEAG'
     eeag = models.PositiveSmallIntegerField()
+    def __str__(self):
+        return "%s: EEAG=%s" % (self.fecha, self.eeag)
 
 
 #     ##     ## ########  ########   ######
@@ -95,6 +97,15 @@ class Hdrs(Escala):
     item_15 = models.PositiveSmallIntegerField()
     item_16 = models.PositiveSmallIntegerField()
     item_17 = models.PositiveSmallIntegerField()
+    @property
+    def total(self):
+        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
+                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
+                self.item_09 + self.item_10 + self.item_11 + self.item_12 + 
+                self.item_13 + self.item_14 + self.item_15 + self.item_16 + 
+                self.item_17)
+    def __str__(self):
+        return "%s: HDRS=%s" % (self.fecha, str(self.total))
 
 #
 #      ######     ##     ##   ##   #####    #####
@@ -117,7 +128,11 @@ class Panss(Escala):
     item_p05 = models.PositiveSmallIntegerField()
     item_p06 = models.PositiveSmallIntegerField()
     item_p07 = models.PositiveSmallIntegerField()
-
+    @property
+    def panss_sp(self):
+        return (self.item_p01 + self.item_p02 + self.item_p03 + self.item_p04 + 
+                self.item_p05 + self.item_p06 + self.item_p07)
+    
     item_n01 = models.PositiveSmallIntegerField()
     item_n02 = models.PositiveSmallIntegerField()
     item_n03 = models.PositiveSmallIntegerField()
@@ -125,6 +140,10 @@ class Panss(Escala):
     item_n05 = models.PositiveSmallIntegerField()
     item_n06 = models.PositiveSmallIntegerField()
     item_n07 = models.PositiveSmallIntegerField()
+    @property
+    def panss_sn(self):
+        return (self.item_n01 + self.item_n02 + self.item_n03 + self.item_n04 + 
+                self.item_n05 + self.item_n06 + self.item_n07)
 
     item_g01 = models.PositiveSmallIntegerField()
     item_g02 = models.PositiveSmallIntegerField()
@@ -142,6 +161,22 @@ class Panss(Escala):
     item_g14 = models.PositiveSmallIntegerField()
     item_g15 = models.PositiveSmallIntegerField()
     item_g16 = models.PositiveSmallIntegerField()
+    @property
+    def panss_sg(self):
+        return (self.item_g01 + self.item_g02 + self.item_g03 + self.item_g04 + 
+                self.item_g05 + self.item_g06 + self.item_g07 + self.item_g08 + 
+                self.item_g09 + self.item_g10 + self.item_g11 + self.item_g12 + 
+                self.item_g13 + self.item_g14 + self.item_g15 + self.item_g16)
+    
+    @property
+    def total(self):
+        return (self.panss_sp + self.panss_sn + self.panss_sg)
+    
+    def __str__(self):
+        return "%s: SP=%s / SN=%s / SG=%s / Total=%s" % (self.fecha, str(self.panss_sp),
+                                                         str(self.panss_sn), str(self.panss_sg),
+                                                         str(self.total))
+    
 
 #     ########  ##       ##     ## ########  ######  ##     ## #### ##    ##
 #     ##     ## ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
@@ -224,6 +259,15 @@ class Ymrs(Escala):
     item_09 = models.PositiveSmallIntegerField()
     item_10 = models.PositiveSmallIntegerField()
     item_11 = models.PositiveSmallIntegerField()
+    
+    @property
+    def total(self):
+        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
+                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
+                self.item_09 + self.item_10 + self.item_11)
+    
+    def __str__(self):
+        return "%s: YMRS=%s" % (self.fecha, str(self.total))
 
 class Who_das(Escala):
     class Meta:
