@@ -67,6 +67,9 @@ class Plutchik_vInline(admin.StackedInline):
 
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
+    def panss(self, obj):
+        return obj.panss
+    
     inlines = [BprsInLine,
                CgiInLine,
                HdrsInLine,
