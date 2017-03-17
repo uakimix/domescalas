@@ -21,6 +21,14 @@ LIKERT6 = (
         (1, '1.Muy leve'),
         (0, '0.Ausente'),
         )
+LIKERT5 = (
+        (5, '5.Extrema / no puede'),
+        (4, '4.Severa'),
+        (3, '3.Moderada'),
+        (2, '2.Leve'),
+        (1, '1.Ninguna'),
+        )
+    
 VARFORM = forms.Select
 
 #     ########  ##       ##     ## ########  ######  ##     ## #### ##    ##
@@ -391,6 +399,40 @@ LIKERT_PANSS = (
         (1, '1.Ausente'),
         )
 
+# CGI
+class CgiAdminForm(forms.ModelForm):
+    class Meta:
+        model = Cgi
+        fields = '__all__'
+    cgi_a = forms.ChoiceField(
+        choices = (
+            (0, '0.No evaluado'),
+            (1, '1.Normal, no enfermo'),
+            (2, '2.Dudosamente enfermo'),
+            (3, '3.Levemente enfermo'),
+            (4, '4.Moderadamente enfermo'),
+            (5, '5.Marcadamente enfermo'),
+            (6, '6.Gravemente enfermo'),
+            (7, '7.Entre los pac. mas extremadamente enfermos'),
+        )
+        label = 'ICG Gravedad',
+        widget = VARFORM,
+    )
+    cgi_b = forms.ChoiceField(
+        choices = (
+            (0, '0.No evaluado'),
+            (1, '1.Mucho mejor'),
+            (2, '2.Moderadamente mejor'),
+            (3, '3.Levemente mejor'),
+            (4, '4.Sin cambios'),
+            (5, '5.Levemente peor'),
+            (6, '6.Moderadamente peor'),
+            (7, '7.Mucho peor'),
+        )
+        label = 'ICG Mejoría Global',
+        widget = VARFORM,
+    )
+    
 #     ########     ###    ##    ##  ######   ######
 #     ##     ##   ## ##   ###   ## ##    ## ##    ##
 #     ##     ##  ##   ##  ####  ## ##       ##
@@ -875,3 +917,225 @@ class HdrsAdminForm(forms.ModelForm):
             ),
         widget = VARFORM,
         )
+    
+# WHO-DAS 2.0 36 items 
+    d1_1 = forms.ChoiceField(
+        label = 'D1.1 Concentrarse en hacer algo durante 10 minutos?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d1_2 = forms.ChoiceField(
+        label = 'D1.2 Recordar las cosas importantes que tiene que hacer?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d1_3 = forms.ChoiceField(
+        label = 'D1.3 Analizar y encontrar soluciones a los problemas de la vida diaria?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d1_4 = forms.ChoiceField(
+        label = 'D1.4 Aprender una nueva tarea, como por ejemplo llegar a un lugar nuevo?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d1_5 = forms.ChoiceField(
+        label = 'D1.5 Entender en general lo que dice la gente?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d1_6 = forms.ChoiceField(
+        label = 'D1.6 Iniciar o mantener una conversación?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d2_1 = forms.ChoiceField(
+        label = 'D2.1 Estar de pie durante largos periodos de tiempo, como por ejemplo 30 minutos?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d2_2 = forms.ChoiceField(
+        label = 'D2.2 Ponerse de pie cuando estaba sentado(a)?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d2_3 = forms.ChoiceField(
+        label = 'D2.3 Moverse dentro de su casa?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d2_4 = forms.ChoiceField(
+        label = 'D2.4 Salir de su casa?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d2_5 = forms.ChoiceField(
+        label = 'D2.5 Andar largas distancias, como un kilómetro?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d3_1 = forms.ChoiceField(
+        label = 'D3.1 Lavarse todo el cuerpo (bañarse)?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d3_2 = forms.ChoiceField(
+        label = 'D3.2 Vestirse?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d3_3 = forms.ChoiceField(
+        label = 'D3.3 Comer?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d3_4 = forms.ChoiceField(
+        label = 'D3.4 Estar sólo durante unos días?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d4_1 = forms.ChoiceField(
+        label = 'D4.1 Relacionarse con personas que no conoce?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d4_2 = forms.ChoiceField(
+        label = 'D4.2 Mantener una amistad?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d4_3 = forms.ChoiceField(
+        label = 'D4.3 Llevarse bien con personas cercanas a usted?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d4_4 = forms.ChoiceField(
+        label = 'D4.4 Hacer nuevos amigos?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d4_5 = forms.ChoiceField(
+        label = 'D4.5 Tener relaciones sexuales?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d5_1 = forms.ChoiceField(
+        label = 'D5.1 Cumplir con sus quehaceres de la casa?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d5_2 = forms.ChoiceField(
+        label = 'D5.2 Realizar bien sus quehaceres de la casa mas importantes?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d5_3 = forms.ChoiceField(
+        label = 'D5.3 Acabar todo el trabajo de la casa que tenía que hacer?,
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d5_4 = forms.ChoiceField(
+        label = 'D5.4 Acabar sus quehaceres de la casa tan rapido com osea necesario?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+    d5_01 = forms.ChoiceField(
+        label = 'En los últimos 30 días, durante cuántos días disminuyó o dejó de hacer sus quehaceres de la casa debido a su “condición de salud”?',
+        choices = LIKERT5,
+        widget = VARFORM,
+        )
+
+d5_5 = forms.ChoiceField(
+label = 'D5.5 Llevar a cabo su trabajo diario o las actividades escolares?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D5.6 Realizar bien las tareas más importantes de su trabajo o de la escuela?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D5.7 Acabar todo el trabajo que necesitaba hacer?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D5.8 Acabar su trabajo tan rápido como era necesario?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D5.9 Ha tenido que reducir su nivel de trabajo debido a su “condición de salud”?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D5.10 Ha ganado menos dinero debido a su “condición de salud”?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D.02 En los últimos 30 días, cuántos días faltó a su trabajo (medio día o más horas) debido a su “condición de salud”?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+    
+d5_5 = forms.ChoiceField(
+label = 'D6.1 Cuánta dificultad ha tenido para participar, al mismo nivel que el resto de las personas, en actividades de la comunidad (por ejemplo, fiestas, actividades religiosas u otras actividades)?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D6.2 Cuánta dificultad ha tenido debido a barreras u obstáculos existentes en su alrededor (entorno)?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D6.3 Cuánta dificultad ha tenido para vivir con dignidad (o respeto) debido a las actitudes y acciones de otras personas?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D6.4 Cuánto tiempo ha dedicado a su “condición de salud” o a las consecuencias de la misma?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D6.5 Cuánto le ha afectado emocionalmente su “condición de salud”?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D6.6 Qué impacto económico ha tenido para usted o para su familia su “condición de salud”?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D6.7 Cuánta dificultad ha tenido su familia debido a su condición de salud?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+d5_5 = forms.ChoiceField(
+label = 'D6.8 Cuánta dificultad ha tenido para realizar por sí mismo(a) cosas que le ayuden a relajarse o disfrutar?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+
+d5_5 = forms.ChoiceField(
+label = 'H1 En los últimos 30 días, durante cuántos días ha tenido esas dificultades?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+
+d5_5 = forms.ChoiceField(
+label = 'H2 En los últimos 30 días, cuántos días fue no pudo realizar nada de sus actividades habituales o en el trabajo debido a su condición de salud?',
+choices = LIKERT5,
+widget = VARFORM,
+)
+
+d5_5 = forms.ChoiceField(
+label = 'H3 En los últimos 30 días, sin contar los días que no pudo realizar nada de sus actividades habituales cuántos días tuvo que recortar o reducir sus actividades habituales o en el trabajo, debido a su condición de salud?',
+choices = LIKERT5,
+widget = VARFORM,
+)
