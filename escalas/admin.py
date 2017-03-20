@@ -9,6 +9,7 @@ class BprsInLine(admin.StackedInline):
 
 class CgiInLine(admin.StackedInline):
     model = Cgi
+    form = CgiAdminForm
     extra = 0
 
 class HdrsInLine(admin.StackedInline):
