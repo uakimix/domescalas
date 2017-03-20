@@ -22,24 +22,60 @@ class Bprs(Escala):
     class Meta:
         verbose_name = 'BPRS'
         verbose_name_plural = 'Escalas BPRS'
-    item_01 = models.PositiveSmallIntegerField()
-    item_02 = models.PositiveSmallIntegerField()
-    item_03 = models.PositiveSmallIntegerField()
-    item_04 = models.PositiveSmallIntegerField()
-    item_05 = models.PositiveSmallIntegerField()
-    item_06 = models.PositiveSmallIntegerField()
-    item_07 = models.PositiveSmallIntegerField()
-    item_08 = models.PositiveSmallIntegerField()
-    item_09 = models.PositiveSmallIntegerField()
-    item_10 = models.PositiveSmallIntegerField()
-    item_11 = models.PositiveSmallIntegerField()
-    item_12 = models.PositiveSmallIntegerField()
-    item_13 = models.PositiveSmallIntegerField()
-    item_14 = models.PositiveSmallIntegerField()
-    item_15 = models.PositiveSmallIntegerField()
-    item_16 = models.PositiveSmallIntegerField()
-    item_17 = models.PositiveSmallIntegerField()
-    item_18 = models.PositiveSmallIntegerField()
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_11 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_12 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_13 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_14 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_15 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_16 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_17 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_18 = models.PositiveSmallIntegerField(
+        null = True,
+        )
     @property
     def total(self):
         return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
@@ -54,8 +90,12 @@ class Cgi(Escala):
     class Meta:
         verbose_name = 'escala CGI'
         verbose_name_plural = 'escalas CGI'
-    cgi_a = models.PositiveSmallIntegerField()
-    cgi_b = models.PositiveSmallIntegerField()
+    cgi_a = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    cgi_b = models.PositiveSmallIntegerField(
+        null = True,
+        )
     def __str__(self):
         return "%s: CGI_s=%s / CGI_e=%s" % (self.fecha, self.cgi_a, self.cgi_b)
 
@@ -80,23 +120,57 @@ class Hdrs(Escala):
     class Meta:
         verbose_name = 'escala Hamilton'
         verbose_name_plural = 'escalas Hamilton'
-    item_01 = models.PositiveSmallIntegerField()
-    item_02 = models.PositiveSmallIntegerField()
-    item_03 = models.PositiveSmallIntegerField()
-    item_04 = models.PositiveSmallIntegerField()
-    item_05 = models.PositiveSmallIntegerField()
-    item_06 = models.PositiveSmallIntegerField()
-    item_07 = models.PositiveSmallIntegerField()
-    item_08 = models.PositiveSmallIntegerField()
-    item_09 = models.PositiveSmallIntegerField()
-    item_10 = models.PositiveSmallIntegerField()
-    item_11 = models.PositiveSmallIntegerField()
-    item_12 = models.PositiveSmallIntegerField()
-    item_13 = models.PositiveSmallIntegerField()
-    item_14 = models.PositiveSmallIntegerField()
-    item_15 = models.PositiveSmallIntegerField()
-    item_16 = models.PositiveSmallIntegerField()
-    item_17 = models.PositiveSmallIntegerField()
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_11 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_12 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_13 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_14 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_15 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_16 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_17 = models.PositiveSmallIntegerField(
+        null = True,
+        )
     @property
     def total(self):
         return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
@@ -121,46 +195,106 @@ class Panss(Escala):
         verbose_name = 'PANSS'
         verbose_name_plural = 'Escalas PANSS'
 
-    item_p01 = models.PositiveSmallIntegerField()
-    item_p02 = models.PositiveSmallIntegerField()
-    item_p03 = models.PositiveSmallIntegerField()
-    item_p04 = models.PositiveSmallIntegerField()
-    item_p05 = models.PositiveSmallIntegerField()
-    item_p06 = models.PositiveSmallIntegerField()
-    item_p07 = models.PositiveSmallIntegerField()
+    item_p01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_p02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_p03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_p04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_p05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_p06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_p07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
     @property
     def panss_sp(self):
         return (self.item_p01 + self.item_p02 + self.item_p03 + self.item_p04 + 
                 self.item_p05 + self.item_p06 + self.item_p07)
     
-    item_n01 = models.PositiveSmallIntegerField()
-    item_n02 = models.PositiveSmallIntegerField()
-    item_n03 = models.PositiveSmallIntegerField()
-    item_n04 = models.PositiveSmallIntegerField()
-    item_n05 = models.PositiveSmallIntegerField()
-    item_n06 = models.PositiveSmallIntegerField()
-    item_n07 = models.PositiveSmallIntegerField()
+    item_n01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_n02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_n03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_n04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_n05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_n06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_n07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
     @property
     def panss_sn(self):
         return (self.item_n01 + self.item_n02 + self.item_n03 + self.item_n04 + 
                 self.item_n05 + self.item_n06 + self.item_n07)
 
-    item_g01 = models.PositiveSmallIntegerField()
-    item_g02 = models.PositiveSmallIntegerField()
-    item_g03 = models.PositiveSmallIntegerField()
-    item_g04 = models.PositiveSmallIntegerField()
-    item_g05 = models.PositiveSmallIntegerField()
-    item_g06 = models.PositiveSmallIntegerField()
-    item_g07 = models.PositiveSmallIntegerField()
-    item_g08 = models.PositiveSmallIntegerField()
-    item_g09 = models.PositiveSmallIntegerField()
-    item_g10 = models.PositiveSmallIntegerField()
-    item_g11 = models.PositiveSmallIntegerField()
-    item_g12 = models.PositiveSmallIntegerField()
-    item_g13 = models.PositiveSmallIntegerField()
-    item_g14 = models.PositiveSmallIntegerField()
-    item_g15 = models.PositiveSmallIntegerField()
-    item_g16 = models.PositiveSmallIntegerField()
+    item_g01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g10 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g11 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g12 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g13 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g14 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g15 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_g16 = models.PositiveSmallIntegerField(
+        null = True,
+        )
     @property
     def panss_sg(self):
         return (self.item_g01 + self.item_g02 + self.item_g03 + self.item_g04 + 
@@ -208,17 +342,39 @@ class Plutchik_s(Escala):
 class Plutchik_v(Escala):
     class Meta:
         verbose_name = "Escala de Riesgo Violencia de Plutchik"
-    item_01 = models.PositiveSmallIntegerField()
-    item_02 = models.PositiveSmallIntegerField()
-    item_03 = models.PositiveSmallIntegerField()
-    item_04 = models.PositiveSmallIntegerField()
-    item_05 = models.PositiveSmallIntegerField()
-    item_06 = models.PositiveSmallIntegerField()
-    item_07 = models.PositiveSmallIntegerField()
-    item_08 = models.PositiveSmallIntegerField()
-    item_09 = models.PositiveSmallIntegerField()
-    item_10 = models.PositiveSmallIntegerField()
-    item_11 = models.PositiveSmallIntegerField()
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_11 = models.PositiveSmallIntegerField(
+        null = True,
+        )
     item_12 = models.BooleanField()
 
 
@@ -226,16 +382,36 @@ class Satisfaccion(Escala):
     class Meta:
         verbose_name = "Escala Satisfacción"
         verbose_name_plural = "Escalas Satisfacción"
-    item_1 = models.PositiveSmallIntegerField()
-    item_2 = models.PositiveSmallIntegerField()
-    item_3 = models.PositiveSmallIntegerField()
-    item_4 = models.PositiveSmallIntegerField()
-    item_5 = models.PositiveSmallIntegerField()
-    item_6 = models.PositiveSmallIntegerField()
-    item_7 = models.PositiveSmallIntegerField()
-    item_8 = models.PositiveSmallIntegerField()
-    item_9 = models.TextField()
-    item_10 = models.TextField()
+    item_1 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_2 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_3 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_4 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_5 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_6 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_7 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_8 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_9 = models.TextField(
+        null = True,
+        )
+    item_10 = models.TextField(
+        null = True,
+        )
 
 #     ##    ## ##     ## ########   ######
 #      ##  ##  ###   ### ##     ## ##    ##
@@ -248,17 +424,39 @@ class Ymrs(Escala):
     class Meta:
         verbose_name = 'escala Young de manía'
         verbose_name_plural = 'escalas Young de manía'
-    item_01 = models.PositiveSmallIntegerField()
-    item_02 = models.PositiveSmallIntegerField()
-    item_03 = models.PositiveSmallIntegerField()
-    item_04 = models.PositiveSmallIntegerField()
-    item_05 = models.PositiveSmallIntegerField()
-    item_06 = models.PositiveSmallIntegerField()
-    item_07 = models.PositiveSmallIntegerField()
-    item_08 = models.PositiveSmallIntegerField()
-    item_09 = models.PositiveSmallIntegerField()
-    item_10 = models.PositiveSmallIntegerField()
-    item_11 = models.PositiveSmallIntegerField()
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_11 = models.PositiveSmallIntegerField(
+        null = True,
+        )
     
     @property
     def total(self):
@@ -273,42 +471,120 @@ class Who_das(Escala):
     class Meta:
         verbose_name = 'escala WHO-DAS'
         verbose_name_plural = 'escalas WHO-DAS'
-    d1_1 = models.PositiveSmallIntegerField()
-    d1_2 = models.PositiveSmallIntegerField()
-    d1_3 = models.PositiveSmallIntegerField()
-    d1_4 = models.PositiveSmallIntegerField()
-    d1_5 = models.PositiveSmallIntegerField()
-    d1_6 = models.PositiveSmallIntegerField()
-    d2_1 = models.PositiveSmallIntegerField()
-    d2_2 = models.PositiveSmallIntegerField()
-    d2_3 = models.PositiveSmallIntegerField()
-    d2_4 = models.PositiveSmallIntegerField()
-    d2_5 = models.PositiveSmallIntegerField()
-    d3_1 = models.PositiveSmallIntegerField()
-    d3_2 = models.PositiveSmallIntegerField()
-    d3_3 = models.PositiveSmallIntegerField()
-    d3_4 = models.PositiveSmallIntegerField()
-    d4_1 = models.PositiveSmallIntegerField()
-    d4_2 = models.PositiveSmallIntegerField()
-    d4_3 = models.PositiveSmallIntegerField()
-    d4_4 = models.PositiveSmallIntegerField()
-    d4_5 = models.PositiveSmallIntegerField()
-    d5_1 = models.PositiveSmallIntegerField()
-    d5_2 = models.PositiveSmallIntegerField()
-    d5_3 = models.PositiveSmallIntegerField()
-    d5_4 = models.PositiveSmallIntegerField()
-    d5_5 = models.PositiveSmallIntegerField()
-    d5_6 = models.PositiveSmallIntegerField() 
-    d5_7 = models.PositiveSmallIntegerField()
-    d5_8 = models.PositiveSmallIntegerField()
-    d6_1 = models.PositiveSmallIntegerField()
-    d6_2 = models.PositiveSmallIntegerField()
-    d6_3 = models.PositiveSmallIntegerField()
-    d6_4 = models.PositiveSmallIntegerField()
-    d6_5 = models.PositiveSmallIntegerField()
-    d6_6 = models.PositiveSmallIntegerField()
-    d6_7 = models.PositiveSmallIntegerField()      
-    d6_8 = models.PositiveSmallIntegerField()   
-    h1 = models.PositiveSmallIntegerField()
-    h2 = models.PositiveSmallIntegerField()
-    h3 = models.PositiveSmallIntegerField()
+    d1_1 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d1_2 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d1_3 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d1_4 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d1_5 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d1_6 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d2_1 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d2_2 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d2_3 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d2_4 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d2_5 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d3_1 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d3_2 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d3_3 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d3_4 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d4_1 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d4_2 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d4_3 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d4_4 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d4_5 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d5_1 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d5_2 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d5_3 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d5_4 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d5_5 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d5_6 = models.PositiveSmallIntegerField(
+        null = True,
+        ) 
+    d5_7 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d5_8 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d6_1 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d6_2 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d6_3 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d6_4 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d6_5 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d6_6 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d6_7 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    d6_8 = models.PositiveSmallIntegerField(
+        null = True
+        )   
+    h1 = models.PositiveSmallIntegerField(
+        null = True
+        )
+    h2 = models.PositiveSmallIntegerField(
+        null = True
+        )
+    h3 = models.PositiveSmallIntegerField(
+        null = True
+        )
