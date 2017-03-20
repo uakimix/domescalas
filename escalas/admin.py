@@ -66,6 +66,11 @@ class Plutchik_vInline(admin.StackedInline):
     form = Plutchik_vAdminForm
     extra = 0
 
+class Who_dasInline(admin.StackedInline):
+    model = Who_das
+    form = Who_dasAdminForm
+    extra = 0
+
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
     def panss(self, obj):
@@ -77,4 +82,5 @@ class IdentificadorAdmin(admin.ModelAdmin):
                PanssInLine,
                Plutchik_sInline,
                Plutchik_vInline,
-               YmrsInLine]
+               YmrsInLine,
+               Who_dasInline]
