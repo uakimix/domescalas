@@ -2,6 +2,11 @@ from django.contrib import admin
 from escalas.models import *
 from escalas.forms import *
 
+class BcisInLine(admin.StackedInline):
+    model = Bcis
+    form = BcisAdminForm
+    extra = 0
+
 class BprsInLine(admin.StackedInline):
     model = Bprs
     form = BprsAdminForm
@@ -76,7 +81,8 @@ class IdentificadorAdmin(admin.ModelAdmin):
     def panss(self, obj):
         return obj.panss
     
-    inlines = [BprsInLine,
+    inlines = [BcisInLine,
+               BprsInLine,
                CgiInLine,
                HdrsInLine,
                PanssInLine,

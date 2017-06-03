@@ -18,6 +18,97 @@ class Escala(models.Model):
     class Meta:
         abstract = True
 
+
+#     ########   ######  ####  ######
+#     ##     ## ##    ##  ##  ##    ##
+#     ##     ## ##        ##  ##
+#     ########  ##        ##   ######
+#     ##     ## ##        ##        ##
+#     ##     ## ##    ##  ##  ##    ##
+#     ########   ######  ####  ######
+
+class Bcis(Escala):
+    class Meta:
+        verbose_name = 'BCIS'
+        verbose_name_plural = 'Escalas BCIS'
+
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_11 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_12 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_13 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_14 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_15 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    
+    @property
+    def autoref(self):
+        return (self.item_01 + self.item_03 + self.item_04 + 
+                self.item_05 + self.item_06 + self.item_08 + 
+                self.item_12 + self.item_14 + self.item_15)
+    
+    @property
+    def autocert(self):
+        return (self.item_02 + self.item_07 +
+                self.item_09 + self.item_10 + self.item_11 +
+                self.item_13)
+    @property
+    def comp(self):
+        return (self.autocert + self.autoref)
+
+    def __str__(self):
+        return "%s: A.ref=%s / A.cert=%s / Comp.=%s" % (self.fecha,
+              str(self.autoref),
+              str(self.autocert),
+              str(self.comp))
+
+
+#     ########  ########  ########   ######
+#     ##     ## ##     ## ##     ## ##    ##
+#     ##     ## ##     ## ##     ## ##
+#     ########  ########  ########   ######
+#     ##     ## ##        ##   ##         ##
+#     ##     ## ##        ##    ##  ##    ##
+#     ########  ##        ##     ##  ######
+
+
 class Bprs(Escala):
     class Meta:
         verbose_name = 'BPRS'

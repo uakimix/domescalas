@@ -12,6 +12,14 @@ LIKERT4 = (
         (2, '2.A veces'),
         (1, '1.Nunca'),
         )
+
+L_BCIS = (
+        (0, '0.Nada de acuerdo'),
+        (1, '1.Un poco de acuerdo'),
+        (2, '2.Bastante de acuerdo'),
+        (3, '3.Totalmente de acuerdo'),
+        )
+
 LIKERT6 = (
         (6, '6.Muy Grave'),
         (5, '5.Grave'),
@@ -285,6 +293,99 @@ class SatisfaccionAdminForm(forms.ModelForm):
         label= '10.- Creo que se tendría que mejorar',
         widget = forms.Textarea,
         )
+
+
+
+
+#     ########   ######  ####  ######
+#     ##     ## ##    ##  ##  ##    ##
+#     ##     ## ##        ##  ##
+#     ########  ##        ##   ######
+#     ##     ## ##        ##        ##
+#     ##     ## ##    ##  ##  ##    ##
+#     ########   ######  ####  ######
+
+class BcisAdminForm(forms.ModelForm):
+    class Meta:
+        model = Bcis
+        fields = '__all__'
+    item_01 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '1. Algunas veces he malinterpretado las actitudes que los demás tienen hacia mí',
+        widget = VARFORM,
+        )
+    item_02 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '2. Las interpretaciones que hago de mis experiencias son sin duda correctas',
+        widget = VARFORM,
+        )
+    item_03 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '3. Otras personas pueden entender mejor que yo la causa de mis experiencias raras',
+        widget = VARFORM,
+        )
+    item_04 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '4. Llego a conclusiones demasiado rápido',
+        widget = VARFORM,
+        )
+    item_05 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '5. Algunas de mis experiencias que me han parecido muy reales pueden haberse debido a mi imaginación',
+        widget = VARFORM,
+        )
+    item_06 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '6. Algunas de las ideas que tenía como ciertas acabaron siendo falsas',
+        widget = VARFORM,
+        )
+    item_07 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '7. Si siento que algo es correcto significa que es correcto',
+        widget = VARFORM,
+        )
+    item_08 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '8. Aunque me siento muy seguro/a de estar en lo cierto, podría estar equivocado/a',
+        widget = VARFORM,
+        )
+    item_09 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '9. Conozco mejor que nadie cuáles son mis problemas',
+        widget = VARFORM,
+        )
+    item_10 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '10. Cuando los demás no está de acuerdo conmigo, normalmente están equivocados',
+        widget = VARFORM,
+        )
+    item_11 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '11. No puedo fiarme de lo que opinan los demás sobre mis experiencias',
+        widget = VARFORM,
+        )
+    item_12 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '12. Si alguien comenta que mis creencias son erróneas estoy dispuesto/a a considerar su opinión',
+        widget = VARFORM,
+        )
+    item_13 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '13. Puedo confiar en mi propio juicio siempre',
+        widget = VARFORM,
+        )
+    item_14 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '14. Suele haber más de una explicación posible sobre por qué la gente actúa de la manera en que lo hace',
+        widget = VARFORM,
+        )
+    item_15 = forms.ChoiceField(
+        choices=L_BCIS, 
+        label = '15. Mis experiencias raras pueden deberse a que esté muy alterado/a o estresado/a',
+        widget = VARFORM,
+        )
+
+
 
 #     ########  ########  ########   ######
 #     ##     ## ##     ## ##     ## ##    ##
