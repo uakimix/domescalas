@@ -16,6 +16,11 @@ class CgiInLine(admin.StackedInline):
     model = Cgi
     form = CgiAdminForm
     extra = 0
+    
+class DukeInLine(admin.StackedInline):
+    model = Duke
+    form = DukeAdminForm
+    extra = 0
 
 class HdrsInLine(admin.StackedInline):
     model = Hdrs
@@ -84,6 +89,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
     inlines = [BcisInLine,
                BprsInLine,
                CgiInLine,
+               DukeInLine,
                HdrsInLine,
                PanssInLine,
                YmrsInLine,
