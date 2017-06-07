@@ -327,6 +327,55 @@ class Hdrs(Escala):
                 self.item_17)
     def __str__(self):
         return "%s: HDRS=%s" % (self.fecha, str(self.total))
+        
+        
+# MADRS
+#     DUKE
+
+class Madrs(Escala):
+    class Meta:
+        verbose_name = 'MADRS'
+        verbose_name_plural = 'Escalas MADRS'
+
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    
+    @property
+    def total(self):
+        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
+                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
+                self.item_09 + self.item_10)
+    def __str__(self):
+        return "%s: MADRS=%s" % (self.fecha, str(self.total))
+        
 
 #
 #      ######     ##     ##   ##   #####    #####
