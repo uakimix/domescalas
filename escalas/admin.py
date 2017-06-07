@@ -86,7 +86,5 @@ class IdentificadorAdmin(admin.ModelAdmin):
                CgiInLine,
                HdrsInLine,
                PanssInLine,
-               Plutchik_sInline,
-               Plutchik_vInline,
                YmrsInLine,
                Who_dasInline]
