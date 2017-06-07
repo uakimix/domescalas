@@ -532,7 +532,7 @@ class DukeAdminForm(forms.ModelForm):
         )
     item_06 = forms.ChoiceField(
         choices=LIKERT_DUKE,
-        label='6.- Tengo posibilidad de hablar con alguien de mis problemas de trabajo o en la casa,
+        label='6.- Tengo posibilidad de hablar con alguien de mis problemas de trabajo o en la casa',
         widget = VARFORM,
         )   
     item_07 = forms.ChoiceField(
