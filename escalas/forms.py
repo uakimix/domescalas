@@ -39,159 +39,7 @@ LIKERT5 = (
     
 VARFORM = forms.Select
 
-#     ########  ##       ##     ## ########  ######  ##     ## #### ##    ##
-#     ##     ## ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
-#     ##     ## ##       ##     ##    ##    ##       ##     ##  ##  ##  ##
-#     ########  ##       ##     ##    ##    ##       #########  ##  #####
-#     ##        ##       ##     ##    ##    ##       ##     ##  ##  ##  ##
-#     ##        ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
-#     ##        ########  #######     ##     ######  ##     ## #### ##    ##
 
-class Plutchik_sAdminForm(forms.ModelForm):
-    class Meta:
-        model = Plutchik_s
-        fields = '__all__' 
-    item_01 = forms.ChoiceField(
-        label='1.- ¿Toma de forma habitual algún medicamento como aspirinas o pastillas para dormir?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_02 = forms.ChoiceField(
-        label='2.- ¿Tiene dificultades para conciliar el sueño?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_03 = forms.ChoiceField(
-        label='3.- ¿A veces nota que podría perder el control sobre sí mismo/a?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_04 = forms.ChoiceField(
-        label='4.- ¿Tiene poco interés en relacionarse con la gente?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_05 = forms.ChoiceField(
-        label='5.- ¿Ve su futuro con más pesimismo que optimismo?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_06 = forms.ChoiceField(
-        label='6.- ¿Se ha sentido alguna vez inútil o inservible?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_07 = forms.ChoiceField(
-        label='7.- ¿Ve su futuro sin ninguna esperanza?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_08 = forms.ChoiceField(
-        label='8.- ¿Se ha sentido alguna vez fracasado/a, que sólo quería meterse en la cama y abandonarlo todo?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_09 = forms.ChoiceField(
-        label='9.- ¿Está deprimido/a ahora?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_10 = forms.ChoiceField(
-        label='10.- ¿Está vd. separado/a, divorciado/a o viudo/a?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_11 = forms.ChoiceField(
-        label='11.- ¿Sabe si alguien de su familia ha intentado suicidarse alguna vez?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_12 = forms.ChoiceField(
-        label='12.- ¿Alguna vez se ha sentido tan enfadado/a que habría sido capaz de matar a alguien?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_13 = forms.ChoiceField(
-        label='13.- ¿Ha pensado alguna vez en suicidarse?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_14 = forms.ChoiceField(
-        label='14.- ¿Le ha comentado a alguien, en alguna ocasión, que quería suici- darse?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_15 = forms.ChoiceField(
-        label='15.- ¿Ha intentado alguna vez quitarse la vida?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-
-class Plutchik_vAdminForm(forms.ModelForm):
-    class Meta:
-        model = Plutchik_v
-        fields = '__all__'
-
-    item_01 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='1.- ¿Se enfada con facilidad?',
-        widget = VARFORM,
-        )
-    item_02 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='2.- ¿Se enfada continuamente con la gente ?',
-        widget = VARFORM,
-        )
-    item_03 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='3.- ¿Se enfurece sin motivo?',
-        widget = VARFORM,
-        )
-    item_04 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='4.- Cuando se enfada, ¿Coge un arma?',
-        widget = VARFORM,
-        )
-    item_05 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='5.- ¿Ha lastimado alguna vez a alguien en una pelea?',
-        widget = VARFORM,
-        )
-    item_06 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='6.- ¿Ha pegado o atacado alguna vez a algún familiar?',
-        widget = VARFORM,
-        )
-    item_07 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='7.- ¿Ha pegado o atacado algunas vez a alquien que no sea famililar suyo?',
-        widget = VARFORM,
-        )
-    item_08 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='8.- ¿Ha usado alguna vez un objeto para agredir a alguien?',
-        widget = VARFORM,
-        )
-    item_09 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='9.- ¿Podría conseguir un arma con facilidad?',
-        widget = VARFORM,
-        )
-    item_10 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='10.- ¿Cuantas veces ha sido vd. detenido por delitos no violentos como irse de un tienda o falsificar documentos?',
-        widget = VARFORM,
-        )
-    item_11 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='11.- ¿Cuántas veces ha sido vd. detenido por delitos como robo a mano armada o agresión violenta?',
-        widget = VARFORM,
-        )
-    item_12 = forms.ChoiceField(
-        choices=CHOICES,
-        label = '12.- ¿Guarda o colecciona armas en su casa y sabe cómo utilizarlas?',
-        widget = VARFORM,
-        )
 
 #      #######   #######
 #     ##     ## ##     ##
@@ -500,7 +348,22 @@ LIKERT_PANSS = (
         (1, '1.Ausente'),
         )
         
-## DUKE
+#     ########  ##     ## ##    ## ########
+#     ##     ## ##     ## ##   ##  ##
+#     ##     ## ##     ## ##  ##   ##
+#     ##     ## ##     ## #####    ######
+#     ##     ## ##     ## ##  ##   ##
+#     ##     ## ##     ## ##   ##  ##
+#     ########   #######  ##    ## ########
+
+LIKERT_DUKE = (
+        (5, '5. Tanto como deseo'),
+        (4, '4. Casi como deseo'),
+        (3, '3. Ni mucho ni poco'),
+        (2, '2. Menos de lo que deseo'),
+        (1, '1. Mucho menos de lo que deseo'),
+        )
+
 class DukeAdminForm(forms.ModelForm):
     class Meta:
         model = Duke
@@ -560,14 +423,7 @@ class DukeAdminForm(forms.ModelForm):
         label='11.- Recibo ayuda cuando estoy enfermo en la cama',
         widget = VARFORM,
         )
-    
-LIKERT_DUKE = (
-        (5, '5. Tanto como deseo'),
-        (4, '4. Casi como deseo'),
-        (3, '3. Ni mucho ni poco'),
-        (2, '2. Menos de lo que deseo'),
-        (1, '1. Mucho menos de lo que deseo'),
-        )
+
 
 
 #
@@ -613,353 +469,6 @@ class CgiAdminForm(forms.ModelForm):
         widget = VARFORM,
     )
     
-#
-#
-# MADRS
-
-class Meta:
-        model = Madrs
-        fields = '__all__'
-    item_01 = forms.ChoiceField(
-        label = '1.- Tristeza observada',
-        choices = (
-            (0, '0. Sin tristeza'),
-            (1, '1.'),
-            (2, '2. Parece decaído/a pero se anima sin dificultad'),
-            (3, '3.'),
-            (4, '4. Parece triste y desgraciado/a la mayor parte del tiempo'),
-            (5, '5.'),
-            (6, '6.Parece siempre desgraciado/a. Extremadamente abatido/a'),
-        ),
-        widget = VARFORM,
-    )
-   item_02 = forms.ChoiceField(
-        label = '2.- Tristeza declarada por el paciente',
-        choices = (
-            (0, '0. Tristeza esporádica según las circunstancias'),
-            (1, '1.'),
-            (2, '2. Triste o decaído/a, pero se anima sin dificultad'),
-            (3, '3.'),
-            (4, '4. Sentimientos generalizados de tristeza o melancolía. El estado de ánimo todavía se ve influido por circunstancias externas'),
-            (5, '5.'),
-            (6, '6. Abatimiento, desdicha o tristeza continuada o invariable'),
-        ),
-        widget = VARFORM,
-    )
-    item_03 = forms.ChoiceField(
-        label = '3.- Tensión interna',
-        choices = (
-            (0, '0. Apacible. Sólo tensión interna pasajera'),
-            (1, '1.'),
-            (2, '2. Sentimientos ocacionales de nerviosismo y maletar indefinido'),
-            (3, '3.'),
-            (4, '4. Sentimientos continuados de tensión interna o pánico intermitente que el sujeto sólo puede dominar con alguna dificultad'),
-            (5, '5.'),
-            (6, '6. Terror o angustia tenaz. Pánico irresistible'),
-        ),
-        widget = VARFORM,
-    )
-
-    
-#     ########     ###    ##    ##  ######   ######
-#     ##     ##   ## ##   ###   ## ##    ## ##    ##
-#     ##     ##  ##   ##  ####  ## ##       ##
-#     ########  ##     ## ## ## ##  ######   ######
-#     ##        ######### ##  ####       ##       ##
-#     ##        ##     ## ##   ### ##    ## ##    ##
-#     ##        ##     ## ##    ##  ######   ######
-#
-class PanssAdminForm(forms.ModelForm):
-    class Meta:
-        model = Panss
-        fields = '__all__'
-    item_p01 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='1.- Delirios.',
-        widget = VARFORM,
-        )
-    item_p02 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='2.- Desorganización conceptual.',
-        widget = VARFORM,
-        )
-    item_p03 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='3.- Conducta alucinatoria.',
-        widget = VARFORM,
-        )
-    item_p04 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='4.- Exitación.',
-        widget = VARFORM,
-        )
-    item_p05 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='5.- Grandiosidad.',
-        widget = VARFORM,
-        )
-    item_p06 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='6.- Suspicacia / Perjuicio.',
-        widget = VARFORM,
-        )
-    item_p07 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='7.- Hostilidad.',
-        widget = VARFORM,
-        )
-
-    item_n01 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='1.- Embotamiento afectivo.',
-        widget = VARFORM,
-        )
-    item_n02 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='2.- Retracción emocional.',
-        widget = VARFORM,
-        )
-    item_n03 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='3.- Pobre relación.',
-        widget = VARFORM,
-        )
-    item_n04 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='4.- Retracción social, apatía pasiva.',
-        widget = VARFORM,
-        )
-    item_n05 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='5.- Dificultad de pensamiento abstracto.',
-        widget = VARFORM,
-        )
-    item_n06 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='6.- Falta de espontaneidad y fluidez de la conversación.',
-        widget = VARFORM,
-        )
-    item_n07 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='7.- Pensamiento estereotipado',
-        widget = VARFORM,
-        )
-
-    item_g01 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='1.- Preocupaciones somáticas.',
-        widget = VARFORM,
-        )
-    item_g02 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='2.- Ansiedad.',
-        widget = VARFORM,
-        )
-    item_g03 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='3.- Sentimientos de culpa.',
-        widget = VARFORM,
-        )
-    item_g04 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='4.- Tensión motora.',
-        widget = VARFORM,
-        )
-    item_g05 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='5.- Manierismos y posturas.',
-        widget = VARFORM,
-        )
-    item_g06 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='6.- Depresión.',
-        widget = VARFORM,
-        )
-    item_g07 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='7.- Retardo motor',
-        widget = VARFORM,
-        )
-    item_g08 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='8.- Falta de colaboración.',
-        widget = VARFORM,
-        )
-    item_g09 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='9.- Inusuales contenidos del pensamiento.',
-        widget = VARFORM,
-        )
-    item_g10 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='10.- Desorientación.',
-        widget = VARFORM,
-        )
-    item_g11 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='11.- Atención deficiente.',
-        widget = VARFORM,
-        )
-    item_g12 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='12.- Ausencia de juicio e introspección.',
-        widget = VARFORM,
-        )
-    item_g13 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='13.- Trastorno de la volición.',
-        widget = VARFORM,
-        )
-    item_g14 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='14.- Control deficiente de impulsos.',
-        widget = VARFORM,
-        )
-    item_g15 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='15.- Preocupación.',
-        widget = VARFORM,
-        )
-    item_g16 = forms.ChoiceField(
-        choices=LIKERT_PANSS,
-        label='16.- Evitación social activa',
-        widget = VARFORM,
-        )
-
-#     ##    ## ##     ## ########   ######
-#      ##  ##  ###   ### ##     ## ##    ##
-#       ####   #### #### ##     ## ##
-#        ##    ## ### ## ########   ######
-#        ##    ##     ## ##   ##         ##
-#        ##    ##     ## ##    ##  ##    ##
-#        ##    ##     ## ##     ##  ######
-#
-class YmrsAdminForm(forms.ModelForm):
-    class Meta:
-        model = Ymrs
-        fields = '__all__'
-    item_01 = forms.ChoiceField(
-        label = '1.- Euforia',
-        choices = (
-            (0, '0.Ausente'),
-            (1, '1.Posible o moderada, sólo cuando se le pregunta'),
-            (2, '2.Clara aunque subjetiva y apropiada al contenido: optimista, seguro de sí mismo/a, alegre'),
-            (3, '3.Elevada e inapropiada'),
-            (4, '4.Claramente eufórico/a, risa inadecuada, canta durante la entrevista, etc.'),
-            ),
-        widget = VARFORM,
-        )
-    item_02 = forms.ChoiceField(
-        label = '2.- Hiperactividad',
-        choices = (
-            (0, '0.Ausente'),
-            (1, '1.Subjetivamente aumentada'),
-            (2, '2.Vigoroso/a, hipergestual'),
-            (3, '3.Energía excesiva, hiperactividad fluctuante, inquietud (puede ser calmado/a)'),
-            (4, '4.Agitación o hiperactividad constante (no puede ser calmado/a)'),
-            ),
-        widget = VARFORM,
-        )
-    item_03 = forms.ChoiceField(
-        label = '3.- Impulso sexual',
-        choices = (
-            (0, '0.Normal, no aumentado'),
-            (1, '1.Posible o moderadamente aumentado'),
-            (2, '2.Claro aumento al preguntar'),
-            (3, '3.Referido como elevado de forma espontánea, contenido sexual del discurso, preocupación por temas sexuales'),
-            (4, '4.Actos o incitaciones sexuales evidentes (hacia pacientes, personal o entrevistador)'),
-            ),
-        widget = VARFORM,
-        )
-    item_04 = forms.ChoiceField(
-        label = '4.- Sueño',
-        choices = (
-            (0, '0.No reducido'),
-            (1, '1.Disminución en menos de 1 ,hora'),
-            (2, '2.Disminución en más de 1 hora'),
-            (3, '3.Refiere disminución de la necesidad de dormir'),
-            (4, '4.Niega necesidad de dormir'),
-            ),
-        widget = VARFORM,
-        )
-    item_05 = forms.ChoiceField(
-        label = '5.- Irritabilidad',
-        choices = (
-            (0, '0.Ausente'),
-            (2, '2.Subjetivamente aumentada'),
-            (4, '4.Irritabilidad fluctuante durante la entrevista, episodios recientes de rabia o enfado'),
-            (6, '6.Predominantemente irritable durante la entrevista, brusco y cortante'),
-            (8, '8.Hostil, no colaborador/a, entrevista imposible'),
-            ),
-        widget = VARFORM,
-        )
-
-    item_06 = forms.ChoiceField(
-        label = '6.- Expresión verbal',
-        choices = (
-            (0, '0.No aumentada'),
-            (2, '2.Sensación de locuacidad'),
-            (4, '4.Aumentada de forma fluctuante, verborrea ocasional'),
-            (6, '6.Claramente aumentada en ritmo y cantidad, difícil de interrumpir, intrusiva'),
-            (8, '8.Verborrea ininterrumpible y continua'),
-            ),
-        widget = VARFORM,
-        )
-    item_07 = forms.ChoiceField(
-        label = '7.- Trastornos del curso del pensamiento y el lenguaje',
-        choices = (
-            (0, '0.Ausentes'),
-            (1, '1.Circunstancialidad, distraibilidad moderada, aceleración del pensamiento'),
-            (2, '2.Distraibilidad clara, descarrilamiento, taquipsiquia'),
-            (3, '3.Fuga de ideas, tangencialidad, discurso difícil de seguir, rimas, ecolalia'),
-            (4, '4.Incoherencia, ininteligibilidad, comunicación imposible'),
-            ),
-        widget = VARFORM,
-        )
-    item_08 = forms.ChoiceField(
-        label = '8.- Trastornos del contenido del pensamiento',
-        choices = (
-            (0, '0.Ausentes'),
-            (2, '2.Planes discutibles, nuevos intereses'),
-            (4, '4.Proyectos especiales, misticismo'),
-            (6, '6.Ideas grandiosas o paranoides, ideas de referencia'),
-            (8, '8.Delirios, alucinaciones'),
-            ),
-        widget = VARFORM,
-        )
-    item_09 = forms.ChoiceField(
-        label = '9.- Agresividad',
-        choices = (
-            (0, '0.Ausente, colaborador/a'),
-            (2, '2.Sarcástico/a, enfático/a, lacónico/a'),
-            (4, '4.Querulante, pone en guardia'),
-            (6, '6.Amenaza al entrevistador, habla a gritos, entrevista difícil'),
-            (8, '8.Claramente agresivo/a, destructivo/a, entrevista imposible'),
-            ),
-        widget = VARFORM,
-        )
-    item_10 = forms.ChoiceField(
-        label = '10.- Apariencia',
-        choices = (
-            (0, '0.Higiene e indumentaria apropiada '),
-            (1, '1.Ligeramente descuidada'),
-            (2, '2.Mal arreglado/a, moderadamente despeinado/a, indumentaria sobrecargada'),
-            (3, '3.Despeinado/a, semidesnudo/a, maquillaje llamativo'),
-            (4, '4.Completamente desaseado/a, adornado/a, indumentaria extravagante'),
-            ),
-        widget = VARFORM,
-        )
-    item_11 = forms.ChoiceField(
-        label = '11.- Conciencia de enfermedad',
-        choices = (
-            (0, '0.Presente, admite la enfermedad, acepta tratamiento'),
-            (1, '1.Según él/ella, posiblemente enfermo/a'),
-            (2, '2.Admite cambio de conducta, pero niega enfermedad'),
-            (3, '3.Admite posible cambio de conducta, niega enfermedad'),
-            (4, '4.Niega cualquier cambio de conduct'),
-            ),
-        widget = VARFORM,
-        )
 
 #     ##     ## ########  ########   ######
 #     ##     ## ##     ## ##     ## ##    ##
@@ -1145,6 +654,612 @@ class HdrsAdminForm(forms.ModelForm):
             ),
         widget = VARFORM,
         )
+
+
+#     ##     ##    ###    ########  ########   ######
+#     ###   ###   ## ##   ##     ## ##     ## ##    ##
+#     #### ####  ##   ##  ##     ## ##     ## ##
+#     ## ### ## ##     ## ##     ## ########   ######
+#     ##     ## ######### ##     ## ##   ##         ##
+#     ##     ## ##     ## ##     ## ##    ##  ##    ##
+#     ##     ## ##     ## ########  ##     ##  ######
+
+
+class MadrsAdminForm(forms.ModelForm):
+    class Meta:
+        model = Madrs
+        fields = '__all__'
+    item_01 = forms.ChoiceField(
+        label = '1.- Tristeza observada',
+        choices = (
+            (0, '0. Sin tristeza'),
+            (1, '1.'),
+            (2, '2. Parece decaído/a pero se anima sin dificultad'),
+            (3, '3.'),
+            (4, '4. Parece triste y desgraciado/a la mayor parte del tiempo'),
+            (5, '5.'),
+            (6, '6.Parece siempre desgraciado/a. Extremadamente abatido/a'),
+            ),
+        widget = VARFORM,
+        )
+    item_02 = forms.ChoiceField(
+        label = '2.- Tristeza declarada por el paciente',
+        choices = (
+            (0, '0. Tristeza esporádica según las circunstancias'),
+            (1, '1.'),
+            (2, '2. Triste o decaído/a, pero se anima sin dificultad'),
+            (3, '3.'),
+            (4, '4. Sentimientos generalizados de tristeza o melancolía. El estado de ánimo todavía se ve influido por circunstancias externas'),
+            (5, '5.'),
+            (6, '6. Abatimiento, desdicha o tristeza continuada o invariable'),
+            ),
+        widget = VARFORM,
+        )
+    item_03 = forms.ChoiceField(
+        label = '3.- Tensión interna',
+        choices = (
+            (0, '0. Apacible. Sólo tensión interna pasajera'),
+            (1, '1.'),
+            (2, '2. Sentimientos ocacionales de nerviosismo y maletar indefinido'),
+            (3, '3.'),
+            (4, '4. Sentimientos continuados de tensión interna o pánico intermitente que el sujeto sólo puede dominar con alguna dificultad'),
+            (5, '5.'),
+            (6, '6. Terror o angustia tenaz. Pánico irresistible'),
+            ),
+        widget = VARFORM,
+        )
+    item_04 = forms.ChoiceField(
+        label = '4.- Sueño reducido',
+        choices = (
+            (0, '0. Duerme como siempre'),
+            (1, '1.'),
+            (2, '2. Ligera dificultad para dormirse o sueño ligeramente reducido, sueño ligero o perturbado'),
+            (3, '3.'),
+            (4, '4. Sueño reducido o interrumpido durante al menos 2 h'),
+            (5, '5.'),
+            (6, '6. Menos de 2 o 3 h de sueño'),
+            ),
+        widget = VARFORM,
+        )
+    item_05 = forms.ChoiceField(
+        label = '5.- Apetito reducido',
+        choices = (
+            (0, '0. Apetito normal o aumentado'),
+            (1, '1.'),
+            (2, '2. Apetito ligeramente reducido'),
+            (3, '3.'),
+            (4, '4. Sin apetito. La comida es insípida'),
+            (5, '5.'),
+            (6, '6. Necesita persuasión para comer algo'),
+            ),
+        widget = VARFORM,
+        )
+    item_06 = forms.ChoiceField(
+        label = '6. Dificultades para concentrarse',
+        choices = (    
+            (0, '0. Ninguna dificultad para concentrarse'),
+            (1, '1.'),
+            (2, '2. Dificultades ocasionales para centrar los pensamientos'),
+            (3, '3.'),
+            (4, '4. Dificultades para concentrarse y seguir una idea que reduce la capacidad de leer o mantener una conversación'),
+            (5, '5.'),
+            (6, '6. Incapaz de leer o mantener una conversación si no es con gran dificultad'),
+            ),
+        widget = VARFORM,
+        )
+    item_07 = forms.ChoiceField(
+        label = '7. Lasitud',
+        choices = (    
+            (0, '0. Casi sin dificultad para empezar algo. Sin apatía'),
+            (1, '1.'),
+            (2, '2. Dificultades para empezar actividades'),
+            (3, '3.'),
+            (4, '4. Dificultades para empezar actividades rutinarias sencillas que se llevan a cabo con esfuerzo'),
+            (5, '5.'),
+            (6, '6. Lasitud total. Incapaz de hacer nada sin ayuda'),
+            ),
+        widget = VARFORM,
+        )
+    item_08 = forms.ChoiceField(
+        label = '8. Incapacidad para sentir',
+        choices = (    
+            (0, '0. Interés normal por el entorno y por otras personas'),
+            (1, '1.'),
+            (2, '2. Menor capacidad para disfrutar de las cosas que normalmen te le interesan'),
+            (3, '3.'),
+            (4, '4. Pérdida de interés por el entorno. Pérdida de sentimientos respecto a los amigos y conocidos'),
+            (5, '5.'),
+            (6, '6. La experiencia de estar emocionalmente paralizado, incapacidad para sentir enfado, pena o placer y una total o incluso dolorosa falta de sentimientos hacia los parientes próximos y amigos'),
+            ),
+        widget = VARFORM,
+        )
+    item_09 = forms.ChoiceField(    
+        label = '9. Pensamientos pesimistas',
+        choices = (
+            (0, '0. Sin pensamientos pesimistas'),
+            (1, '1.'),
+            (2, '2. Ideas variables de fracaso, autorreproche o autodesprecio'),
+            (3, '3.'),
+            (4, '4. Autoacusaciones persistentes o ideas definidas, pero aún racionales, de culpabilidad o pecado. Cada vez más pesimista respecto al futuro'),
+            (5, '5.'),
+            (6, '6. Alucinaciones de ruina, remordimiento o pecado irredimible. Autoacusaciones que son absurdas e inquebrantables'),
+            ),
+        widget = VARFORM,
+        )
+    item_10 = forms.ChoiceField(    
+        label = '10. Pensamientos suicidas',
+        choices = (
+            (0, '0. Disfruta de la vida o la acepta tal como viene'),
+            (1, '1.'),
+            (2, '2. Cansado de vivir. Sólo pensamientos suicidas pasajeros'),
+            (3, '3.'),
+            (4, '4. Probablemente  estaría  mejor  muerto/a. Los  pensamientos suicidas son habituales, y se considera el suicidio como una posible solución, pero sin ninguna intención o plan específico'),
+            (5, '5.'),
+            (6, '6. Planes explícitos de suicidio cuando se presente una oportunidad. Preparativos activos para el suicidio'),
+            ),
+        widget = VARFORM,
+        )
+
+
+    
+#     ########     ###    ##    ##  ######   ######
+#     ##     ##   ## ##   ###   ## ##    ## ##    ##
+#     ##     ##  ##   ##  ####  ## ##       ##
+#     ########  ##     ## ## ## ##  ######   ######
+#     ##        ######### ##  ####       ##       ##
+#     ##        ##     ## ##   ### ##    ## ##    ##
+#     ##        ##     ## ##    ##  ######   ######
+#
+class PanssAdminForm(forms.ModelForm):
+    class Meta:
+        model = Panss
+        fields = '__all__'
+    item_p01 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='1.- Delirios.',
+        widget = VARFORM,
+        )
+    item_p02 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='2.- Desorganización conceptual.',
+        widget = VARFORM,
+        )
+    item_p03 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='3.- Conducta alucinatoria.',
+        widget = VARFORM,
+        )
+    item_p04 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='4.- Exitación.',
+        widget = VARFORM,
+        )
+    item_p05 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='5.- Grandiosidad.',
+        widget = VARFORM,
+        )
+    item_p06 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='6.- Suspicacia / Perjuicio.',
+        widget = VARFORM,
+        )
+    item_p07 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='7.- Hostilidad.',
+        widget = VARFORM,
+        )
+
+    item_n01 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='1.- Embotamiento afectivo.',
+        widget = VARFORM,
+        )
+    item_n02 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='2.- Retracción emocional.',
+        widget = VARFORM,
+        )
+    item_n03 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='3.- Pobre relación.',
+        widget = VARFORM,
+        )
+    item_n04 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='4.- Retracción social, apatía pasiva.',
+        widget = VARFORM,
+        )
+    item_n05 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='5.- Dificultad de pensamiento abstracto.',
+        widget = VARFORM,
+        )
+    item_n06 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='6.- Falta de espontaneidad y fluidez de la conversación.',
+        widget = VARFORM,
+        )
+    item_n07 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='7.- Pensamiento estereotipado',
+        widget = VARFORM,
+        )
+
+    item_g01 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='1.- Preocupaciones somáticas.',
+        widget = VARFORM,
+        )
+    item_g02 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='2.- Ansiedad.',
+        widget = VARFORM,
+        )
+    item_g03 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='3.- Sentimientos de culpa.',
+        widget = VARFORM,
+        )
+    item_g04 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='4.- Tensión motora.',
+        widget = VARFORM,
+        )
+    item_g05 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='5.- Manierismos y posturas.',
+        widget = VARFORM,
+        )
+    item_g06 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='6.- Depresión.',
+        widget = VARFORM,
+        )
+    item_g07 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='7.- Retardo motor',
+        widget = VARFORM,
+        )
+    item_g08 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='8.- Falta de colaboración.',
+        widget = VARFORM,
+        )
+    item_g09 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='9.- Inusuales contenidos del pensamiento.',
+        widget = VARFORM,
+        )
+    item_g10 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='10.- Desorientación.',
+        widget = VARFORM,
+        )
+    item_g11 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='11.- Atención deficiente.',
+        widget = VARFORM,
+        )
+    item_g12 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='12.- Ausencia de juicio e introspección.',
+        widget = VARFORM,
+        )
+    item_g13 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='13.- Trastorno de la volición.',
+        widget = VARFORM,
+        )
+    item_g14 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='14.- Control deficiente de impulsos.',
+        widget = VARFORM,
+        )
+    item_g15 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='15.- Preocupación.',
+        widget = VARFORM,
+        )
+    item_g16 = forms.ChoiceField(
+        choices=LIKERT_PANSS,
+        label='16.- Evitación social activa',
+        widget = VARFORM,
+        )
+
+
+#     ########  ##       ##     ## ########  ######  ##     ## #### ##    ##
+#     ##     ## ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
+#     ##     ## ##       ##     ##    ##    ##       ##     ##  ##  ##  ##
+#     ########  ##       ##     ##    ##    ##       #########  ##  #####
+#     ##        ##       ##     ##    ##    ##       ##     ##  ##  ##  ##
+#     ##        ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
+#     ##        ########  #######     ##     ######  ##     ## #### ##    ##
+
+class Plutchik_sAdminForm(forms.ModelForm):
+    class Meta:
+        model = Plutchik_s
+        fields = '__all__' 
+    item_01 = forms.ChoiceField(
+        label='1.- ¿Toma de forma habitual algún medicamento como aspirinas o pastillas para dormir?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_02 = forms.ChoiceField(
+        label='2.- ¿Tiene dificultades para conciliar el sueño?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_03 = forms.ChoiceField(
+        label='3.- ¿A veces nota que podría perder el control sobre sí mismo/a?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_04 = forms.ChoiceField(
+        label='4.- ¿Tiene poco interés en relacionarse con la gente?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_05 = forms.ChoiceField(
+        label='5.- ¿Ve su futuro con más pesimismo que optimismo?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_06 = forms.ChoiceField(
+        label='6.- ¿Se ha sentido alguna vez inútil o inservible?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_07 = forms.ChoiceField(
+        label='7.- ¿Ve su futuro sin ninguna esperanza?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_08 = forms.ChoiceField(
+        label='8.- ¿Se ha sentido alguna vez fracasado/a, que sólo quería meterse en la cama y abandonarlo todo?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_09 = forms.ChoiceField(
+        label='9.- ¿Está deprimido/a ahora?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_10 = forms.ChoiceField(
+        label='10.- ¿Está vd. separado/a, divorciado/a o viudo/a?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_11 = forms.ChoiceField(
+        label='11.- ¿Sabe si alguien de su familia ha intentado suicidarse alguna vez?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_12 = forms.ChoiceField(
+        label='12.- ¿Alguna vez se ha sentido tan enfadado/a que habría sido capaz de matar a alguien?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_13 = forms.ChoiceField(
+        label='13.- ¿Ha pensado alguna vez en suicidarse?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_14 = forms.ChoiceField(
+        label='14.- ¿Le ha comentado a alguien, en alguna ocasión, que quería suici- darse?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+    item_15 = forms.ChoiceField(
+        label='15.- ¿Ha intentado alguna vez quitarse la vida?',
+        choices = CHOICES,
+        widget = VARFORM,
+        )
+
+class Plutchik_vAdminForm(forms.ModelForm):
+    class Meta:
+        model = Plutchik_v
+        fields = '__all__'
+
+    item_01 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='1.- ¿Se enfada con facilidad?',
+        widget = VARFORM,
+        )
+    item_02 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='2.- ¿Se enfada continuamente con la gente ?',
+        widget = VARFORM,
+        )
+    item_03 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='3.- ¿Se enfurece sin motivo?',
+        widget = VARFORM,
+        )
+    item_04 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='4.- Cuando se enfada, ¿Coge un arma?',
+        widget = VARFORM,
+        )
+    item_05 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='5.- ¿Ha lastimado alguna vez a alguien en una pelea?',
+        widget = VARFORM,
+        )
+    item_06 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='6.- ¿Ha pegado o atacado alguna vez a algún familiar?',
+        widget = VARFORM,
+        )
+    item_07 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='7.- ¿Ha pegado o atacado algunas vez a alquien que no sea famililar suyo?',
+        widget = VARFORM,
+        )
+    item_08 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='8.- ¿Ha usado alguna vez un objeto para agredir a alguien?',
+        widget = VARFORM,
+        )
+    item_09 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='9.- ¿Podría conseguir un arma con facilidad?',
+        widget = VARFORM,
+        )
+    item_10 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='10.- ¿Cuantas veces ha sido vd. detenido por delitos no violentos como irse de un tienda o falsificar documentos?',
+        widget = VARFORM,
+        )
+    item_11 = forms.ChoiceField(
+        choices=LIKERT4,
+        label='11.- ¿Cuántas veces ha sido vd. detenido por delitos como robo a mano armada o agresión violenta?',
+        widget = VARFORM,
+        )
+    item_12 = forms.ChoiceField(
+        choices=CHOICES,
+        label = '12.- ¿Guarda o colecciona armas en su casa y sabe cómo utilizarlas?',
+        widget = VARFORM,
+        )
+
+
+
+#     ##    ## ##     ## ########   ######
+#      ##  ##  ###   ### ##     ## ##    ##
+#       ####   #### #### ##     ## ##
+#        ##    ## ### ## ########   ######
+#        ##    ##     ## ##   ##         ##
+#        ##    ##     ## ##    ##  ##    ##
+#        ##    ##     ## ##     ##  ######
+#
+class YmrsAdminForm(forms.ModelForm):
+    class Meta:
+        model = Ymrs
+        fields = '__all__'
+    item_01 = forms.ChoiceField(
+        label = '1.- Euforia',
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Posible o moderada, sólo cuando se le pregunta'),
+            (2, '2.Clara aunque subjetiva y apropiada al contenido: optimista, seguro de sí mismo/a, alegre'),
+            (3, '3.Elevada e inapropiada'),
+            (4, '4.Claramente eufórico/a, risa inadecuada, canta durante la entrevista, etc.'),
+            ),
+        widget = VARFORM,
+        )
+    item_02 = forms.ChoiceField(
+        label = '2.- Hiperactividad',
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Subjetivamente aumentada'),
+            (2, '2.Vigoroso/a, hipergestual'),
+            (3, '3.Energía excesiva, hiperactividad fluctuante, inquietud (puede ser calmado/a)'),
+            (4, '4.Agitación o hiperactividad constante (no puede ser calmado/a)'),
+            ),
+        widget = VARFORM,
+        )
+    item_03 = forms.ChoiceField(
+        label = '3.- Impulso sexual',
+        choices = (
+            (0, '0.Normal, no aumentado'),
+            (1, '1.Posible o moderadamente aumentado'),
+            (2, '2.Claro aumento al preguntar'),
+            (3, '3.Referido como elevado de forma espontánea, contenido sexual del discurso, preocupación por temas sexuales'),
+            (4, '4.Actos o incitaciones sexuales evidentes (hacia pacientes, personal o entrevistador)'),
+            ),
+        widget = VARFORM,
+        )
+    item_04 = forms.ChoiceField(
+        label = '4.- Sueño',
+        choices = (
+            (0, '0.No reducido'),
+            (1, '1.Disminución en menos de 1 ,hora'),
+            (2, '2.Disminución en más de 1 hora'),
+            (3, '3.Refiere disminución de la necesidad de dormir'),
+            (4, '4.Niega necesidad de dormir'),
+            ),
+        widget = VARFORM,
+        )
+    item_05 = forms.ChoiceField(
+        label = '5.- Irritabilidad',
+        choices = (
+            (0, '0.Ausente'),
+            (2, '2.Subjetivamente aumentada'),
+            (4, '4.Irritabilidad fluctuante durante la entrevista, episodios recientes de rabia o enfado'),
+            (6, '6.Predominantemente irritable durante la entrevista, brusco y cortante'),
+            (8, '8.Hostil, no colaborador/a, entrevista imposible'),
+            ),
+        widget = VARFORM,
+        )
+
+    item_06 = forms.ChoiceField(
+        label = '6.- Expresión verbal',
+        choices = (
+            (0, '0.No aumentada'),
+            (2, '2.Sensación de locuacidad'),
+            (4, '4.Aumentada de forma fluctuante, verborrea ocasional'),
+            (6, '6.Claramente aumentada en ritmo y cantidad, difícil de interrumpir, intrusiva'),
+            (8, '8.Verborrea ininterrumpible y continua'),
+            ),
+        widget = VARFORM,
+        )
+    item_07 = forms.ChoiceField(
+        label = '7.- Trastornos del curso del pensamiento y el lenguaje',
+        choices = (
+            (0, '0.Ausentes'),
+            (1, '1.Circunstancialidad, distraibilidad moderada, aceleración del pensamiento'),
+            (2, '2.Distraibilidad clara, descarrilamiento, taquipsiquia'),
+            (3, '3.Fuga de ideas, tangencialidad, discurso difícil de seguir, rimas, ecolalia'),
+            (4, '4.Incoherencia, ininteligibilidad, comunicación imposible'),
+            ),
+        widget = VARFORM,
+        )
+    item_08 = forms.ChoiceField(
+        label = '8.- Trastornos del contenido del pensamiento',
+        choices = (
+            (0, '0.Ausentes'),
+            (2, '2.Planes discutibles, nuevos intereses'),
+            (4, '4.Proyectos especiales, misticismo'),
+            (6, '6.Ideas grandiosas o paranoides, ideas de referencia'),
+            (8, '8.Delirios, alucinaciones'),
+            ),
+        widget = VARFORM,
+        )
+    item_09 = forms.ChoiceField(
+        label = '9.- Agresividad',
+        choices = (
+            (0, '0.Ausente, colaborador/a'),
+            (2, '2.Sarcástico/a, enfático/a, lacónico/a'),
+            (4, '4.Querulante, pone en guardia'),
+            (6, '6.Amenaza al entrevistador, habla a gritos, entrevista difícil'),
+            (8, '8.Claramente agresivo/a, destructivo/a, entrevista imposible'),
+            ),
+        widget = VARFORM,
+        )
+    item_10 = forms.ChoiceField(
+        label = '10.- Apariencia',
+        choices = (
+            (0, '0.Higiene e indumentaria apropiada '),
+            (1, '1.Ligeramente descuidada'),
+            (2, '2.Mal arreglado/a, moderadamente despeinado/a, indumentaria sobrecargada'),
+            (3, '3.Despeinado/a, semidesnudo/a, maquillaje llamativo'),
+            (4, '4.Completamente desaseado/a, adornado/a, indumentaria extravagante'),
+            ),
+        widget = VARFORM,
+        )
+    item_11 = forms.ChoiceField(
+        label = '11.- Conciencia de enfermedad',
+        choices = (
+            (0, '0.Presente, admite la enfermedad, acepta tratamiento'),
+            (1, '1.Según él/ella, posiblemente enfermo/a'),
+            (2, '2.Admite cambio de conducta, pero niega enfermedad'),
+            (3, '3.Admite posible cambio de conducta, niega enfermedad'),
+            (4, '4.Niega cualquier cambio de conduct'),
+            ),
+        widget = VARFORM,
+        )
+
+
 
 
 

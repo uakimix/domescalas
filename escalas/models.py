@@ -13,6 +13,96 @@ class Identificador(models.Model):
     def __str__(self):
         return "%s: %s" % (self.fecha_ingreso, self.codigo)
 
+
+
+#     ########     ###     ######  #### ######## ##    ## ######## ########
+#     ##     ##   ## ##   ##    ##  ##  ##       ###   ##    ##    ##
+#     ##     ##  ##   ##  ##        ##  ##       ####  ##    ##    ##
+#     ########  ##     ## ##        ##  ######   ## ## ##    ##    ######
+#     ##        ######### ##        ##  ##       ##  ####    ##    ##
+#     ##        ##     ## ##    ##  ##  ##       ##   ###    ##    ##
+#     ##        ##     ##  ######  #### ######## ##    ##    ##    ########
+
+
+class Demo(models.Model):
+    E_CIVIL = (
+        ('1', 'Soltero'),
+        ('2', 'Casado'),
+        ('3', 'Pareja estable'),
+        ('4', 'Separado'),
+        ('5', 'Viudo'),
+        ('6', 'Otro'),
+        )
+    ESTUDIOS = (
+        ('1', 'Primarios'),
+        ('2', 'Secundarios'),
+        ('3', 'Superiores'),
+        ('4', 'Sin estudios'),
+        ('5', 'Desconocido'),
+        )
+    LABORAL = (
+        ('1', 'Activo'),
+        ('2', 'Baja temporal'),
+        ('3', 'Sin trabajo actual'),
+        ('4', 'Pensionista'),
+        ('5', 'Nunca ha trabajado'),
+        ('6', 'Desconocido'),
+        )
+    SEXO = (
+        ('1', 'Masculino'),
+        ('2', 'Femenino'),
+        )
+    SECTOR = (
+        ('1', 'AIS Gracia'),
+        ('2', 'AIS Dreta'),
+        ('3', 'AIS Guinardó'),
+        )
+
+    identificador = models.OneToOneField(
+        Identificador,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        )
+    fnac = models.DateField(
+        verbose_name='Fecha de Nac.',
+        blank=True,
+        )
+    sexo = models.CharField(
+        choices=SEXO,
+        max_length=2,
+        blank=True,
+        )
+    sector = models.CharField(
+        verbose_name='Sector',
+        max_length=1,
+        choices=SECTOR,
+        blank=True,
+        )
+    e_civil = models.CharField(
+        verbose_name='Estado civil',
+        max_length=1,
+        choices=E_CIVIL,
+        blank=True,
+        )
+    n_hijos = models.PositiveSmallIntegerField(
+        verbose_name='Número de hijos',
+        blank=True,
+        null=True,
+        )
+    laboral = models.CharField(
+        verbose_name='Situación laboral',
+        max_length=1,
+        choices=LABORAL,
+        blank=True,
+        )
+    estudios = models.CharField(
+        verbose_name='Nivel de estudios',
+        max_length=1,
+        choices=ESTUDIOS,
+        blank=True,
+        )
+
+
 class Escala(models.Model):
     identificador = models.ForeignKey(
         Identificador,
