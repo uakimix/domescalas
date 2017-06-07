@@ -27,6 +27,11 @@ class HdrsInLine(admin.StackedInline):
     form = HdrsAdminForm
     extra = 0
     
+class MadrsInLine(admin.StackedInline):
+    model = Madrs
+    form = MadrsAdminForm
+    extra = 0
+    
 class YmrsInLine(admin.StackedInline):
     model =Ymrs
     form = YmrsAdminForm
