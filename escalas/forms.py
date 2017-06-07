@@ -613,6 +613,54 @@ class CgiAdminForm(forms.ModelForm):
         widget = VARFORM,
     )
     
+#
+#
+# MADRS
+
+class Meta:
+        model = Madrs
+        fields = '__all__'
+    item_01 = forms.ChoiceField(
+        label = '1.- Tristeza observada',
+        choices = (
+            (0, '0. Sin tristeza'),
+            (1, '1.'),
+            (2, '2. Parece decaído/a pero se anima sin dificultad'),
+            (3, '3.'),
+            (4, '4. Parece triste y desgraciado/a la mayor parte del tiempo'),
+            (5, '5.'),
+            (6, '6.Parece siempre desgraciado/a. Extremadamente abatido/a'),
+        ),
+        widget = VARFORM,
+    )
+   item_02 = forms.ChoiceField(
+        label = '2.- Tristeza declarada por el paciente',
+        choices = (
+            (0, '0. Tristeza esporádica según las circunstancias'),
+            (1, '1.'),
+            (2, '2. Triste o decaído/a, pero se anima sin dificultad'),
+            (3, '3.'),
+            (4, '4. Sentimientos generalizados de tristeza o melancolía. El estado de ánimo todavía se ve influido por circunstancias externas'),
+            (5, '5.'),
+            (6, '6. Abatimiento, desdicha o tristeza continuada o invariable'),
+        ),
+        widget = VARFORM,
+    )
+    item_03 = forms.ChoiceField(
+        label = '3.- Tensión interna',
+        choices = (
+            (0, '0. Apacible. Sólo tensión interna pasajera'),
+            (1, '1.'),
+            (2, '2. Sentimientos ocacionales de nerviosismo y maletar indefinido'),
+            (3, '3.'),
+            (4, '4. Sentimientos continuados de tensión interna o pánico intermitente que el sujeto sólo puede dominar con alguna dificultad'),
+            (5, '5.'),
+            (6, '6. Terror o angustia tenaz. Pánico irresistible'),
+        ),
+        widget = VARFORM,
+    )
+
+    
 #     ########     ###    ##    ##  ######   ######
 #     ##     ##   ## ##   ###   ## ##    ## ##    ##
 #     ##     ##  ##   ##  ####  ## ##       ##
