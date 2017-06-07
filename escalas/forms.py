@@ -499,6 +499,76 @@ LIKERT_PANSS = (
         (2, '2.Mínimo'),
         (1, '1.Ausente'),
         )
+        
+## DUKE
+class DukeAdminForm(forms.ModelForm):
+    class Meta:
+        model = Duke
+        fields = '__all__'
+    item_01 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='1.- Recibo visitas de mis amigos y familiares',
+        widget = VARFORM,
+        )
+    item_02 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='2.- Recibo ayuda en asuntos relacionados con mi casa',
+        widget = VARFORM,
+        )   
+    item_03 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='3.- Recibo elogios y reconocimientos cuando hago bien mi trabajo',
+        widget = VARFORM,
+        )
+    item_04 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='4.- Cuento con personas que se preocupan de lo que me sucede',
+        widget = VARFORM,
+        )
+    item_05 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='5.- Recibo amor y afecto',
+        widget = VARFORM,
+        )
+    item_06 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='6.- Tengo posibilidad de hablar con alguien de mis problemas de trabajo o en la casa,
+        widget = VARFORM,
+        )   
+    item_07 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='7.- Tengo la posibilidad de hablar con alguien de mis problemas personales y familiares',
+        widget = VARFORM,
+        )
+    item_08 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='8.- Tengo la posibilidad de hablar con alguien de mis problemas económicos',
+        widget = VARFORM,
+        )
+    item_09 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='9.- Recibo invitaciones para distraerme y salir con otras personas',
+        widget = VARFORM,
+        )
+    item_10 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='10.- Recibo consejos útiles cuando me ocurre algún acontecimiento importante en mi vida',
+        widget = VARFORM,
+        )
+    item_11 = forms.ChoiceField(
+        choices=LIKERT_DUKE,
+        label='11.- Recibo ayuda cuando estoy enfermo en la cama',
+        widget = VARFORM,
+        )
+    
+LIKERT_DUKE = (
+        (5, '5. Tanto como deseo'),
+        (4, '4. Casi como deseo'),
+        (3, '3. Ni mucho ni poco'),
+        (2, '2. Menos de lo que deseo'),
+        (1, '1. Mucho menos de lo que deseo'),
+        )
+
 
 #
 #        ####     ####   ######
