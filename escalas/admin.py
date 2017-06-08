@@ -113,7 +113,7 @@ class ZaritInline(admin.StackedInline):
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
     inlines = [DemoInLine,
-               IngresoInLine
+               IngresoInLine,
     		   BcisInLine,
                BprsInLine,
                CgiInLine,
