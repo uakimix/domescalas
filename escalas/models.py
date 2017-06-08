@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from django.db import models
 
 class Identificador(models.Model):
@@ -102,6 +104,33 @@ class Demo(models.Model):
         blank=True,
         )
 
+class Ingreso(models.Model):
+    identificador = models.OneToOneField(
+        Identificador,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        )
+    fing = models.DateField(
+        verbose_name='Fecha de Ingreso',
+        blank=True,
+        )
+    falta = models.DateField(
+        verbose_name='Fecha de Alta',
+        blank=True,
+        )
+    dispalta = models.CharField(
+        verbose_name='Dispositivo de alta',
+        max_length=2,
+        choices= (
+            (0, 'Domicilio'),
+            (1, 'CESMA'),
+            (2, 'H de dia'),
+            (3, 'Subagudos'),
+            (4, 'Agudos'),
+            (5, 'Otros'),
+            ),
+        blank=True,
+        )
 
 class Escala(models.Model):
     identificador = models.ForeignKey(
@@ -874,3 +903,87 @@ class Who_das(Escala):
     h3 = models.PositiveSmallIntegerField(
         null = True
         )
+
+
+# ZARIT
+
+class Zarit(Escala):
+    class Meta:
+        verbose_name = 'ZARIT'
+        verbose_name_plural = 'Escalas ZARIT'
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_11 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_12 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_13 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_14 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_15 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_16 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_17 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_18 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_19 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_20 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_21 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_22 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    @property
+    def total(self):
+        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
+                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
+                self.item_09 + self.item_10 + self.item_11 + self.item_12 + 
+                self.item_13 + self.item_14 + self.item_15 + self.item_16 + 
+                self.item_17 + self.item_18 + self.item_19 + self.item_20 +
+                self.item_21 + self.item_22)
+    def __str__(self):
+        return "%s: ZARIT=%s" % (self.fecha, str(self.total))

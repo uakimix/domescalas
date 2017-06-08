@@ -1,4 +1,5 @@
-# forms.py
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from django import forms
 from escalas.models import *
 
@@ -1474,4 +1475,129 @@ class Who_dasAdminForm(forms.ModelForm):
         label = 'H3 En los últimos 30 días, sin contar los días que no pudo realizar nada de sus actividades habituales cuántos días tuvo que recortar o reducir sus actividades habituales o en el trabajo, debido a su condición de salud?',
         choices = LIKERT5,
         widget = forms.NumberInput,
+        )
+
+# ZARIT
+
+LIKERT_ZARIT= (
+        (0, '0. Nunca'),
+        (1, '1. Casi nunca'),
+        (2, '2. A veces'),
+        (3, '3. Bastantes veces'),
+        (4, '4. Siempre'),
+        )
+
+class ZaritAdminForm(forms.ModelForm):
+    class Meta:
+        model = Zarit
+        fields = '__all__'
+    item_01 = forms.ChoiceField(
+        label = '1.- ¿Siente que su familiar solicita más ayuda de la que realmente necesita?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_02 = forms.ChoiceField(
+        label = '2.- ¿Siente que debido al tiempo que dedica a su familiar ya no dispone de tiempo suficiente para usted?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_03 = forms.ChoiceField(
+        label = '3.- ¿Se siente tenso cuando tiene que cuidar a su familiar y atender además otras responsabilidades?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_04 = forms.ChoiceField(
+        label = '4.- ¿Se siente avergonzado por la conducta de su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_05 = forms.ChoiceField(
+        label = '5.- ¿Se siente enfadado cuando está cerca de su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_06 = forms.ChoiceField(
+        label = '6.- ¿Cree que la situación actual afecta de manera negativa a su relación con amigos y otros miembros de su familia?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_07 = forms.ChoiceField(
+        label = '7.- ¿Siente temor por el futuro que le espera a su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_08 = forms.ChoiceField(
+        label = '8.- ¿Siente que su familiar depende de usted?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_09 = forms.ChoiceField(
+        label = '9.- ¿Se siente agobiado cuando tiene que estar junto a su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_10 = forms.ChoiceField(
+        label = '10.- ¿Siente que su salud se ha resentido por cuidar a su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_11 = forms.ChoiceField(
+        label = '11.- ¿Siente que no tiene la vida privada que desearía debido a su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_12 = forms.ChoiceField(
+        label = '12.- ¿Cree que su vida social se ha visto afectada por tener que cuidar de su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_13 = forms.ChoiceField(
+        label = '13.- ¿Se siente incómodo para invitar amigos a casa, a causa de su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_14 = forms.ChoiceField(
+        label = '14.- ¿Cree que su familiar espera que usted le cuide, como si fuera la única persona con la que puede contar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_15 = forms.ChoiceField(
+        label = '15.- ¿Cree que no dispone de dinero suficiente para cuidar a su familiar además de sus otros gastos?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_16 = forms.ChoiceField(
+        label = '16.- ¿Siente que será incapaz de cuidar a su familiar por mucho más tiempo?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_17 = forms.ChoiceField(
+        label = '17.- ¿Siente que ha perdido el control sobre su vida desde que la enfermedad de su familiar se manifestó?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_18 = forms.ChoiceField(
+        label = '18.- ¿Desearía poder encargar el cuidado de su familiar a otras personas?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_19 = forms.ChoiceField(
+        label = '19.- ¿Se siente inseguro acerca de lo que debe hacer con su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_20 = forms.ChoiceField(
+        label = '20.- ¿Siente que debería hacer más de lo que hace por su familiar?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_21 = forms.ChoiceField(
+        label = '21.- ¿Cree que podría cuidar de su familiar mejor de lo que lo hace?',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
+        )
+    item_22 = forms.ChoiceField(
+        label = '22.- En general: ¿Se siente muy sobrecargado por tener que cuidar de su familia',
+        choices = LIKERT_ZARIT,
+        widget = VARFORM,
         )

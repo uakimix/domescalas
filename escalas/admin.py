@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from django.contrib import admin
 from escalas.models import *
 from escalas.forms import *
@@ -100,6 +102,10 @@ class Who_dasInline(admin.StackedInline):
     form = Who_dasAdminForm
     extra = 0
 
+class ZaritInline(admin.StackedInline):
+    model = Zarit
+    form = ZaritAdminForm
+    extra = 0
 
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
@@ -112,4 +118,5 @@ class IdentificadorAdmin(admin.ModelAdmin):
                MadrsInLine,
                PanssInLine,
                YmrsInLine,
-               Who_dasInline]
+               Who_dasInline,
+               ZaritInline]
