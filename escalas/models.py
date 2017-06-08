@@ -104,6 +104,14 @@ class Demo(models.Model):
         blank=True,
         )
 
+#     #### ##    ##  ######   ########  ########  ######   #######
+#      ##  ###   ## ##    ##  ##     ## ##       ##    ## ##     ##
+#      ##  ####  ## ##        ##     ## ##       ##       ##     ##
+#      ##  ## ## ## ##   #### ########  ######    ######  ##     ##
+#      ##  ##  #### ##    ##  ##   ##   ##             ## ##     ##
+#      ##  ##   ### ##    ##  ##    ##  ##       ##    ## ##     ##
+#     #### ##    ##  ######   ##     ## ########  ######   #######
+
 class Ingreso(models.Model):
     identificador = models.OneToOneField(
         Identificador,
@@ -123,12 +131,12 @@ class Ingreso(models.Model):
         verbose_name='Dispositivo de alta',
         max_length=2,
         choices= (
-            (0, 'Domicilio'),
-            (1, 'CESMA'),
-            (2, 'H de dia'),
-            (3, 'Subagudos'),
-            (4, 'Agudos'),
-            (5, 'Otros'),
+            ('0', 'Domicilio'),
+            ('1', 'CESMA'),
+            ('2', 'H de dia'),
+            ('3', 'Subagudos'),
+            ('4', 'Agudos'),
+            ('5', 'Otros'),
             ),
         blank=True,
         )

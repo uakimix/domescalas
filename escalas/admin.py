@@ -6,20 +6,27 @@ from escalas.forms import *
 from django.forms import TextInput
 
 class DemoInLine(admin.StackedInline):
-	model = Demo
-	extra = 1
-	fieldsets = (
-		(None, {
-			'fields': (
-				('fnac', 'sexo','sector'),
-			    ('e_civil', 'n_hijos', 'laboral'),
-			    )
-			}),
-		)
+  model = Demo
+  extra = 1
+  fieldsets = (
+    (None, {
+      'fields': (
+        ('fnac', 'sexo','sector'),
+          ('e_civil', 'n_hijos', 'laboral'),
+          )
+      }),
+    )
 
 class IngresoInLine(admin.StackedInline):
-	model = Ingreso
-	extra = 1	
+  model = Ingreso
+  extra = 1 
+  fieldsets = (
+    (None, {
+      'fields': (
+        ('fing', 'falta','dispalta'),
+        )
+      }),
+    )
 
 class BcisInLine(admin.StackedInline):
     model = Bcis
@@ -63,19 +70,19 @@ class PanssInLine(admin.StackedInline):
     fieldsets = (
         (None, {
             'fields': ('fecha',)
-        	}),
+          }),
         ('Síntomas positivos', {
             'fields': ('item_p01', 'item_p02',
                        'item_p03', 'item_p04',
                        'item_p05', 'item_p06',
                        'item_p07',)
-        	}),
+          }),
         ('Síntomas negativos', {
             'fields': ('item_n01', 'item_n02',
                        'item_n03', 'item_n04',
                        'item_n05', 'item_n06',
                        'item_n07',)
-        	}),
+          }),
         ('Síntomas generales', {
             'fields': ('item_g01', 'item_g02',
                        'item_g03', 'item_g04',
@@ -85,9 +92,9 @@ class PanssInLine(admin.StackedInline):
                        'item_g11', 'item_g12',
                        'item_g13', 'item_g14',
                        'item_g15', 'item_g16')
-        	}),
+          }),
 
-    	)
+      )
 
 class Plutchik_sInline(admin.StackedInline):
     model = Plutchik_s
@@ -114,7 +121,7 @@ class ZaritInline(admin.StackedInline):
 class IdentificadorAdmin(admin.ModelAdmin):
     inlines = [DemoInLine,
                IngresoInLine,
-    		   BcisInLine,
+           BcisInLine,
                BprsInLine,
                CgiInLine,
                DukeInLine,
