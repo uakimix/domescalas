@@ -16,7 +16,10 @@ class DemoInLine(admin.StackedInline):
 			    )
 			}),
 		)
-	
+
+class IngresoInLine(admin.StackedInline):
+	model = Ingreso
+	extra = 1	
 
 class BcisInLine(admin.StackedInline):
     model = Bcis
@@ -110,6 +113,7 @@ class ZaritInline(admin.StackedInline):
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
     inlines = [DemoInLine,
+               IngresoInLine
     		   BcisInLine,
                BprsInLine,
                CgiInLine,
