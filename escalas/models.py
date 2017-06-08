@@ -117,6 +117,7 @@ class Ingreso(models.Model):
     falta = models.DateField(
         verbose_name='Fecha de Alta',
         blank=True,
+        null=True,
         )
     dispalta = models.CharField(
         verbose_name='Dispositivo de alta',
