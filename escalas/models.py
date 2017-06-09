@@ -27,6 +27,9 @@ class Identificador(models.Model):
 
 
 class Demo(models.Model):
+    class Meta:
+        verbose_name = 'Demográfico'
+        verbose_name_plural = 'Demográficos'
     E_CIVIL = (
         ('1', 'Soltero'),
         ('2', 'Casado'),
@@ -54,12 +57,7 @@ class Demo(models.Model):
         ('1', 'Masculino'),
         ('2', 'Femenino'),
         )
-    SECTOR = (
-        ('1', 'AIS Gracia'),
-        ('2', 'AIS Dreta'),
-        ('3', 'AIS Guinardó'),
-        )
-
+    
     identificador = models.OneToOneField(
         Identificador,
         on_delete=models.CASCADE,
@@ -72,12 +70,6 @@ class Demo(models.Model):
     sexo = models.CharField(
         choices=SEXO,
         max_length=2,
-        blank=True,
-        )
-    sector = models.CharField(
-        verbose_name='Sector',
-        max_length=1,
-        choices=SECTOR,
         blank=True,
         )
     e_civil = models.CharField(
@@ -112,6 +104,7 @@ class Demo(models.Model):
 #      ##  ##   ### ##    ##  ##    ##  ##       ##    ## ##     ##
 #     #### ##    ##  ######   ##     ## ########  ######   #######
 
+
 class Ingreso(models.Model):
     identificador = models.OneToOneField(
         Identificador,
@@ -120,6 +113,30 @@ class Ingreso(models.Model):
         )
     fing = models.DateField(
         verbose_name='Fecha de Ingreso',
+        blank=True,
+        )
+    sector = models.CharField(
+        verbose_name='Sector',
+        max_length=1,
+        choices=(
+            ('1', 'AIS Gracia'),
+            ('2', 'AIS Dreta'),
+            ('3', 'AIS Guinardó'),
+            ),
+        blank=True,
+        )
+    procedencia = models.CharField(
+        verbose_name='Procedencia',
+        max_length=2,
+        choices=(
+            ('00', 'Urgencias'),
+            ('01', 'Sala B2'),
+            ('02', 'CSMA'),
+            ('03', 'H de día'),
+            ('04', 'CCEE'),
+            ('05', 'Subagudos'),
+            ('06', 'Otros'),
+            ),
         blank=True,
         )
     falta = models.DateField(

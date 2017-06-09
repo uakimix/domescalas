@@ -30,6 +30,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 # Application definition
 
 INSTALLED_APPS = [
+    'nested_admin',
 	'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',

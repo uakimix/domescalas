@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+import nested_admin
 from escalas.models import *
 from escalas.forms import *
 from django.forms import TextInput
+
+class MyModelOptions(admin.ModelAdmin):
+    change_list_filter_template = "admin/filter_listing.html"
 
 class DemoInLine(admin.StackedInline):
   model = Demo
@@ -11,62 +15,81 @@ class DemoInLine(admin.StackedInline):
   fieldsets = (
     (None, {
       'fields': (
-        ('fnac', 'sexo','sector'),
+        ('fnac', 'sexo'),
           ('e_civil', 'n_hijos', 'laboral'),
           )
       }),
     )
 
 class IngresoInLine(admin.StackedInline):
-  model = Ingreso
-  extra = 1 
-  fieldsets = (
-    (None, {
-      'fields': (
-        ('fing', 'falta','dispalta'),
-        )
-      }),
-    )
+    model = Ingreso
+    extra = 1 
+    fieldsets = (
+      (None, {
+        'fields': (
+          ('fing', 'procedencia'),
+          ('falta', 'dispalta')
+          )
+        }),
+      )
+
+    
 
 class BcisInLine(admin.StackedInline):
     model = Bcis
     form = BcisAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
 
 class BprsInLine(admin.StackedInline):
     model = Bprs
     form = BprsAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
 
 class CgiInLine(admin.StackedInline):
     model = Cgi
     form = CgiAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
     
 class DukeInLine(admin.StackedInline):
     model = Duke
     form = DukeAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
 
 class HdrsInLine(admin.StackedInline):
     model = Hdrs
     form = HdrsAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
     
 class MadrsInLine(admin.StackedInline):
     model = Madrs
     form = MadrsAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
     
 class YmrsInLine(admin.StackedInline):
     model =Ymrs
     form = YmrsAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
 
 class PanssInLine(admin.StackedInline):
     model = Panss
     form = PanssAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
     fieldsets = (
         (None, {
             'fields': ('fecha',)
@@ -96,32 +119,26 @@ class PanssInLine(admin.StackedInline):
 
       )
 
-class Plutchik_sInline(admin.StackedInline):
-    model = Plutchik_s
-    extra = 0
-    form = Plutchik_sAdminForm
-    
-
-class Plutchik_vInline(admin.StackedInline):
-    model = Plutchik_v
-    form = Plutchik_vAdminForm
-    extra = 0
-
 class Who_dasInline(admin.StackedInline):
     model = Who_das
     form = Who_dasAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
 
 class ZaritInline(admin.StackedInline):
     model = Zarit
     form = ZaritAdminForm
     extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
 
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
-    inlines = [DemoInLine,
+    inlines = [
+               DemoInLine,
                IngresoInLine,
-           BcisInLine,
+               BcisInLine,
                BprsInLine,
                CgiInLine,
                DukeInLine,
@@ -130,4 +147,5 @@ class IdentificadorAdmin(admin.ModelAdmin):
                PanssInLine,
                YmrsInLine,
                Who_dasInline,
-               ZaritInline]
+               ZaritInline
+               ]
