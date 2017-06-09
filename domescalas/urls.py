@@ -19,5 +19,4 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^', admin.site.urls),
-    url(r'^nested_admin/', include('nested_admin.urls')),
-]
+    ]

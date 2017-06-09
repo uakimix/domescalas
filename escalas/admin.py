@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-import nested_admin
 from escalas.models import *
 from escalas.forms import *
 from django.forms import TextInput
