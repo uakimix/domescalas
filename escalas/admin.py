@@ -32,8 +32,6 @@ class IngresoInLine(admin.StackedInline):
         }),
       )
 
-    
-
 class BcisInLine(admin.StackedInline):
     model = Bcis
     form = BcisAdminForm
@@ -134,6 +132,11 @@ class ZaritInline(admin.StackedInline):
 
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
+    date_hierarchy = 'fecha_ingreso'
+    list_display = ('fecha_ingreso', 'codigo')
+    ordering = ('fecha_ingreso',)
+
+    fields = (('fecha_ingreso', 'codigo'),)
     inlines = [
                DemoInLine,
                IngresoInLine,

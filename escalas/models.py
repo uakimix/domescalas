@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.core.validators import RegexValidator
 
 class Identificador(models.Model):
     class Meta:
@@ -9,6 +10,13 @@ class Identificador(models.Model):
 
     codigo = models.CharField(
         max_length=100,
+        help_text = 'Siglas nombre + fecha ingreso: p.e. "ABC24122016',
+        validators=[
+            RegexValidator(
+                regex=r'\b[A-Z]{3}\d{8}',
+                message='Formato incorrecto (XYZddmmaaaa)',
+                ),
+            ]
         )
     fecha_ingreso = models.DateField(
         )
