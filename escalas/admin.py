@@ -32,6 +32,13 @@ class IngresoInLine(admin.StackedInline):
         }),
       )
 
+class TratamientoInLine(admin.StackedInline):
+  model=Tratamiento
+  extra=0
+  fields=(('f_inicio', 'farmaco', 'mg_dia'),
+          ('f_termino', 'motivo'),
+          )
+
 class BcisInLine(admin.StackedInline):
     model = Bcis
     form = BcisAdminForm
@@ -140,6 +147,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
     inlines = [
                DemoInLine,
                IngresoInLine,
+               TratamientoInLine,
                BcisInLine,
                BprsInLine,
                CgiInLine,
@@ -151,3 +159,5 @@ class IdentificadorAdmin(admin.ModelAdmin):
                Who_dasInline,
                ZaritInline
                ]
+
+admin.site.register(Farmaco)

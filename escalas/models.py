@@ -166,6 +166,67 @@ class Ingreso(models.Model):
         blank=True,
         )
 
+
+
+#     ######## ########     ###    ########    ###    ##     ## #### ######## ##    ## ########  #######
+#        ##    ##     ##   ## ##      ##      ## ##   ###   ###  ##  ##       ###   ##    ##    ##     ##
+#        ##    ##     ##  ##   ##     ##     ##   ##  #### ####  ##  ##       ####  ##    ##    ##     ##
+#        ##    ########  ##     ##    ##    ##     ## ## ### ##  ##  ######   ## ## ##    ##    ##     ##
+#        ##    ##   ##   #########    ##    ######### ##     ##  ##  ##       ##  ####    ##    ##     ##
+#        ##    ##    ##  ##     ##    ##    ##     ## ##     ##  ##  ##       ##   ###    ##    ##     ##
+#        ##    ##     ## ##     ##    ##    ##     ## ##     ## #### ######## ##    ##    ##     #######
+
+class Farmaco(models.Model):
+    farmaco=models.CharField(
+        max_length=200,
+        )
+    def __str__(self):
+        return self.farmaco
+
+class Tratamiento(models.Model):
+    identificador = models.ForeignKey(
+        Identificador,
+        )
+    f_inicio = models.DateField(
+        verbose_name='Fecha de incio',
+        )
+    farmaco = models.ForeignKey(
+        Farmaco,
+        )
+    mg_dia = models.PositiveSmallIntegerField(
+        verbose_name='mg/dia'
+        )
+    f_termino = models.DateField(
+        verbose_name='Fecha de término',
+        blank=True,
+        null=True,
+        )
+    motivo = models.CharField(
+        verbose_name='Motivo de suspensión',
+        max_length=2,
+        choices=(
+            ('00', 'Falta de eficacia'),
+            ('01', 'Efecto adverso EP'),
+            ('02', 'Efecto adverso digestivo'),
+            ('03', 'Efecto adverso neurológico'),
+            ('04', 'Efecto adevrso otros'),
+            ('05', 'Cambio dentro del mismo grupo'),
+            ('06', 'Abandono del paciente'),
+            ),
+        blank=True,
+        )
+    def __str__(self):
+        return "%s:%s %s mg/dia" % (self.f_inicio, self.farmaco, self.mg_dia)
+
+#     ########  ####    ###     ######   ##    ##  #######   ######  ######## ####  ######   #######
+#     ##     ##  ##    ## ##   ##    ##  ###   ## ##     ## ##    ##    ##     ##  ##    ## ##     ##
+#     ##     ##  ##   ##   ##  ##        ####  ## ##     ## ##          ##     ##  ##       ##     ##
+#     ##     ##  ##  ##     ## ##   #### ## ## ## ##     ##  ######     ##     ##  ##       ##     ##
+#     ##     ##  ##  ######### ##    ##  ##  #### ##     ##       ##    ##     ##  ##       ##     ##
+#     ##     ##  ##  ##     ## ##    ##  ##   ### ##     ## ##    ##    ##     ##  ##    ## ##     ##
+#     ########  #### ##     ##  ######   ##    ##  #######   ######     ##    ####  ######   #######
+
+
 class Escala(models.Model):
     identificador = models.ForeignKey(
         Identificador,
