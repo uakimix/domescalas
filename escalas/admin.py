@@ -10,7 +10,7 @@ class MyModelOptions(admin.ModelAdmin):
 
 class Diagnostico_pacInLine(admin.StackedInline):
     model = Diagnostico_pac
-    extra = 1
+    extra = 0
     fieldsets = (
         (None, {
             'fields': (
@@ -18,6 +18,10 @@ class Diagnostico_pacInLine(admin.StackedInline):
                 )
             }),
         )
+    raw_id_fields = ('diagnostico',)
+    related_lookup_fields = {
+        'fk': ['identificador','diagnostico'],
+    }
 
 class TratamientoInLine(admin.StackedInline):
     model=Tratamiento
@@ -131,7 +135,6 @@ class IdentificadorAdmin(admin.ModelAdmin):
     ordering = ('fecha_ingreso',)
 
 
-
     fieldsets = (
         (None, {
             'fields': (
@@ -167,4 +170,6 @@ class IdentificadorAdmin(admin.ModelAdmin):
                ZaritInline
                ]
 
-admin.site.register(Farmaco)
+
+
+admin.site.register(Diagnostico)

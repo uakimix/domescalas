@@ -144,7 +144,7 @@ class Tratamiento(models.Model):
         )
     farmaco = models.ForeignKey(
         Farmaco,
-        )
+        )    
     mg_dia = models.PositiveSmallIntegerField(
         verbose_name='mg/dia'
         )
