@@ -225,6 +225,29 @@ class Tratamiento(models.Model):
 #     ##     ##  ##  ######### ##    ##  ##  #### ##     ##       ##    ##     ##  ##       ##     ##
 #     ##     ##  ##  ##     ## ##    ##  ##   ### ##     ## ##    ##    ##     ##  ##    ## ##     ##
 #     ########  #### ##     ##  ######   ##    ##  #######   ######     ##    ####  ######   #######
+class Diagnostico(models.Model):
+    diagnostico=models.CharField(
+        max_length=300,
+        )
+    def __str__(self):
+        return self.diagnostico
+
+class Diagnostico_pac(models.Model):
+    class Meta:
+        verbose_name = 'Diagnóstico'
+        verbose_name_plural = 'Diagnósticos'
+    identificador = models.ForeignKey(
+        Identificador,
+        )
+    f_dg = models.DateField(
+        verbose_name = "Fecha diagnostico",
+        )
+    diagnostico = models.ForeignKey(
+        Diagnostico,
+        )
+    def __str__(self):
+        return "%s:%s" % (self.f_dg, self.diagnostico)
+
 
 
 class Escala(models.Model):

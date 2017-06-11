@@ -9,35 +9,46 @@ class MyModelOptions(admin.ModelAdmin):
     change_list_filter_template = "admin/filter_listing.html"
 
 class DemoInLine(admin.StackedInline):
-  model = Demo
-  extra = 1
-  fieldsets = (
-    (None, {
-      'fields': (
-        ('fnac', 'sexo'),
-          ('e_civil', 'n_hijos', 'laboral'),
-          )
-      }),
-    )
+    model = Demo
+    extra = 1
+    fieldsets = (
+        (None, {
+          'fields': (
+              ('fnac', 'sexo'),
+              ('e_civil', 'n_hijos', 'laboral'),
+              )
+            }),
+        )
 
 class IngresoInLine(admin.StackedInline):
     model = Ingreso
     extra = 1 
     fieldsets = (
-      (None, {
-        'fields': (
-          ('fing', 'procedencia'),
-          ('falta', 'dispalta')
-          )
-        }),
-      )
+        (None, {
+          'fields': (
+            ('fing', 'procedencia'),
+            ('falta', 'dispalta')
+            )
+          }),
+        )
+
+class Diagnostico_pacInLine(admin.StackedInline):
+    model = Diagnostico_pac
+    extra = 1
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('f_dg', 'diagnostico'),
+                )
+            }),
+        )
 
 class TratamientoInLine(admin.StackedInline):
-  model=Tratamiento
-  extra=0
-  fields=(('f_inicio', 'farmaco', 'mg_dia'),
-          ('f_termino', 'motivo'),
-          )
+    model=Tratamiento
+    extra=0
+    fields=(('f_inicio', 'farmaco', 'mg_dia'),
+            ('f_termino', 'motivo'),
+            )
 
 class BcisInLine(admin.StackedInline):
     model = Bcis
@@ -147,6 +158,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
     inlines = [
                DemoInLine,
                IngresoInLine,
+               Diagnostico_pacInLine,
                TratamientoInLine,
                BcisInLine,
                BprsInLine,
