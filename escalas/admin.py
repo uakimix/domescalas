@@ -8,30 +8,6 @@ from django.forms import TextInput
 class MyModelOptions(admin.ModelAdmin):
     change_list_filter_template = "admin/filter_listing.html"
 
-class DemoInLine(admin.StackedInline):
-    model = Demo
-    extra = 1
-    fieldsets = (
-        (None, {
-          'fields': (
-              ('fnac', 'sexo'),
-              ('e_civil', 'n_hijos', 'laboral'),
-              )
-            }),
-        )
-
-class IngresoInLine(admin.StackedInline):
-    model = Ingreso
-    extra = 1 
-    fieldsets = (
-        (None, {
-          'fields': (
-            ('fing', 'procedencia'),
-            ('falta', 'dispalta')
-            )
-          }),
-        )
-
 class Diagnostico_pacInLine(admin.StackedInline):
     model = Diagnostico_pac
     extra = 1
@@ -154,10 +130,29 @@ class IdentificadorAdmin(admin.ModelAdmin):
     list_display = ('fecha_ingreso', 'codigo')
     ordering = ('fecha_ingreso',)
 
-    fields = (('fecha_ingreso', 'codigo'),)
+
+
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('codigo'),
+                )
+            }),
+        ('Demográficos', {
+          'fields': (
+              ('fnac', 'sexo'),
+              ('e_civil', 'n_hijos', 'laboral'),
+              )
+            }),
+        ('Ingreso', {
+          'fields': (
+            ('fecha_ingreso', 'procedencia'),
+            ('falta', 'dispalta')
+            )
+          }),
+        )
+
     inlines = [
-               DemoInLine,
-               IngresoInLine,
                Diagnostico_pacInLine,
                TratamientoInLine,
                BcisInLine,

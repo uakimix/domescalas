@@ -7,7 +7,6 @@ class Identificador(models.Model):
     class Meta:
         verbose_name = 'Identificador'
         verbose_name_plural = 'Identificadores'
-
     codigo = models.CharField(
         max_length=100,
         help_text = 'Siglas nombre + fecha ingreso: p.e. "ABC24122016',
@@ -19,71 +18,31 @@ class Identificador(models.Model):
             ]
         )
     fecha_ingreso = models.DateField(
-        )
-    def __str__(self):
-        return "%s: %s" % (self.fecha_ingreso, self.codigo)
-
-
-
-#     ########     ###     ######  #### ######## ##    ## ######## ########
-#     ##     ##   ## ##   ##    ##  ##  ##       ###   ##    ##    ##
-#     ##     ##  ##   ##  ##        ##  ##       ####  ##    ##    ##
-#     ########  ##     ## ##        ##  ######   ## ## ##    ##    ######
-#     ##        ######### ##        ##  ##       ##  ####    ##    ##
-#     ##        ##     ## ##    ##  ##  ##       ##   ###    ##    ##
-#     ##        ##     ##  ######  #### ######## ##    ##    ##    ########
-
-
-class Demo(models.Model):
-    class Meta:
-        verbose_name = 'Demográfico'
-        verbose_name_plural = 'Demográficos'
-    E_CIVIL = (
-        ('1', 'Soltero'),
-        ('2', 'Casado'),
-        ('3', 'Pareja estable'),
-        ('4', 'Separado'),
-        ('5', 'Viudo'),
-        ('6', 'Otro'),
-        )
-    ESTUDIOS = (
-        ('1', 'Primarios'),
-        ('2', 'Secundarios'),
-        ('3', 'Superiores'),
-        ('4', 'Sin estudios'),
-        ('5', 'Desconocido'),
-        )
-    LABORAL = (
-        ('1', 'Activo'),
-        ('2', 'Baja temporal'),
-        ('3', 'Sin trabajo actual'),
-        ('4', 'Pensionista'),
-        ('5', 'Nunca ha trabajado'),
-        ('6', 'Desconocido'),
-        )
-    SEXO = (
-        ('1', 'Masculino'),
-        ('2', 'Femenino'),
-        )
-    
-    identificador = models.OneToOneField(
-        Identificador,
-        on_delete=models.CASCADE,
-        primary_key=True,
-        )
+        )    
     fnac = models.DateField(
         verbose_name='Fecha de Nac.',
         blank=True,
+        null=True,
         )
     sexo = models.CharField(
-        choices=SEXO,
+        choices=(
+            ('1', 'Masculino'),
+            ('2', 'Femenino'),
+            ),
         max_length=2,
         blank=True,
         )
     e_civil = models.CharField(
         verbose_name='Estado civil',
         max_length=1,
-        choices=E_CIVIL,
+        choices=(
+            ('1', 'Soltero'),
+            ('2', 'Casado'),
+            ('3', 'Pareja estable'),
+            ('4', 'Separado'),
+            ('5', 'Viudo'),
+            ('6', 'Otro'),
+            ),
         blank=True,
         )
     n_hijos = models.PositiveSmallIntegerField(
@@ -94,33 +53,26 @@ class Demo(models.Model):
     laboral = models.CharField(
         verbose_name='Situación laboral',
         max_length=1,
-        choices=LABORAL,
+        choices=(
+            ('1', 'Activo'),
+            ('2', 'Baja temporal'),
+            ('3', 'Sin trabajo actual'),
+            ('4', 'Pensionista'),
+            ('5', 'Nunca ha trabajado'),
+            ('6', 'Desconocido'),
+            ),
         blank=True,
         )
     estudios = models.CharField(
         verbose_name='Nivel de estudios',
         max_length=1,
-        choices=ESTUDIOS,
-        blank=True,
-        )
-
-#     #### ##    ##  ######   ########  ########  ######   #######
-#      ##  ###   ## ##    ##  ##     ## ##       ##    ## ##     ##
-#      ##  ####  ## ##        ##     ## ##       ##       ##     ##
-#      ##  ## ## ## ##   #### ########  ######    ######  ##     ##
-#      ##  ##  #### ##    ##  ##   ##   ##             ## ##     ##
-#      ##  ##   ### ##    ##  ##    ##  ##       ##    ## ##     ##
-#     #### ##    ##  ######   ##     ## ########  ######   #######
-
-
-class Ingreso(models.Model):
-    identificador = models.OneToOneField(
-        Identificador,
-        on_delete=models.CASCADE,
-        primary_key=True,
-        )
-    fing = models.DateField(
-        verbose_name='Fecha de Ingreso',
+        choices=(
+            ('1', 'Primarios'),
+            ('2', 'Secundarios'),
+            ('3', 'Superiores'),
+            ('4', 'Sin estudios'),
+            ('5', 'Desconocido'),
+            ),
         blank=True,
         )
     sector = models.CharField(
