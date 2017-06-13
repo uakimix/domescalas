@@ -133,11 +133,13 @@ class ZaritInline(admin.StackedInline):
 class IdentificadorAdmin(admin.ModelAdmin):
     def _edad_(self,obj):
         today = date.today()
-        return today.year - obj.fnac.year - (
-            (today.month, today.day) < (obj.fnac.month, obj.fnac.day))
-    
+        try:
+            return today.year - obj.fnac.year - (
+                (today.month, today.day) < (obj.fnac.month, obj.fnac.day))
+        except:
+            return
+            
     def _dg_(self, obj):
-        
         try:
             return "; ".join([str(k) for k in obj.diagnostico_pac_set.all()])
         except:
