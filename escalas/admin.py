@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from datetime import date
 from django.contrib import admin
 from escalas.models import *
 from escalas.forms import *
@@ -130,8 +131,26 @@ class ZaritInline(admin.StackedInline):
 
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
+    def _edad_(self,obj):
+        today = date.today()
+        return today.year - obj.fnac.year - (
+            (today.month, today.day) < (obj.fnac.month, obj.fnac.day))
+    
+    def _dg_(self, obj):
+        
+        try:
+            return "; ".join([str(k) for k in obj.diagnostico_pac_set.all()])
+        except:
+            return
+    
+    _dg_.short_description = 'Diagnósticos'
+    _dg_.admin_order_field = '_dg_'
+    
+    _edad_.short_description = 'Edad'
+    _edad_.admin_order_field = '_edad_'
+    
     date_hierarchy = 'fecha_ingreso'
-    list_display = ('fecha_ingreso', 'codigo')
+    list_display = ('fecha_ingreso', 'codigo', 'sexo', '_edad_', 'falta', 'dispalta', '_dg_' )
     ordering = ('fecha_ingreso',)
 
     fieldsets = (
