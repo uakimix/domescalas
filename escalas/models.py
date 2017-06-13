@@ -60,6 +60,7 @@ class Identificador(models.Model):
             ('4', 'Pensionista'),
             ('5', 'Nunca ha trabajado'),
             ('6', 'Desconocido'),
+            ('7', 'Estudiante'),
             ),
         blank=True,
         )
