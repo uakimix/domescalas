@@ -135,7 +135,12 @@ class Farmaco(models.Model):
         )
     def __str__(self):
         return self.farmaco
-
+    
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("id__iexact", "farmaco__icontains",)
+      
+   
 class Tratamiento(models.Model):
     identificador = models.ForeignKey(
         Identificador,
@@ -170,6 +175,8 @@ class Tratamiento(models.Model):
         )
     def __str__(self):
         return "%s:%s %s mg/dia" % (self.f_inicio, self.farmaco, self.mg_dia)
+        
+        
 
 #     ########  ####    ###     ######   ##    ##  #######   ######  ######## ####  ######   #######
 #     ##     ##  ##    ## ##   ##    ##  ###   ## ##     ## ##    ##    ##     ##  ##    ## ##     ##
@@ -178,12 +185,17 @@ class Tratamiento(models.Model):
 #     ##     ##  ##  ######### ##    ##  ##  #### ##     ##       ##    ##     ##  ##       ##     ##
 #     ##     ##  ##  ##     ## ##    ##  ##   ### ##     ## ##    ##    ##     ##  ##    ## ##     ##
 #     ########  #### ##     ##  ######   ##    ##  #######   ######     ##    ####  ######   #######
+
 class Diagnostico(models.Model):
     diagnostico=models.CharField(
         max_length=300,
         )
     def __str__(self):
         return self.diagnostico
+        
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("id__iexact", "diagnostico__icontains",)
 
 class Diagnostico_pac(models.Model):
     class Meta:

@@ -11,16 +11,12 @@ class MyModelOptions(admin.ModelAdmin):
 class Diagnostico_pacInLine(admin.StackedInline):
     model = Diagnostico_pac
     extra = 0
-    fieldsets = (
-        (None, {
-            'fields': (
-                ('f_dg', 'diagnostico'),
-                )
-            }),
-        )
+    fields = (('f_dg', 'diagnostico'),
+             )
+
     raw_id_fields = ('diagnostico',)
-    related_lookup_fields = {
-        'fk': ['identificador','diagnostico'],
+    autocomplete_lookup_fields = {
+        'fk': ['diagnostico'],
     }
 
 class TratamientoInLine(admin.StackedInline):
@@ -29,6 +25,10 @@ class TratamientoInLine(admin.StackedInline):
     fields=(('f_inicio', 'farmaco', 'mg_dia'),
             ('f_termino', 'motivo'),
             )
+    raw_id_fields = ('farmaco',)
+    autocomplete_lookup_fields = {
+        'fk': ['farmaco'],
+    }
 
 class BcisInLine(admin.StackedInline):
     model = Bcis
@@ -134,7 +134,6 @@ class IdentificadorAdmin(admin.ModelAdmin):
     list_display = ('fecha_ingreso', 'codigo')
     ordering = ('fecha_ingreso',)
 
-
     fieldsets = (
         (None, {
             'fields': (
@@ -170,7 +169,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
                ZaritInline
                ]
 
-
-
 admin.site.register(Diagnostico)
 admin.site.register(Farmaco)
+admin.site.register(Tratamiento)
+admin.site.register(Diagnostico_pac)
