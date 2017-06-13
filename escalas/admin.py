@@ -173,3 +173,4 @@ class IdentificadorAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Diagnostico)
+admin.site.register(Farmaco)
