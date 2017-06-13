@@ -110,11 +110,12 @@ class Identificador(models.Model):
         max_length=2,
         choices= (
             ('0', 'Domicilio'),
-            ('1', 'CESMA'),
+            ('1', 'CSMA'),
             ('2', 'H de dia'),
             ('3', 'Subagudos'),
             ('4', 'Agudos'),
-            ('5', 'Otros'),
+            ('5', 'CCEE Sant Pau'),
+            ('6', 'Otros'),
             ),
         blank=True,
         )
