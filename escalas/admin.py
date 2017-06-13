@@ -191,4 +191,3 @@ class IdentificadorAdmin(admin.ModelAdmin):
 admin.site.register(Diagnostico)
 admin.site.register(Farmaco)
 admin.site.register(Tratamiento)
-admin.site.register(Diagnostico_pac)
