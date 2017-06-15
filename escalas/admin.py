@@ -198,5 +198,3 @@ class IdentificadorAdmin(admin.ModelAdmin):
                Who_dasInline,
                ZaritInline
                ]
-
-admin.site.register(Farmaco)
