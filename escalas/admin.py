@@ -128,6 +128,15 @@ class ZaritInline(admin.StackedInline):
     extra = 0
     classes = ('grp-collapse grp-closed',)
     inline_classes = ('grp-collapse grp-closed',)
+    
+@admin.register(Diagnostico)
+class DiagnosticoAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Farmaco)
+class FarmacoAdmin(admin.ModelAdmin):
+    pass
+
 
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
@@ -190,6 +199,4 @@ class IdentificadorAdmin(admin.ModelAdmin):
                ZaritInline
                ]
 
-admin.site.register(Diagnostico)
 admin.site.register(Farmaco)
-admin.site.register(Tratamiento)
