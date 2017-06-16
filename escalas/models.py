@@ -152,9 +152,8 @@ class Tratamiento(models.Model):
     farmaco = models.ForeignKey(
         Farmaco,
         )    
-    mg_dia = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
+    mg_dia = models.CharField(
+        max_length=20,
         verbose_name='mg/dia',
         )
     f_termino = models.DateField(
