@@ -137,6 +137,10 @@ class DiagnosticoAdmin(admin.ModelAdmin):
 class FarmacoAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(Tratamiento)
+class TratamientoAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(Csq8)
 class Csq8Admin(admin.ModelAdmin):
     form = Csq8AdminForm
