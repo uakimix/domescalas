@@ -7,143 +7,10 @@ CHOICES = (
     (0, 'No'),
     (1, 'Si'),
     )
-LIKERT4 = (
-        (4, '4.Casi Siempre'),
-        (3, '3.A menudo'),
-        (2, '2.A veces'),
-        (1, '1.Nunca'),
-        )
 
-L_BCIS = (
-        (0, '0.Nada de acuerdo'),
-        (1, '1.Un poco de acuerdo'),
-        (2, '2.Bastante de acuerdo'),
-        (3, '3.Totalmente de acuerdo'),
-        )
 
-LIKERT6 = (
-        (6, '6.Muy Grave'),
-        (5, '5.Grave'),
-        (4, '4.Bastante acentuado'),
-        (3, '3.Moderado'),
-        (2, '2.Leve'),
-        (1, '1.Muy leve'),
-        (0, '0.Ausente'),
-        )
-LIKERT5 = (
-        (5, '5.Extrema / no puede'),
-        (4, '4.Severa'),
-        (3, '3.Moderada'),
-        (2, '2.Leve'),
-        (1, '1.Ninguna'),
-        )
     
 VARFORM = forms.Select
-
-
-
-#      #######   #######
-#     ##     ## ##     ##
-#     ##     ## ##     ##
-#     ##     ##  #######
-#     ##  ## ## ##     ##
-#     ##    ##  ##     ##
-#      ##### ##  #######
-#
-class SatisfaccionAdminForm(forms.ModelForm):
-    class Meta:
-        model = Satisfaccion
-        fields = '__all__'
-    item_1 = forms.ChoiceField(
-        label = '1.- ¿Cómo evalúa la calidad de los servicios que ha recibido?',
-        widget = VARFORM,
-        choices=(
-            (4, 'Excelente'),
-            (3, 'Buena'),
-            (2, 'Regular'),
-            (1, 'Mala'),
-            ),
-        )
-    item_2 = forms.ChoiceField(
-        label = '2.- ¿Recibió la clase de servicio que usted requería?',
-        widget = VARFORM,
-        choices=(
-            (4, 'No definitivamente'),
-            (3, 'En muy pocos casos'),
-            (2, 'Si en general'),
-            (1, 'Si definitívamente'),
-            ),
-        )
-    item_3 = forms.ChoiceField(
-        label = '3.- ¿Hasta qué punto ha ayudado nuestro programa a solucinar sus probelmas?',
-        widget = VARFORM,
-        choices= (
-            (4, 'En casi todos'),
-            (3, 'En la mayor parte de'),
-            (2, 'Sólo en algunos'),
-            (1, 'En ninguno'),
-            ),
-        )
-    item_4 = forms.ChoiceField(
-        label = '4.- ¿Si un/a amigo/a estuviera en necesidad de ayuda similar, le recomendaría nuestro programa?',
-        widget = VARFORM,
-        choices=(
-            (4, 'No definitivamente'),
-            (3, 'No, creo que no'),
-            (2, 'Si, creo que si'),
-            (1, 'Si definitivamente'),
-            ),
-        )
-    item_5 = forms.ChoiceField(
-        label = '5.- ¿Cómo de satisfecho/a está usted con la cantidad de ayuda que ha recibido?',
-        widget = VARFORM,
-        choices=(
-            (4, 'Nada satisfecho/a'),
-            (3, 'Indiferente o moderadamente no satisfecho/a'),
-            (2, 'Moderadamente satisfecho/a'),
-            (1, 'Muy satisfecho/a'),
-            ),
-        )
-    item_6 = forms.ChoiceField(
-        label = '6.- ¿Los servicios que ha recibido le han ayudado a enfrentarse mejor a sus problemas?',
-        widget = VARFORM,
-        choices=(
-            (4, 'Si me ayudaron mucho'),
-            (3, 'Si me ayudaron algo'),
-            (2, 'No, realmente no me ayudaron'),
-            (1, 'No, parecían poner las cosas peor'),
-            ),
-        )
-    item_7 = forms.ChoiceField(
-        label = '7.- ¿En general, cómo de satisfecho/a está usted con los servicios que ha recibido?',
-        widget = VARFORM,
-        choices=(
-            (4, 'Muy satisfecho/a'),
-            (3, 'Moderadamente satisfecho/a'),
-            (2, 'Algo insatisfecho/a'),
-            (1, 'Muy insatisfecho'),
-            ),
-        )
-    item_8 = forms.ChoiceField(
-        label = '8.- ¿Si necesitara ayuda otra vez , volvería a nuestro programa?',
-        widget = VARFORM,
-        choices=(
-            (4, 'No definitívamente'),
-            (3, 'No posiblemente'),
-            (2, 'Si, creo que si'),
-            (1, 'Si con seguridad'),
-            ),
-        )
-    item_9 = forms.CharField(
-        label= '9.- Lo que mas me ha gustado de la atencion que he recibido ha sido',
-        widget = forms.Textarea,
-        )
-    item_10 = forms.CharField(
-        label= '10.- Creo que se tendría que mejorar',
-        widget = forms.Textarea,
-        )
-
-
 
 
 #     ########   ######  ####  ######
@@ -155,6 +22,12 @@ class SatisfaccionAdminForm(forms.ModelForm):
 #     ########   ######  ####  ######
 
 class BcisAdminForm(forms.ModelForm):
+    L_BCIS = (
+        (0, '0.Nada de acuerdo'),
+        (1, '1.Un poco de acuerdo'),
+        (2, '2.Bastante de acuerdo'),
+        (3, '3.Totalmente de acuerdo'),
+        )
     class Meta:
         model = Bcis
         fields = '__all__'
@@ -245,6 +118,15 @@ class BcisAdminForm(forms.ModelForm):
 #     ########  ##        ##     ##  ######
 #
 class BprsAdminForm(forms.ModelForm):
+    LIKERT6 = (
+        (6, '6.Muy Grave'),
+        (5, '5.Grave'),
+        (4, '4.Bastante acentuado'),
+        (3, '3.Moderado'),
+        (2, '2.Leve'),
+        (1, '1.Muy leve'),
+        (0, '0.Ausente'),
+        )
     class Meta:
         model = Bprs
         fields = '__all__'
@@ -339,15 +221,7 @@ class BprsAdminForm(forms.ModelForm):
         widget = VARFORM,
         )
 
-LIKERT_PANSS = (
-        (7, '7.Extremo'),
-        (6, '6.Severo'),
-        (5, '5.Moderado severo'),
-        (4, '4.Moderado'),
-        (3, '3.Ligero'),
-        (2, '2.Mínimo'),
-        (1, '1.Ausente'),
-        )
+
         
 #     ########  ##     ## ##    ## ########
 #     ##     ## ##     ## ##   ##  ##
@@ -357,15 +231,15 @@ LIKERT_PANSS = (
 #     ##     ## ##     ## ##   ##  ##
 #     ########   #######  ##    ## ########
 
-LIKERT_DUKE = (
+
+class DukeAdminForm(forms.ModelForm):
+    LIKERT_DUKE = (
         (5, '5. Tanto como deseo'),
         (4, '4. Casi como deseo'),
         (3, '3. Ni mucho ni poco'),
         (2, '2. Menos de lo que deseo'),
         (1, '1. Mucho menos de lo que deseo'),
         )
-
-class DukeAdminForm(forms.ModelForm):
     class Meta:
         model = Duke
         fields = '__all__'
@@ -470,6 +344,105 @@ class CgiAdminForm(forms.ModelForm):
         widget = VARFORM,
     )
     
+    
+    
+# CSQ-8
+class Csq8AdminForm(forms.ModelForm):
+    class Meta:
+        model = Csq8
+        fields = '__all__'
+        
+    autor = forms.ChoiceField(
+        widget=forms.RadioSelect,
+        )
+    item_01 = forms.ChoiceField(
+        label='1.-¿Cómo evaluaría la calidad de los servicios que ha recibido',
+        choices=(
+            ('4', 'Excelent'),
+            ('3', 'Buen'),
+            ('2', 'Regula'),
+            ('1', 'Mala'),
+            ),
+        widget=VARFORM,
+        )
+    item_02 = forms.ChoiceField(
+        label='2.-¿Recibió la clase de servicio que usted requería?',
+        choices=(
+            ('4', 'No definitivamente'),
+            ('3', 'En muy pocos casos'),
+            ('2', 'Si en general'),
+            ('1', 'Si definitivamente'),
+            ),
+        widget=VARFORM,
+        )
+    item_03 = forms.ChoiceField(
+        label='3.-¿Hasta que punto ha ayudado nuestro programa a solucionar sus problemas?',
+        choices=(
+            ('4', 'En casi todos'),
+            ('3', 'En la mayor parte'),
+            ('2', 'Solo en algunos'),
+            ('1', 'En ninguno'),
+            ),
+        widget=VARFORM,
+        )
+    item_04 = forms.ChoiceField(
+        label='4.-¿Si un/a amigo/a estuviera en necesidad de ayuda similar, le recomendaría nuestro programa?',
+        choices=(
+            ('4', 'No definitivamente'),
+            ('3', 'No , creo que no'),
+            ('2', 'Si, creo que si'),
+            ('1', 'Si definitivamente'),
+            ),
+        widget=VARFORM,
+        )
+    item_05 = forms.ChoiceField(
+        label='5.-¿Cómo de satisfecho/a esta usted con la cantidad de ayuda que ha recibido?',
+        choices=(
+            ('4', 'Nada satisfecho/a'),
+            ('3', 'Indiferente o moderadamente no satisfecho/a'),
+            ('2', 'Moderadamente satisfecho/a'),
+            ('1', 'Muy satisfecho/a'),
+            ),
+        widget=VARFORM,
+        )
+    item_06 = forms.ChoiceField(
+        label='6.-¿Los servicios que ha recibido le han ayudado a enfrentarse mejor a sus problemas?',
+        choices=(
+            ('4', 'Si me ayudaron mucho'),
+            ('3', 'Si me ayudaron algo'),
+            ('2', 'No realmente no me ayudaron'),
+            ('1', 'No parecían poner las cosas peor'),
+            ),
+        widget=VARFORM,
+        )
+    item_07 = forms.ChoiceField(
+        label='7.- ¿En general, cómo de satisfecho/a está usted con los servicios que ha recibido?',
+        choices=(
+            ('4', 'Muy satisfecho/a'),
+            ('3', 'Moderadamente satisfecho/a'),
+            ('2', 'Algo insatisfecho/a'),
+            ('1', 'Muy Insatisfecho/a'),
+            ),
+        widget=VARFORM,
+        )
+    item_08 = forms.ChoiceField(
+        label='8.-¿Si necesitara ayuda otra vez volvería a nuestro programa?',
+        choices=(
+            ('4', 'No definitivamente'),
+            ('3', 'No posiblemente'),
+            ('2', 'Si, creo que si'),
+            ('1', 'Si con seguridad'),
+            ),
+        widget=VARFORM,
+        )
+    item_09 = forms.CharField(
+        label='9.-Lo que más me ha gustado de la atención que he recibido ha sido:',
+        )
+    item_10 = forms.CharField(
+        label='10.-Creo que se tendría que mejorar:'
+        )
+
+
 
 #     ##     ## ########  ########   ######
 #     ##     ## ##     ## ##     ## ##    ##
@@ -811,7 +784,17 @@ class MadrsAdminForm(forms.ModelForm):
 #     ##        ##     ## ##   ### ##    ## ##    ##
 #     ##        ##     ## ##    ##  ######   ######
 #
+
 class PanssAdminForm(forms.ModelForm):
+    LIKERT_PANSS = (
+        (7, '7.Extremo'),
+        (6, '6.Severo'),
+        (5, '5.Moderado severo'),
+        (4, '4.Moderado'),
+        (3, '3.Ligero'),
+        (2, '2.Mínimo'),
+        (1, '1.Ausente'),
+        )
     class Meta:
         model = Panss
         fields = '__all__'
@@ -969,162 +952,6 @@ class PanssAdminForm(forms.ModelForm):
         )
 
 
-#     ########  ##       ##     ## ########  ######  ##     ## #### ##    ##
-#     ##     ## ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
-#     ##     ## ##       ##     ##    ##    ##       ##     ##  ##  ##  ##
-#     ########  ##       ##     ##    ##    ##       #########  ##  #####
-#     ##        ##       ##     ##    ##    ##       ##     ##  ##  ##  ##
-#     ##        ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
-#     ##        ########  #######     ##     ######  ##     ## #### ##    ##
-
-class Plutchik_sAdminForm(forms.ModelForm):
-    class Meta:
-        model = Plutchik_s
-        fields = '__all__' 
-    item_01 = forms.ChoiceField(
-        label='1.- ¿Toma de forma habitual algún medicamento como aspirinas o pastillas para dormir?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_02 = forms.ChoiceField(
-        label='2.- ¿Tiene dificultades para conciliar el sueño?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_03 = forms.ChoiceField(
-        label='3.- ¿A veces nota que podría perder el control sobre sí mismo/a?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_04 = forms.ChoiceField(
-        label='4.- ¿Tiene poco interés en relacionarse con la gente?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_05 = forms.ChoiceField(
-        label='5.- ¿Ve su futuro con más pesimismo que optimismo?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_06 = forms.ChoiceField(
-        label='6.- ¿Se ha sentido alguna vez inútil o inservible?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_07 = forms.ChoiceField(
-        label='7.- ¿Ve su futuro sin ninguna esperanza?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_08 = forms.ChoiceField(
-        label='8.- ¿Se ha sentido alguna vez fracasado/a, que sólo quería meterse en la cama y abandonarlo todo?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_09 = forms.ChoiceField(
-        label='9.- ¿Está deprimido/a ahora?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_10 = forms.ChoiceField(
-        label='10.- ¿Está vd. separado/a, divorciado/a o viudo/a?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_11 = forms.ChoiceField(
-        label='11.- ¿Sabe si alguien de su familia ha intentado suicidarse alguna vez?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_12 = forms.ChoiceField(
-        label='12.- ¿Alguna vez se ha sentido tan enfadado/a que habría sido capaz de matar a alguien?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_13 = forms.ChoiceField(
-        label='13.- ¿Ha pensado alguna vez en suicidarse?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_14 = forms.ChoiceField(
-        label='14.- ¿Le ha comentado a alguien, en alguna ocasión, que quería suici- darse?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-    item_15 = forms.ChoiceField(
-        label='15.- ¿Ha intentado alguna vez quitarse la vida?',
-        choices = CHOICES,
-        widget = VARFORM,
-        )
-
-class Plutchik_vAdminForm(forms.ModelForm):
-    class Meta:
-        model = Plutchik_v
-        fields = '__all__'
-
-    item_01 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='1.- ¿Se enfada con facilidad?',
-        widget = VARFORM,
-        )
-    item_02 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='2.- ¿Se enfada continuamente con la gente ?',
-        widget = VARFORM,
-        )
-    item_03 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='3.- ¿Se enfurece sin motivo?',
-        widget = VARFORM,
-        )
-    item_04 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='4.- Cuando se enfada, ¿Coge un arma?',
-        widget = VARFORM,
-        )
-    item_05 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='5.- ¿Ha lastimado alguna vez a alguien en una pelea?',
-        widget = VARFORM,
-        )
-    item_06 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='6.- ¿Ha pegado o atacado alguna vez a algún familiar?',
-        widget = VARFORM,
-        )
-    item_07 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='7.- ¿Ha pegado o atacado algunas vez a alquien que no sea famililar suyo?',
-        widget = VARFORM,
-        )
-    item_08 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='8.- ¿Ha usado alguna vez un objeto para agredir a alguien?',
-        widget = VARFORM,
-        )
-    item_09 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='9.- ¿Podría conseguir un arma con facilidad?',
-        widget = VARFORM,
-        )
-    item_10 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='10.- ¿Cuantas veces ha sido vd. detenido por delitos no violentos como irse de un tienda o falsificar documentos?',
-        widget = VARFORM,
-        )
-    item_11 = forms.ChoiceField(
-        choices=LIKERT4,
-        label='11.- ¿Cuántas veces ha sido vd. detenido por delitos como robo a mano armada o agresión violenta?',
-        widget = VARFORM,
-        )
-    item_12 = forms.ChoiceField(
-        choices=CHOICES,
-        label = '12.- ¿Guarda o colecciona armas en su casa y sabe cómo utilizarlas?',
-        widget = VARFORM,
-        )
-
-
-
 #     ##    ## ##     ## ########   ######
 #      ##  ##  ###   ### ##     ## ##    ##
 #       ####   #### #### ##     ## ##
@@ -1260,11 +1087,6 @@ class YmrsAdminForm(forms.ModelForm):
         widget = VARFORM,
         )
 
-
-
-
-
-
 #
 #      ##   ##  ##   ##    ###             #####      ##      #####
 #      ##   ##  ##   ##   ## ##            ##  ##     ##     ##   ##
@@ -1274,10 +1096,17 @@ class YmrsAdminForm(forms.ModelForm):
 #      ### ###  ##   ##   ## ##            ##  ##   ##   #   ##   ##
 #      ##   ##  ##   ##    ###             #####   ###   ##   #####
 #
-#
+
    
 # WHO-DAS 2.0 36 items
 class Who_dasAdminForm(forms.ModelForm):
+    LIKERT5 = (
+        (5, '5.Extrema / no puede'),
+        (4, '4.Severa'),
+        (3, '3.Moderada'),
+        (2, '2.Leve'),
+        (1, '1.Ninguna'),
+        )
     class Meta:
         model = Who_das
         fields = '__all__'

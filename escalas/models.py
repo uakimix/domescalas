@@ -152,8 +152,10 @@ class Tratamiento(models.Model):
     farmaco = models.ForeignKey(
         Farmaco,
         )    
-    mg_dia = models.PositiveSmallIntegerField(
-        verbose_name='mg/dia'
+    mg_dia = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        verbose_name='mg/dia',
         )
     f_termino = models.DateField(
         verbose_name='Fecha de término',
@@ -1071,3 +1073,44 @@ class Zarit(Escala):
                 self.item_21 + self.item_22)
     def __str__(self):
         return "%s: ZARIT=%s" % (self.fecha, str(self.total))
+
+
+# CSQ-8
+        
+class Csq8(models.Model):
+    class Meta:
+        verbose_name = 'CSQ-8'
+        verbose_name_plural = 'Escalas CSQ-8'
+    autor = models.CharField(
+        max_length=3,
+        )
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.TextField(
+        null = True,
+        )
