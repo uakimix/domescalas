@@ -153,8 +153,8 @@ class Tratamiento(models.Model):
         Farmaco,
         )    
     mg_dia = models.DecimalField(
-        max_digits=10,
-        decimal_places=3,
+        max_digits=6,
+        decimal_places=2,
         verbose_name='mg/dia',
         )
     depot = models.BooleanField(
