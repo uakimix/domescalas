@@ -25,7 +25,8 @@ class TratamientoInLine(admin.StackedInline):
     model=Tratamiento
     form = TratamientoForm
     extra=0
-    fields=(('f_inicio', 'farmaco', 'mg_dia', 'depot'),
+    fields=(('f_inicio', 'farmaco'),
+            ('mg_dia', 'depot'),
             ('f_termino', 'motivo'),
             )
     raw_id_fields = ('farmaco',)
