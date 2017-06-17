@@ -10,7 +10,7 @@ CHOICES = (
 
 
     
-VARFORM = forms.Select
+VARFORM = forms.RadioSelect
 
 
 #     ########   ######  ####  ######
@@ -787,13 +787,13 @@ class MadrsAdminForm(forms.ModelForm):
 
 class PanssAdminForm(forms.ModelForm):
     LIKERT_PANSS = (
-        (7, '7.Extremo'),
-        (6, '6.Severo'),
+    	(1, '1.Ausente'),
+    	(2, '2.Mínimo'),
+    	(3, '3.Ligero'),
+    	(4, '4.Moderado'),
         (5, '5.Moderado severo'),
-        (4, '4.Moderado'),
-        (3, '3.Ligero'),
-        (2, '2.Mínimo'),
-        (1, '1.Ausente'),
+        (6, '6.Severo'),
+        (7, '7.Extremo'),
         )
     class Meta:
         model = Panss
@@ -1012,9 +1012,13 @@ class YmrsAdminForm(forms.ModelForm):
         label = '5.- Irritabilidad',
         choices = (
             (0, '0.Ausente'),
+            (1, '1.'),
             (2, '2.Subjetivamente aumentada'),
+            (3, '3.'),
             (4, '4.Irritabilidad fluctuante durante la entrevista, episodios recientes de rabia o enfado'),
+            (5, '5.'),
             (6, '6.Predominantemente irritable durante la entrevista, brusco y cortante'),
+            (7, '7.'),
             (8, '8.Hostil, no colaborador/a, entrevista imposible'),
             ),
         widget = VARFORM,
@@ -1024,9 +1028,13 @@ class YmrsAdminForm(forms.ModelForm):
         label = '6.- Expresión verbal',
         choices = (
             (0, '0.No aumentada'),
+            (1, '1.'),
             (2, '2.Sensación de locuacidad'),
+            (3, '3.'),
             (4, '4.Aumentada de forma fluctuante, verborrea ocasional'),
+            (5, '5.'),
             (6, '6.Claramente aumentada en ritmo y cantidad, difícil de interrumpir, intrusiva'),
+            (7, '7.'),
             (8, '8.Verborrea ininterrumpible y continua'),
             ),
         widget = VARFORM,
@@ -1046,9 +1054,13 @@ class YmrsAdminForm(forms.ModelForm):
         label = '8.- Trastornos del contenido del pensamiento',
         choices = (
             (0, '0.Ausentes'),
+            (1, '1.'),
             (2, '2.Planes discutibles, nuevos intereses'),
+            (3, '3.'),
             (4, '4.Proyectos especiales, misticismo'),
+            (5, '5.'),
             (6, '6.Ideas grandiosas o paranoides, ideas de referencia'),
+            (7, '7.'),
             (8, '8.Delirios, alucinaciones'),
             ),
         widget = VARFORM,
@@ -1057,9 +1069,13 @@ class YmrsAdminForm(forms.ModelForm):
         label = '9.- Agresividad',
         choices = (
             (0, '0.Ausente, colaborador/a'),
+            (1, '1.'),
             (2, '2.Sarcástico/a, enfático/a, lacónico/a'),
+            (3, '3.'),
             (4, '4.Querulante, pone en guardia'),
+            (5, '5.'),
             (6, '6.Amenaza al entrevistador, habla a gritos, entrevista difícil'),
+            (7, '7.'),
             (8, '8.Claramente agresivo/a, destructivo/a, entrevista imposible'),
             ),
         widget = VARFORM,

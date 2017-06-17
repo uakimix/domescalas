@@ -41,7 +41,7 @@ class Identificador(models.Model):
             ('3', 'Pareja estable'),
             ('4', 'Separado'),
             ('5', 'Viudo'),
-            ('6', 'Otro'),
+            ('9', 'Otro'),
             ),
         blank=True,
         )
@@ -59,8 +59,8 @@ class Identificador(models.Model):
             ('3', 'Sin trabajo actual'),
             ('4', 'Pensionista'),
             ('5', 'Nunca ha trabajado'),
-            ('6', 'Desconocido'),
-            ('7', 'Estudiante'),
+            ('6', 'Estudiante'),
+            ('9', 'Desconocido'),
             ),
         blank=True,
         )
@@ -96,7 +96,7 @@ class Identificador(models.Model):
             ('03', 'H de día'),
             ('04', 'CCEE'),
             ('05', 'Subagudos'),
-            ('06', 'Otros'),
+            ('99', 'Otros'),
             ),
         blank=True,
         )
@@ -115,7 +115,7 @@ class Identificador(models.Model):
             ('3', 'Subagudos'),
             ('4', 'Agudos'),
             ('5', 'CCEE Sant Pau'),
-            ('6', 'Otros'),
+            ('9', 'Otros'),
             ),
         blank=True,
         )
@@ -140,6 +140,12 @@ class Farmaco(models.Model):
     @staticmethod
     def autocomplete_search_fields():
         return ("id__iexact", "farmaco__icontains",)
+
+class Adverso(models.Model):
+    efecto = models.CharField(
+        verbose_name='Efecto adverso',
+        max_length=200,
+        )
       
    
 class Tratamiento(models.Model):
@@ -161,20 +167,12 @@ class Tratamiento(models.Model):
         blank=True,
         null=True,
         )
-    motivo = models.CharField(
-        verbose_name='Motivo de suspensión',
-        max_length=2,
-        choices=(
-            ('00', 'Falta de eficacia'),
-            ('01', 'Efecto adverso EP'),
-            ('02', 'Efecto adverso digestivo'),
-            ('03', 'Efecto adverso neurológico'),
-            ('04', 'Efecto adevrso otros'),
-            ('05', 'Cambio dentro del mismo grupo'),
-            ('06', 'Abandono del paciente'),
-            ),
+    efectos = models.ForeignKey(
+        Adverso,
         blank=True,
+        null=True,
         )
+
     def __str__(self):
         return "%s:%s %s mg/dia" % (self.f_inicio, self.farmaco, self.mg_dia)
         

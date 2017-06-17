@@ -24,7 +24,7 @@ class TratamientoInLine(admin.StackedInline):
     model=Tratamiento
     extra=0
     fields=(('f_inicio', 'farmaco', 'mg_dia'),
-            ('f_termino', 'motivo'),
+            ('f_termino', 'efectos'),
             )
     raw_id_fields = ('farmaco',)
     autocomplete_lookup_fields = {
@@ -135,6 +135,10 @@ class DiagnosticoAdmin(admin.ModelAdmin):
 
 @admin.register(Farmaco)
 class FarmacoAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Adverso)
+class AdversoAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(Tratamiento)
