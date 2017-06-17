@@ -55,11 +55,11 @@ class Migration(migrations.Migration):
             name='f_termino',
             field=models.DateField(blank=True, null=True, verbose_name=b'Fecha de t\xc3\xa9rmino'),
         ),
-        #migrations.AlterField(
-        #    model_name='tratamiento',
-        #    name='mg_dia',
-        #    field=models.DecimalField(decimal_places=2, max_digits=5, verbose_name=b'mg/dia'),
-        #),
+        migrations.AlterField(
+            model_name='tratamiento',
+            name='mg_dia',
+            field=models.CharField(max_length=30, verbose_name=b'mg/dia'),
+        ),
         migrations.AlterField(
             model_name='tratamiento',
             name='motivo',
