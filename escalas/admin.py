@@ -169,7 +169,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
     _edad_.admin_order_field = '_edad_'
     
     date_hierarchy = 'fecha_ingreso'
-    list_display = ('fecha_ingreso', 'codigo', 'sexo', '_edad_', 'falta', 'dispalta', '_dg_' )
+    list_display = ('fecha_ingreso', 'codigo', 'sexo', '_edad_', 'falta', 'dispalta', '_dg_', 'psiquiatra' )
     ordering = ('fecha_ingreso',)
 
     fieldsets = (
@@ -186,7 +186,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
             }),
         ('Ingreso', {
           'fields': (
-            ('fecha_ingreso', 'procedencia'),
+            ('fecha_ingreso', 'procedencia', 'psiquiatra'),
             ('falta', 'dispalta')
             )
           }),

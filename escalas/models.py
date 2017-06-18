@@ -119,6 +119,16 @@ class Identificador(models.Model):
             ),
         blank=True,
         )
+    psiquiatra = models.CharField(
+        verbose_name='psiquiatra',
+        max_length=3,
+        choices=(
+            ('AKG', 'A. Keymer'),
+            ('AMB', 'A. Martin'),
+            ('SVC', 'S. Vieira'),
+            ),
+        blank=True,
+        )
 
 
 
