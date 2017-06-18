@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='tratamiento',
             name='mg_dia',
-            field=models.DecimalField(decimal_places=2, max_digits=5, verbose_name=b'mg/dia'),
+            field=models.CharField(max_length=30, verbose_name=b'mg/dia'),
         ),
         migrations.AlterField(
             model_name='tratamiento',

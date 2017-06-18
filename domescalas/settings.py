@@ -30,10 +30,11 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 # Application definition
 
 INSTALLED_APPS = [
-	'grappelli',
+
+	'django.contrib.contenttypes',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     # Disable Django's own staticfiles handling in favour of WhiteNoise, for

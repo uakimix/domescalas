@@ -4,10 +4,11 @@ from datetime import date
 from django.contrib import admin
 from escalas.models import *
 from escalas.forms import *
-from django.forms import TextInput
+from django.forms import TextInput, RadioSelect
 
 class MyModelOptions(admin.ModelAdmin):
     change_list_filter_template = "admin/filter_listing.html"
+
 
 class Diagnostico_pacInLine(admin.StackedInline):
     model = Diagnostico_pac
@@ -22,8 +23,10 @@ class Diagnostico_pacInLine(admin.StackedInline):
 
 class TratamientoInLine(admin.StackedInline):
     model=Tratamiento
+    form = TratamientoForm
     extra=0
-    fields=(('f_inicio', 'farmaco', 'mg_dia'),
+    fields=(('f_inicio', 'farmaco'),
+            ('mg_dia', 'depot'),
             ('f_termino', 'motivo'),
             )
     raw_id_fields = ('farmaco',)
@@ -45,9 +48,16 @@ class BprsInLine(admin.StackedInline):
     classes = ('grp-collapse grp-closed',)
     inline_classes = ('grp-collapse grp-closed',)
 
-class CgiInLine(admin.StackedInline):
-    model = Cgi
-    form = CgiAdminForm
+class Icg_geInLine(admin.StackedInline):
+    model = Icg_ge
+    form = Icg_geAdminForm
+    extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
+
+class Icg_meInLine(admin.StackedInline):
+    model = Icg_me
+    form = Icg_meAdminForm
     extra = 0
     classes = ('grp-collapse grp-closed',)
     inline_classes = ('grp-collapse grp-closed',)
@@ -69,13 +79,6 @@ class HdrsInLine(admin.StackedInline):
 class MadrsInLine(admin.StackedInline):
     model = Madrs
     form = MadrsAdminForm
-    extra = 0
-    classes = ('grp-collapse grp-closed',)
-    inline_classes = ('grp-collapse grp-closed',)
-    
-class YmrsInLine(admin.StackedInline):
-    model =Ymrs
-    form = YmrsAdminForm
     extra = 0
     classes = ('grp-collapse grp-closed',)
     inline_classes = ('grp-collapse grp-closed',)
@@ -114,6 +117,21 @@ class PanssInLine(admin.StackedInline):
           }),
 
       )
+
+class YmrsInLine(admin.StackedInline):
+    model =Ymrs
+    form = YmrsAdminForm
+    extra = 0
+    classes = ('grp-collapse grp-closed',)
+    inline_classes = ('grp-collapse grp-closed',)
+    fields = (
+        'item_01', 'item_02',
+        'item_03', 'item_04',
+        'item_05', 'item_06',
+        'item_07', 'item_08',
+        'item_09', 'item_10',
+        'item_11',
+        )
 
 class Who_dasInline(admin.StackedInline):
     model = Who_das
@@ -197,7 +215,8 @@ class IdentificadorAdmin(admin.ModelAdmin):
                TratamientoInLine,
                BcisInLine,
                BprsInLine,
-               CgiInLine,
+               Icg_geInLine,
+               Icg_meInLine,
                DukeInLine,
                HdrsInLine,
                MadrsInLine,

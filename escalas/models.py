@@ -41,7 +41,7 @@ class Identificador(models.Model):
             ('3', 'Pareja estable'),
             ('4', 'Separado'),
             ('5', 'Viudo'),
-            ('6', 'Otro'),
+            ('9', 'Otro'),
             ),
         blank=True,
         )
@@ -59,8 +59,8 @@ class Identificador(models.Model):
             ('3', 'Sin trabajo actual'),
             ('4', 'Pensionista'),
             ('5', 'Nunca ha trabajado'),
-            ('6', 'Desconocido'),
-            ('7', 'Estudiante'),
+            ('6', 'Estudiante'),
+            ('9', 'Desconocido'),
             ),
         blank=True,
         )
@@ -96,7 +96,7 @@ class Identificador(models.Model):
             ('03', 'H de día'),
             ('04', 'CCEE'),
             ('05', 'Subagudos'),
-            ('06', 'Otros'),
+            ('99', 'Otros'),
             ),
         blank=True,
         )
@@ -115,7 +115,7 @@ class Identificador(models.Model):
             ('3', 'Subagudos'),
             ('4', 'Agudos'),
             ('5', 'CCEE Sant Pau'),
-            ('6', 'Otros'),
+            ('9', 'Otros'),
             ),
         blank=True,
         )
@@ -162,9 +162,16 @@ class Tratamiento(models.Model):
     farmaco = models.ForeignKey(
         Farmaco,
         )    
-    mg_dia = models.CharField(
-        max_length=20,
+    mg_dia = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
         verbose_name='mg/dia',
+        )
+    depot = models.BooleanField(
+        choices=(
+            (False, 'No'),
+            (True, 'Si'),
+            )
         )
     f_termino = models.DateField(
         verbose_name='Fecha de término',
@@ -172,19 +179,21 @@ class Tratamiento(models.Model):
         null=True,
         )
     motivo = models.CharField(
-        verbose_name='Motivo de suspensión',
         max_length=2,
-        choices=(
-            ('00', 'Falta de eficacia'),
-            ('01', 'Efecto adverso EP'),
-            ('02', 'Efecto adverso digestivo'),
-            ('03', 'Efecto adverso neurológico'),
-            ('04', 'Efecto adevrso otros'),
-            ('05', 'Cambio dentro del mismo grupo'),
-            ('06', 'Abandono del paciente'),
-            ),
         blank=True,
+        null=True,
+        choices=(
+            ('01', 'Abandono de tratamiento'),
+            ('02', 'Falta de eficacia'),
+            ('03', 'Efecto adverso EP'),
+            ('04', 'Efecto adverso digestivo'),
+            ('05', 'Efecto adverso hematologico'),
+            ('06', 'Efecto adverso autonómico'),
+            ('07', 'Otro efecto adverso'),
+            ('99', 'NE'),
+            )
         )
+
     def __str__(self):
         return "%s:%s %s mg/dia" % (self.f_inicio, self.farmaco, self.mg_dia)
         
@@ -395,18 +404,86 @@ class Bprs(Escala):
     def __str__(self):
         return "%s: BPRS=%s" % (self.fecha, str(self.total))
 
-class Cgi(Escala):
+
+#      ######   ######   #######           #######
+#     ##    ## ##    ## ##     ##         ##     ##
+#     ##       ##       ##     ##         ##     ##
+#     ##        ######  ##     ## #######  #######
+#     ##             ## ##  ## ##         ##     ##
+#     ##    ## ##    ## ##    ##          ##     ##
+#      ######   ######   ##### ##          #######    
+class Csq8(models.Model):
     class Meta:
-        verbose_name = 'escala CGI'
-        verbose_name_plural = 'escalas CGI'
-    cgi_a = models.PositiveSmallIntegerField(
+        verbose_name = 'CSQ-8'
+        verbose_name_plural = 'Escalas CSQ-8'
+    autor = models.CharField(
+        max_length=3,
+        )
+    item_01 = models.PositiveSmallIntegerField(
         null = True,
         )
-    cgi_b = models.PositiveSmallIntegerField(
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    item_10 = models.TextField(
+        null = True,
+        )
+
+#     ####  ######   ######
+#      ##  ##    ## ##    ##
+#      ##  ##       ##
+#      ##  ##       ##   ####
+#      ##  ##       ##    ##
+#      ##  ##    ## ##    ##
+#     ####  ######   ######
+class Icg_ge(Escala):
+    class Meta:
+        verbose_name = 'escala ICG_Gravedad'
+        verbose_name_plural = 'escalas ICG_Gravedad'
+    icg_ge = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    quien_ge = models.CharField(
+        max_length=3,
         null = True,
         )
     def __str__(self):
-        return "%s: CGI_s=%s / CGI_e=%s" % (self.fecha, self.cgi_a, self.cgi_b)
+        return "%s: ICG_GE=%s" % (self.fecha, self.icg_ge)
+
+class Icg_me(Escala):
+    class Meta:
+        verbose_name = 'escala ICG_Mejoría'
+        verbose_name_plural = 'escalas ICG_Mejoría'
+    icg_me = models.PositiveSmallIntegerField(
+        null = True,
+        )
+    quien_me = models.CharField(
+        max_length=3,
+        null = True,
+        )
+    def __str__(self):
+        return "%s: ICG_ME=%s" % (self.fecha, self.icg_me)
 
 class Eeag(Escala):
     class Meta:
@@ -418,7 +495,13 @@ class Eeag(Escala):
 
 
 
-#     DUKE
+#     ########  ##     ## ##    ## ########
+#     ##     ## ##     ## ##   ##  ##
+#     ##     ## ##     ## ##  ##   ##
+#     ##     ## ##     ## #####    ######
+#     ##     ## ##     ## ##  ##   ##
+#     ##     ## ##     ## ##   ##  ##
+#     ########   #######  ##    ## ########
 
 class Duke(Escala):
     class Meta:
@@ -543,9 +626,13 @@ class Hdrs(Escala):
         return "%s: HDRS=%s" % (self.fecha, str(self.total))
         
         
-# MADRS
-#     DUKE
-
+#     ##     ##    ###    ########  ########   ######
+#     ###   ###   ## ##   ##     ## ##     ## ##    ##
+#     #### ####  ##   ##  ##     ## ##     ## ##
+#     ## ### ## ##     ## ##     ## ########   ######
+#     ##     ## ######### ##     ## ##   ##         ##
+#     ##     ## ##     ## ##     ## ##    ##  ##    ##
+#     ##     ## ##     ## ########  ##     ##  ######
 class Madrs(Escala):
     class Meta:
         verbose_name = 'MADRS'
@@ -711,117 +798,14 @@ class Panss(Escala):
                 self.item_g05 + self.item_g06 + self.item_g07 + self.item_g08 + 
                 self.item_g09 + self.item_g10 + self.item_g11 + self.item_g12 + 
                 self.item_g13 + self.item_g14 + self.item_g15 + self.item_g16)
-    
     @property
     def total(self):
         return (self.panss_sp + self.panss_sn + self.panss_sg)
-    
     def __str__(self):
         return "%s: SP=%s / SN=%s / SG=%s / Total=%s" % (self.fecha, str(self.panss_sp),
                                                          str(self.panss_sn), str(self.panss_sg),
                                                          str(self.total))
-    
 
-#     ########  ##       ##     ## ########  ######  ##     ## #### ##    ##
-#     ##     ## ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
-#     ##     ## ##       ##     ##    ##    ##       ##     ##  ##  ##  ##
-#     ########  ##       ##     ##    ##    ##       #########  ##  #####
-#     ##        ##       ##     ##    ##    ##       ##     ##  ##  ##  ##
-#     ##        ##       ##     ##    ##    ##    ## ##     ##  ##  ##   ##
-#     ##        ########  #######     ##     ######  ##     ## #### ##    ##
-
-class Plutchik_s(Escala):
-    class Meta:
-        verbose_name = "Escala de Riesgo Suicida de Plutchik"
-    item_01 = models.BooleanField()
-    item_02 = models.BooleanField()
-    item_03 = models.BooleanField()
-    item_04 = models.BooleanField()
-    item_05 = models.BooleanField()
-    item_06 = models.BooleanField()
-    item_07 = models.BooleanField()
-    item_08 = models.BooleanField()
-    item_09 = models.BooleanField()
-    item_10 = models.BooleanField()
-    item_11 = models.BooleanField()
-    item_12 = models.BooleanField()
-    item_13 = models.BooleanField()
-    item_14 = models.BooleanField()
-    item_15 = models.BooleanField()
-
-class Plutchik_v(Escala):
-    class Meta:
-        verbose_name = "Escala de Riesgo Violencia de Plutchik"
-    item_01 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_02 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_03 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_04 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_05 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_06 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_07 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_08 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_09 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_10 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_11 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_12 = models.BooleanField()
-
-
-class Satisfaccion(Escala):
-    class Meta:
-        verbose_name = "Escala Satisfacción"
-        verbose_name_plural = "Escalas Satisfacción"
-    item_1 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_2 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_3 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_4 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_5 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_6 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_7 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_8 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_9 = models.TextField(
-        null = True,
-        )
-    item_10 = models.TextField(
-        null = True,
-        )
 
 #     ##    ## ##     ## ########   ######
 #      ##  ##  ###   ### ##     ## ##    ##
@@ -1000,7 +984,13 @@ class Who_das(Escala):
         )
 
 
-# ZARIT
+#     ########    ###    ########  #### ########
+#          ##    ## ##   ##     ##  ##     ##
+#         ##    ##   ##  ##     ##  ##     ##
+#        ##    ##     ## ########   ##     ##
+#       ##     ######### ##   ##    ##     ##
+#      ##      ##     ## ##    ##   ##     ##
+#     ######## ##     ## ##     ## ####    ##
 
 class Zarit(Escala):
     class Meta:
@@ -1083,43 +1073,3 @@ class Zarit(Escala):
     def __str__(self):
         return "%s: ZARIT=%s" % (self.fecha, str(self.total))
 
-
-# CSQ-8
-        
-class Csq8(models.Model):
-    class Meta:
-        verbose_name = 'CSQ-8'
-        verbose_name_plural = 'Escalas CSQ-8'
-    autor = models.CharField(
-        max_length=3,
-        )
-    item_01 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_02 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_03 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_04 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_05 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_06 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_07 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_08 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_09 = models.PositiveSmallIntegerField(
-        null = True,
-        )
-    item_10 = models.TextField(
-        null = True,
-        )
