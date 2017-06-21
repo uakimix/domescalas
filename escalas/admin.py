@@ -124,7 +124,7 @@ class YmrsInLine(admin.StackedInline):
     extra = 0
     classes = ('grp-collapse grp-closed',)
     inline_classes = ('grp-collapse grp-closed',)
-    fields = (
+    fields = ('fecha',
         'item_01', 'item_02',
         'item_03', 'item_04',
         'item_05', 'item_06',
