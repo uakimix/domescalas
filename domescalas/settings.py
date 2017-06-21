@@ -24,8 +24,12 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = "_w3&&u=v+03&l^+yse3_+7ltpesc*)c1@1zzemg7#a3x&c3360"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# Force usage of SSL
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
