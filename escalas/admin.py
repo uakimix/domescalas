@@ -176,9 +176,11 @@ class IdentificadorAdmin(admin.ModelAdmin):
             
     def _dg_(self, obj):
         try:
-            return "; ".join([str(k) for k in obj.diagnostico_pac_set.all()])
+            return "<br>".join([str(k) for k in obj.diagnostico_pac_set.all()])
         except:
             return
+        
+    _dg_.allow_tags = True
     
     _dg_.short_description = 'Diagnósticos'
     _dg_.admin_order_field = '_dg_'
