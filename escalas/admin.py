@@ -196,7 +196,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': (
-                ('codigo'),
+                ('codigo', 'sector'),
                 )
             }),
         ('Demográficos', {
