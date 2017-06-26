@@ -129,6 +129,8 @@ class Identificador(models.Model):
             ),
         blank=True,
         )
+    def __str__(self):
+        return self.codigo
 
 
 
