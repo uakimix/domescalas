@@ -38,56 +38,56 @@ class BcisInLine(admin.StackedInline):
     model = Bcis
     form = BcisAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
 
 class BprsInLine(admin.StackedInline):
     model = Bprs
     form = BprsAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
 
 class Icg_geInLine(admin.StackedInline):
     model = Icg_ge
     form = Icg_geAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
 
 class Icg_meInLine(admin.StackedInline):
     model = Icg_me
     form = Icg_meAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
     
 class DukeInLine(admin.StackedInline):
     model = Duke
     form = DukeAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
 
 class HdrsInLine(admin.StackedInline):
     model = Hdrs
     form = HdrsAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
     
 class MadrsInLine(admin.StackedInline):
     model = Madrs
     form = MadrsAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
 
 class PanssInLine(admin.StackedInline):
     model = Panss
     form = PanssAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
     fieldsets = (
         (None, {
@@ -122,7 +122,7 @@ class YmrsInLine(admin.StackedInline):
     model =Ymrs
     form = YmrsAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
     fields = ('fecha',
         'item_01', 'item_02',
@@ -137,14 +137,14 @@ class Who_dasInline(admin.StackedInline):
     model = Who_das
     form = Who_dasAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
 
 class ZaritInline(admin.StackedInline):
     model = Zarit
     form = ZaritAdminForm
     extra = 0
-    classes = ('grp-collapse grp-closed',)
+    classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
     
 @admin.register(Diagnostico)
