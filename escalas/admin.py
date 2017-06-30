@@ -48,6 +48,12 @@ class BprsInLine(admin.StackedInline):
     classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
 
+class EeagInLine(admin.StackedInline):
+    model = Eeag
+    extra = 0
+    classes = ('grp-collapse grp-open',)
+    inline_classes = ('grp-collapse grp-closed',)
+
 class Icg_geInLine(admin.StackedInline):
     model = Icg_ge
     form = Icg_geAdminForm
@@ -218,6 +224,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
                TratamientoInLine,
                BcisInLine,
                BprsInLine,
+               EeagInLine,
                Icg_geInLine,
                Icg_meInLine,
                DukeInLine,
