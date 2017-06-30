@@ -201,7 +201,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
             }),
         ('Demográficos', {
           'fields': (
-              ('fnac', 'sexo'),
+              ('fnac', 'sexo', 'estudios'),
               ('e_civil', 'n_hijos', 'laboral'),
               )
             }),
