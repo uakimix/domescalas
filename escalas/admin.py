@@ -190,7 +190,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
     
     date_hierarchy = 'fecha_ingreso'
     list_filter = ('psiquiatra',)
-    list_display = ('fecha_ingreso', 'codigo', 'sexo', '_edad_', 'falta', 'dispalta', '_dg_', 'psiquiatra' )
+    list_display = ('fecha_ingreso', 'codigo', 'sexo', '_edad_', 'sector', 'falta', 'dispalta', '_dg_', 'psiquiatra' )
     ordering = ('-fecha_ingreso',)
 
     fieldsets = (
