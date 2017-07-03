@@ -250,11 +250,11 @@ class BprsAdminForm(forms.ModelForm):
 
 class DukeAdminForm(forms.ModelForm):
     LIKERT_DUKE = (
-        (5, '5. Tanto como deseo'),
-        (4, '4. Casi como deseo'),
-        (3, '3. Ni mucho ni poco'),
-        (2, '2. Menos de lo que deseo'),
         (1, '1. Mucho menos de lo que deseo'),
+        (2, '2. Menos de lo que deseo'),
+        (3, '3. Ni mucho ni poco'),
+        (4, '4. Casi como deseo'),
+        (5, '5. Tanto como deseo'),
         )
     class Meta:
         model = Duke
