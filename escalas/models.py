@@ -991,7 +991,15 @@ class Who_das(Escala):
     class Meta:
         verbose_name = 'escala WHO-DAS'
         verbose_name_plural = 'escalas WHO-DAS'
-    d1_1 = models.PositiveSmallIntegerField(
+    LIKERT5 = (
+        (1, '1.Ninguna'),
+        (2, '2.Leve'),
+        (3, '3.Moderada'),
+        (4, '4.Severa'),
+        (5, '5.Extrema / no puede'),
+        (None, 'N/A'),
+        )
+    d1_1 = models.IntegerField(
         null = True,
         blank = True,
         )

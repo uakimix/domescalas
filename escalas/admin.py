@@ -145,6 +145,33 @@ class Who_dasInline(admin.StackedInline):
     extra = 0
     classes = ('grp-collapse grp-open',)
     inline_classes = ('grp-collapse grp-closed',)
+    fieldsets = (
+        (None, {
+            'fields': ('fecha',)
+            }),
+        (None, {
+            'fields': ('d1_1', 'd1_2', 'd1_3', 'd1_4', 'd1_5', 'd1_6',)
+            }),
+        (None, {
+            'fields': ('d2_1', 'd2_2', 'd2_3', 'd2_4', 'd2_5',)
+            }),
+        (None, {
+            'fields': ('d3_1', 'd3_2', 'd3_3', 'd3_4',)
+            }),
+        (None, {
+            'fields': ('d4_1', 'd4_2', 'd4_3', 'd4_4', 'd4_5',)
+            }),
+        (None, {
+            'fields': ('d5_1', 'd5_2', 'd5_3', 'd5_4', 'd5_5', 'd5_6', 'd5_7', 'd5_8',)
+            }),
+        (None, {
+            'fields': ('d6_1', 'd6_2', 'd6_3', 'd6_4', 'd6_5', 'd6_6', 'd6_7', 'd6_8',)
+            }),
+        (None, {
+            'fields': ('h1', 'h2', 'h3',)
+            }),
+        )
+    
 
 class ZaritInline(admin.StackedInline):
     model = Zarit

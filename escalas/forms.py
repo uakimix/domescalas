@@ -1158,207 +1158,212 @@ class YmrsAdminForm(forms.ModelForm):
    
 # WHO-DAS 2.0 36 items
 class Who_dasAdminForm(forms.ModelForm):
+    NADA = 00
     LIKERT5 = (
         (1, '1.Ninguna'),
         (2, '2.Leve'),
         (3, '3.Moderada'),
         (4, '4.Severa'),
         (5, '5.Extrema / no puede'),
+        (NADA, 'N/A'),
         )
     class Meta:
         model = Who_das
         fields = '__all__'
     d1_1 = forms.ChoiceField(
-        label = 'D1.1 Concentrarse en hacer algo durante 10 minutos?',
+        label = 'D1.1 ',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d1_2 = forms.ChoiceField(
-        label = 'D1.2 Recordar las cosas importantes que tiene que hacer?',
+        label = 'D1.2',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d1_3 = forms.ChoiceField(
-        label = 'D1.3 Analizar y encontrar soluciones a los problemas de la vida diaria?',
+        label = 'D1.3',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d1_4 = forms.ChoiceField(
-        label = 'D1.4 Aprender una nueva tarea, como por ejemplo llegar a un lugar nuevo?',
+        label = 'D1.4',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d1_5 = forms.ChoiceField(
-        label = 'D1.5 Entender en general lo que dice la gente?',
+        label = 'D1.5',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d1_6 = forms.ChoiceField(
-        label = 'D1.6 Iniciar o mantener una conversación?',
+        label = 'D1.6',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d2_1 = forms.ChoiceField(
-        label = 'D2.1 Estar de pie durante largos periodos de tiempo, como por ejemplo 30 minutos?',
+        label = 'D2.1',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d2_2 = forms.ChoiceField(
-        label = 'D2.2 Ponerse de pie cuando estaba sentado(a)?',
+        label = 'D2.2',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d2_3 = forms.ChoiceField(
-        label = 'D2.3 Moverse dentro de su casa?',
+        label = 'D2.3',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d2_4 = forms.ChoiceField(
-        label = 'D2.4 Salir de su casa?',
+        label = 'D2.4',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d2_5 = forms.ChoiceField(
-        label = 'D2.5 Andar largas distancias, como un kilómetro?',
+        label = 'D2.5',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d3_1 = forms.ChoiceField(
-        label = 'D3.1 Lavarse todo el cuerpo (bañarse)?',
+        label = 'D3.1',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d3_2 = forms.ChoiceField(
-        label = 'D3.2 Vestirse?',
+        label = 'D3.2',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d3_3 = forms.ChoiceField(
-        label = 'D3.3 Comer?',
+        label = 'D3.3',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d3_4 = forms.ChoiceField(
-        label = 'D3.4 Estar sólo durante unos días?',
+        label = 'D3.4',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d4_1 = forms.ChoiceField(
-        label = 'D4.1 Relacionarse con personas que no conoce?',
+        label = 'D4.1',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d4_2 = forms.ChoiceField(
-        label = 'D4.2 Mantener una amistad?',
+        label = 'D4.2',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d4_3 = forms.ChoiceField(
-        label = 'D4.3 Llevarse bien con personas cercanas a usted?',
+        label = 'D4.3',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d4_4 = forms.ChoiceField(
-        label = 'D4.4 Hacer nuevos amigos?',
+        label = 'D4.4',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d4_5 = forms.ChoiceField(
-        label = 'D4.5 Tener relaciones sexuales?',
+        label = 'D4.5',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d5_1 = forms.ChoiceField(
-        label = 'D5.1 Cumplir con sus quehaceres de la casa?',
+        label = 'D5.1',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d5_2 = forms.ChoiceField(
-        label = 'D5.2 Realizar bien sus quehaceres de la casa mas importantes?',
+        label = 'D5.2',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d5_3 = forms.ChoiceField(
-        label = 'D5.3 Acabar todo el trabajo de la casa que tenía que hacer?',
+        label = 'D5.3',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d5_4 = forms.ChoiceField(
-        label = 'D5.4 Acabar sus quehaceres de la casa tan rapido com osea necesario?',
+        label = 'D5.4',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d5_5 = forms.ChoiceField(
-        label = 'D5.5 Llevar a cabo su trabajo diario o las actividades escolares?',
+        label = 'D5.5',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d5_6 = forms.ChoiceField(
-        label = 'D5.6 Realizar bien las tareas más importantes de su trabajo o de la escuela?',
+        label = 'D5.6',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )   
     d5_7 = forms.ChoiceField(
-        label = 'D5.7 Acabar todo el trabajo que necesitaba hacer?',
+        label = 'D5.7',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d5_8 = forms.ChoiceField(
-        label = 'D5.8 Acabar su trabajo tan rápido como era necesario?',
+        label = 'D5.8',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d6_1 = forms.ChoiceField(
-        label = 'D6.1 Cuánta dificultad ha tenido para participar, al mismo nivel que el resto de las personas, en actividades de la comunidad (por ejemplo, fiestas, actividades religiosas u otras actividades)?',
+        label = 'D6.1',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d6_2 = forms.ChoiceField(
-        label = 'D6.2 Cuánta dificultad ha tenido debido a barreras u obstáculos existentes en su alrededor (entorno)?',
+        label = 'D6.2',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d6_3 = forms.ChoiceField(
-        label = 'D6.3 Cuánta dificultad ha tenido para vivir con dignidad (o respeto) debido a las actitudes y acciones de otras personas?',
+        label = 'D6.3',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d6_4 = forms.ChoiceField(
-        label = 'D6.4 Cuánto tiempo ha dedicado a su “condición de salud” o a las consecuencias de la misma?',
+        label = 'D6.4',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d6_5 = forms.ChoiceField(
-        label = 'D6.5 Cuánto le ha afectado emocionalmente su “condición de salud”?',
+        label = 'D6.5',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d6_6 = forms.ChoiceField(
-        label = 'D6.6 Qué impacto económico ha tenido para usted o para su familia su “condición de salud”?',
+        label = 'D6.6',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )
     d6_7 = forms.ChoiceField(
-        label = 'D6.7 Cuánta dificultad ha tenido su familia debido a su condición de salud?',
+        label = 'D6.7',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )      
     d6_8 = forms.ChoiceField(
-        label = 'D6.8 Cuánta dificultad ha tenido para realizar por sí mismo(a) cosas que le ayuden a relajarse o disfrutar?',
+        label = 'D6.8',
         choices = LIKERT5,
         widget = forms.RadioSelect(renderer=HorizRadioRenderer),
         )   
-    h1 = forms.ChoiceField(
-        label = 'H1 En los últimos 30 días, durante cuántos días ha tenido esas dificultades?',
+    h1 = forms.IntegerField(
+        label = 'H1',
         widget = forms.NumberInput,
+        required = False,
         )
-    h2 = forms.ChoiceField(
-        label = 'H2 En los últimos 30 días, cuántos días fue no pudo realizar nada de sus actividades habituales o en el trabajo debido a su condición de salud?',
+    h2 = forms.IntegerField(
+        label = 'H2',
         widget = forms.NumberInput,
+        required = False,
         )
-    h3 = forms.ChoiceField(
-        label = 'H3 En los últimos 30 días, sin contar los días que no pudo realizar nada de sus actividades habituales cuántos días tuvo que recortar o reducir sus actividades habituales o en el trabajo, debido a su condición de salud?',
+    h3 = forms.IntegerField(
+        label = 'H3',
         widget = forms.NumberInput,
+        required = False,
         )
 
 
