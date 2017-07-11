@@ -1350,17 +1350,14 @@ class Who_dasAdminForm(forms.ModelForm):
         )   
     h1 = forms.ChoiceField(
         label = 'H1 En los últimos 30 días, durante cuántos días ha tenido esas dificultades?',
-        choices = LIKERT5,
         widget = forms.NumberInput,
         )
     h2 = forms.ChoiceField(
         label = 'H2 En los últimos 30 días, cuántos días fue no pudo realizar nada de sus actividades habituales o en el trabajo debido a su condición de salud?',
-        choices = LIKERT5,
         widget = forms.NumberInput,
         )
     h3 = forms.ChoiceField(
         label = 'H3 En los últimos 30 días, sin contar los días que no pudo realizar nada de sus actividades habituales cuántos días tuvo que recortar o reducir sus actividades habituales o en el trabajo, debido a su condición de salud?',
-        choices = LIKERT5,
         widget = forms.NumberInput,
         )
 
