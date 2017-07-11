@@ -1159,11 +1159,11 @@ class YmrsAdminForm(forms.ModelForm):
 # WHO-DAS 2.0 36 items
 class Who_dasAdminForm(forms.ModelForm):
     LIKERT5 = (
-        (5, '5.Extrema / no puede'),
-        (4, '4.Severa'),
-        (3, '3.Moderada'),
-        (2, '2.Leve'),
         (1, '1.Ninguna'),
+        (2, '2.Leve'),
+        (3, '3.Moderada'),
+        (4, '4.Severa'),
+        (5, '5.Extrema / no puede'),
         )
     class Meta:
         model = Who_das
