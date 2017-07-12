@@ -257,67 +257,88 @@ class Escala(models.Model):
 #     ########   ######  ####  ######
 
 class Bcis(Escala):
+    L_BCIS = (
+        (0, '0.Nada de acuerdo'),
+        (1, '1.Un poco de acuerdo'),
+        (2, '2.Bastante de acuerdo'),
+        (3, '3.Totalmente de acuerdo'),
+        )
     class Meta:
         verbose_name = 'BCIS'
         verbose_name_plural = 'Escalas BCIS'
 
     item_01 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_02 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_03 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_04 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_05 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_06 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_07 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_08 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_09 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_10 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_11 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_12 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_13 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_14 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
     item_15 = models.PositiveSmallIntegerField(
+        choices=L_BCIS,
         null = True,
         blank = True,
         )
@@ -354,81 +375,107 @@ class Bcis(Escala):
 
 
 class Bprs(Escala):
+    LIKERT6 = (
+    	(0, '0.Ausente'),
+    	(1, '1.Muy leve'),
+    	(2, '2.Leve'),
+    	(3, '3.Moderado'),
+    	(4, '4.Bastante acentuado'),
+    	(5, '5.Grave'),
+        (6, '6.Muy Grave'),
+        )
     class Meta:
         verbose_name = 'BPRS'
         verbose_name_plural = 'Escalas BPRS'
     item_01 = models.PositiveSmallIntegerField(
         null = True,
-        blank = True, 
+        blank = True,
+        choices=LIKERT6,
         )
     item_02 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_03 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_04 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_05 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_06 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_07 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_08 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_09 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_10 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_11 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
-        
     item_12 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_13 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_14 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_15 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_16 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_17 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     item_18 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=LIKERT6,
         )
     @property
     def total(self):
@@ -455,38 +502,90 @@ class Csq8(models.Model):
     autor = models.CharField(
         max_length=3,
         blank = True,
+        choices=(
+            ('PAC', 'Paciente'),
+            ('FAM', 'Familia'),
+            ),
         )
     item_01 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=(
+            ('4', 'Excelente'),
+            ('3', 'Buen'),
+            ('2', 'Regula'),
+            ('1', 'Mala'),
+            ),
         )
     item_02 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=(
+            ('4', 'No definitivamente'),
+            ('3', 'En muy pocos casos'),
+            ('2', 'Si en general'),
+            ('1', 'Si definitivamente'),
+            ),
         )
     item_03 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=(
+            ('4', 'En casi todos'),
+            ('3', 'En la mayor parte'),
+            ('2', 'Solo en algunos'),
+            ('1', 'En ninguno'),
+            ),
         )
     item_04 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=(
+            ('4', 'No definitivamente'),
+            ('3', 'No , creo que no'),
+            ('2', 'Si, creo que si'),
+            ('1', 'Si definitivamente'),
+            ),
         )
     item_05 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=(
+            ('4', 'Nada satisfecho/a'),
+            ('3', 'Indiferente o moderadamente no satisfecho/a'),
+            ('2', 'Moderadamente satisfecho/a'),
+            ('1', 'Muy satisfecho/a'),
+            ),
         )
     item_06 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=(
+            ('4', 'Si me ayudaron mucho'),
+            ('3', 'Si me ayudaron algo'),
+            ('2', 'No realmente no me ayudaron'),
+            ('1', 'No parecían poner las cosas peor'),
+            ),
         )
     item_07 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=(
+            ('4', 'Muy satisfecho/a'),
+            ('3', 'Moderadamente satisfecho/a'),
+            ('2', 'Algo insatisfecho/a'),
+            ('1', 'Muy Insatisfecho/a'),
+            ),
         )
     item_08 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices=(
+            ('4', 'No definitivamente'),
+            ('3', 'No posiblemente'),
+            ('2', 'Si, creo que si'),
+            ('1', 'Si con seguridad'),
+            ),
         )
     item_09 = models.PositiveSmallIntegerField(
         null = True,
@@ -497,6 +596,89 @@ class Csq8(models.Model):
         blank = True,
         )
 
+#     ########  ##     ## ##    ## ########
+#     ##     ## ##     ## ##   ##  ##
+#     ##     ## ##     ## ##  ##   ##
+#     ##     ## ##     ## #####    ######
+#     ##     ## ##     ## ##  ##   ##
+#     ##     ## ##     ## ##   ##  ##
+#     ########   #######  ##    ## ########
+
+class Duke(Escala):
+    LIKERT_DUKE = (
+        (1, '1. Mucho menos de lo que deseo'),
+        (2, '2. Menos de lo que deseo'),
+        (3, '3. Ni mucho ni poco'),
+        (4, '4. Casi como deseo'),
+        (5, '5. Tanto como deseo'),
+        )
+    class Meta:
+        verbose_name = 'Duke'
+        verbose_name_plural = 'Escalas Duke'
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    item_11 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_DUKE,
+        )
+    @property
+    def total(self):
+        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
+                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
+                self.item_09 + self.item_10 + self.item_11)
+    def __str__(self):
+        return "%s: DUKE=%s" % (self.fecha, str(self.total))
+        
+        
 #     ####  ######   ######
 #      ##  ##    ## ##    ##
 #      ##  ##       ##
@@ -510,10 +692,24 @@ class Icg_ge(Escala):
         verbose_name_plural = 'escalas ICG_Gravedad'
     icg_ge = models.PositiveSmallIntegerField(
         null = True,
+        choices = (
+            (0, '0.No evaluado'),
+            (1, '1.Normal, no enfermo'),
+            (2, '2.Dudosamente enfermo'),
+            (3, '3.Levemente enfermo'),
+            (4, '4.Moderadamente enfermo'),
+            (5, '5.Marcadamente enfermo'),
+            (6, '6.Gravemente enfermo'),
+            (7, '7.Entre los pac. mas extremadamente enfermos'),
+            ),
         )
     quien_ge = models.CharField(
         max_length=3,
         null = True,
+        choices = (
+    		('PSQ', 'Psiquiatra'),
+    		('PAC', 'Paciente'),
+    		),
         )
     def __str__(self):
         return "%s: ICG_GE=%s" % (self.fecha, self.icg_ge)
@@ -542,71 +738,7 @@ class Eeag(Escala):
 
 
 
-#     ########  ##     ## ##    ## ########
-#     ##     ## ##     ## ##   ##  ##
-#     ##     ## ##     ## ##  ##   ##
-#     ##     ## ##     ## #####    ######
-#     ##     ## ##     ## ##  ##   ##
-#     ##     ## ##     ## ##   ##  ##
-#     ########   #######  ##    ## ########
 
-class Duke(Escala):
-    class Meta:
-        verbose_name = 'Duke'
-        verbose_name_plural = 'Escalas Duke'
-
-    item_01 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_02 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_03 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_04 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_05 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_06 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_07 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_08 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_09 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_10 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    item_11 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
-        )
-    
-    @property
-    def total(self):
-        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
-                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
-                self.item_09 + self.item_10 + self.item_11)
-    def __str__(self):
-        return "%s: DUKE=%s" % (self.fecha, str(self.total))
 
 
 
@@ -997,149 +1129,184 @@ class Who_das(Escala):
         (3, '3.Moderada'),
         (4, '4.Severa'),
         (5, '5.Extrema / no puede'),
-        (None, 'N/A'),
         )
     d1_1 = models.IntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d1_2 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d1_3 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d1_4 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d1_5 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d1_6 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d2_1 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d2_2 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d2_3 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d2_4 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d2_5 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d3_1 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d3_2 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d3_3 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d3_4 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d4_1 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d4_2 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d4_3 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d4_4 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d4_5 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d5_1 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d5_2 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d5_3 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d5_4 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d5_5 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d5_6 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         ) 
     d5_7 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d5_8 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d6_1 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d6_2 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d6_3 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d6_4 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d6_5 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d6_6 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d6_7 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )
     d6_8 = models.PositiveSmallIntegerField(
+        choices = LIKERT5,
         null = True,
         blank = True,
         )   

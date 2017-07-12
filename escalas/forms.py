@@ -41,92 +41,46 @@ class TratamientoForm(forms.ModelForm):
 #     ########   ######  ####  ######
 
 class BcisAdminForm(forms.ModelForm):
-    L_BCIS = (
-        (0, '0.Nada de acuerdo'),
-        (1, '1.Un poco de acuerdo'),
-        (2, '2.Bastante de acuerdo'),
-        (3, '3.Totalmente de acuerdo'),
-        )
+   
     class Meta:
         model = Bcis
         fields = '__all__'
-    item_01 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '1. Algunas veces he malinterpretado las actitudes que los demás tienen hacia mí',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_02 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '2. Las interpretaciones que hago de mis experiencias son sin duda correctas',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_03 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '3. Otras personas pueden entender mejor que yo la causa de mis experiencias raras',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_04 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '4. Llego a conclusiones demasiado rápido',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_05 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '5. Algunas de mis experiencias que me han parecido muy reales pueden haberse debido a mi imaginación',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_06 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '6. Algunas de las ideas que tenía como ciertas acabaron siendo falsas',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_07 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '7. Si siento que algo es correcto significa que es correcto',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_08 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '8. Aunque me siento muy seguro/a de estar en lo cierto, podría estar equivocado/a',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_09 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '9. Conozco mejor que nadie cuáles son mis problemas',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_10 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '10. Cuando los demás no está de acuerdo conmigo, normalmente están equivocados',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_11 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '11. No puedo fiarme de lo que opinan los demás sobre mis experiencias',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_12 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '12. Si alguien comenta que mis creencias son erróneas estoy dispuesto/a a considerar su opinión',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_13 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '13. Puedo confiar en mi propio juicio siempre',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_14 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '14. Suele haber más de una explicación posible sobre por qué la gente actúa de la manera en que lo hace',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_15 = forms.ChoiceField(
-        choices=L_BCIS, 
-        label = '15. Mis experiencias raras pueden deberse a que esté muy alterado/a o estresado/a',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-
-
+        widgets = {
+            'item_01': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_02': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_03': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_04': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_05': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_06': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_07': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_08': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_09': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_10': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_11': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_12': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_13': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_14': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_15': forms.RadioSelect(renderer=HorizRadioRenderer),
+        }
+        labels = {
+            'item_01': ('1. Algunas veces he malinterpretado las actitudes que los demás tienen hacia mí'),
+            'item_02': ('2. Las interpretaciones que hago de mis experiencias son sin duda correctas'),
+            'item_03': ('3. Otras personas pueden entender mejor que yo la causa de mis experiencias raras'),
+            'item_04': ('4. Llego a conclusiones demasiado rápido'),
+            'item_05': ('5. Algunas de mis experiencias que me han parecido muy reales pueden haberse debido a mi imaginación'),
+            'item_06': ('6. Algunas de las ideas que tenía como ciertas acabaron siendo falsas'),
+            'item_07': ('7. Si siento que algo es correcto significa que es correcto'),
+            'item_08': ('8. Aunque me siento muy seguro/a de estar en lo cierto, podría estar equivocado/a'),
+            'item_09': ('9. Conozco mejor que nadie cuáles son mis problemas'),
+            'item_10': ('10. Cuando los demás no está de acuerdo conmigo, normalmente están equivocados'),
+            'item_11': ('11. No puedo fiarme de lo que opinan los demás sobre mis experiencias'),
+            'item_12': ('12. Si alguien comenta que mis creencias son erróneas estoy dispuesto/a a considerar su opinión'),
+            'item_13': ('13. Puedo confiar en mi propio juicio siempre'),
+            'item_14': ('14. Suele haber más de una explicación posible sobre por qué la gente actúa de la manera en que lo hace'),
+            'item_15': ('15. Mis experiencias raras pueden deberse a que esté muy alterado/a o estresado/a'),
+        }
+        
+        
 #     ########  ########  ########   ######
 #     ##     ## ##     ## ##     ## ##    ##
 #     ##     ## ##     ## ##     ## ##
@@ -136,109 +90,86 @@ class BcisAdminForm(forms.ModelForm):
 #     ########  ##        ##     ##  ######
 
 class BprsAdminForm(forms.ModelForm):
-    LIKERT6 = (
-    	(0, '0.Ausente'),
-    	(1, '1.Muy leve'),
-    	(2, '2.Leve'),
-    	(3, '3.Moderado'),
-    	(4, '4.Bastante acentuado'),
-    	(5, '5.Grave'),
-        (6, '6.Muy Grave'),
-        )
     class Meta:
         model = Bprs
         fields = '__all__'
-    item_01 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='1.- Preocupación somática',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_02 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='2.- Ansiedad psíquica',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    item_03 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='3.- Aislamiento emocional',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_04 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='4.- Desorganización conceptual (incoherencia)',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_05 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='5.- Autodesprecio y sentimientos de culpa',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_06 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='6.- Tensión. Ansiedad somática',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    item_07 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='7.- Manierismo y postura extraña',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_08 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='8.- Grandeza',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_09 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='9.- Humor depresivo',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_10 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='10.- Hostilidad',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_11 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='11.- Suspicacia',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_12 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='12.- Alucinaciones',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    item_13 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='13.- Enlentecimiento motor',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_14 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='14.- Falta de cooperación',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    item_15 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='15.- Contenido insusual del pensamiento',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_16 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='16.- Embotamiento, aplanamiento afectivo',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    item_17 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='17.- Exitación',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_18 = forms.ChoiceField(
-        choices=LIKERT6,
-        label='18.- Desorientación y confusión',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
+        widgets = {
+            'item_01': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_02': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_03': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_04': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_05': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_06': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_07': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_08': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_09': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_10': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_11': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_12': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_13': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_14': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_15': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_16': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_17': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_18': forms.RadioSelect(renderer=HorizRadioRenderer),
+        }
+        labels = {
+            'item_01': ('1.- Preocupación somática'),
+            'item_02': ('2.- Ansiedad psíquica'),
+            'item_03': ('3.- Aislamiento emocional'),
+            'item_04': ('4.- Desorganización conceptual (incoherencia)'),
+            'item_05': ('5.- Autodesprecio y sentimientos de culpa'),
+            'item_06': ('6.- Tensión. Ansiedad somática'),
+            'item_07': ('7.- Manierismo y postura extraña'),
+            'item_08': ('8.- Grandeza'),
+            'item_09': ('9.- Humor depresivo'),
+            'item_10': ('10.- Hostilidad'),
+            'item_11': ('11.- Suspicacia'),
+            'item_12': ('12.- Alucinaciones'),
+            'item_13': ('13.- Enlentecimiento motor'),
+            'item_14': ('14.- Falta de cooperación'),
+            'item_15': ('15.- Contenido insusual del pensamiento'),
+            'item_16': ('16.- Embotamiento, aplanamiento afectivo'),
+            'item_17': ('17.- Exitación'),
+            'item_18': ('18.- Desorientación y confusión'),
+        }
+        
+# 	 ######   ######   #######           #######
+# 	##    ## ##    ## ##     ##         ##     ##
+# 	##       ##       ##     ##         ##     ##
+# 	##        ######  ##     ## #######  #######
+# 	##             ## ##  ## ##         ##     ##
+# 	##    ## ##    ## ##    ##          ##     ##
+# 	 ######   ######   ##### ##          #######
 
+class Csq8AdminForm(forms.ModelForm):
+    class Meta:
+        model = Csq8
+        fields = '__all__'
+        widgets = {
+            'autor': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_01': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_02': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_03': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_04': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_05': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_06': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_07': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_08': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_09': forms.RadioSelect(renderer=HorizRadioRenderer),
+            }
+        labels = {
+            'author' : ('Autor'),    
+            'item_01': ('1.-¿Cómo evaluaría la calidad de los servicios que ha recibido'),
+            'item_02': ('2.-¿Recibió la clase de servicio que usted requería?'),
+            'item_03': ('3.-¿Hasta que punto ha ayudado nuestro programa a solucionar sus problemas?'),
+            'item_04': ('4.-¿Si un/a amigo/a estuviera en necesidad de ayuda similar, le recomendaría nuestro programa?'),
+            'item_05': ('5.-¿Cómo de satisfecho/a esta usted con la cantidad de ayuda que ha recibido?'),
+            'item_06': ('6.-¿Los servicios que ha recibido le han ayudado a enfrentarse mejor a sus problemas?'),
+            'item_07': ('7.- ¿En general, cómo de satisfecho/a está usted con los servicios que ha recibido?'),
+            'item_08': ('8.-¿Si necesitara ayuda otra vez volvería a nuestro programa?'),
+            'item_09': ('9.-Lo que más me ha gustado de la atención que he recibido ha sido:'),
+            }
    
 #     ########  ##     ## ##    ## ########
 #     ##     ## ##     ## ##   ##  ##
@@ -249,72 +180,35 @@ class BprsAdminForm(forms.ModelForm):
 #     ########   #######  ##    ## ########
 
 class DukeAdminForm(forms.ModelForm):
-    LIKERT_DUKE = (
-        (1, '1. Mucho menos de lo que deseo'),
-        (2, '2. Menos de lo que deseo'),
-        (3, '3. Ni mucho ni poco'),
-        (4, '4. Casi como deseo'),
-        (5, '5. Tanto como deseo'),
-        )
     class Meta:
         model = Duke
         fields = '__all__'
-    item_01 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='1.- Recibo visitas de mis amigos y familiares',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_02 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='2.- Recibo ayuda en asuntos relacionados con mi casa',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    item_03 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='3.- Recibo elogios y reconocimientos cuando hago bien mi trabajo',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_04 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='4.- Cuento con personas que se preocupan de lo que me sucede',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_05 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='5.- Recibo amor y afecto',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_06 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='6.- Tengo posibilidad de hablar con alguien de mis problemas de trabajo o en la casa',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    item_07 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='7.- Tengo la posibilidad de hablar con alguien de mis problemas personales y familiares',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_08 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='8.- Tengo la posibilidad de hablar con alguien de mis problemas económicos',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_09 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='9.- Recibo invitaciones para distraerme y salir con otras personas',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_10 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='10.- Recibo consejos útiles cuando me ocurre algún acontecimiento importante en mi vida',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_11 = forms.ChoiceField(
-        choices=LIKERT_DUKE,
-        label='11.- Recibo ayuda cuando estoy enfermo en la cama',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-
+        widgets = {
+            'item_01': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_02': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_03': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_04': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_05': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_06': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_07': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_08': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_09': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_10': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_11': forms.RadioSelect(renderer=HorizRadioRenderer),
+            }
+        labels = {
+            'item_01': ('1.- Recibo visitas de mis amigos y familiares'),
+            'item_02': ('2.- Recibo ayuda en asuntos relacionados con mi casa'),
+            'item_03': ('3.- Recibo elogios y reconocimientos cuando hago bien mi trabajo'),
+            'item_04': ('4.- Cuento con personas que se preocupan de lo que me sucede'),
+            'item_05': ('5.- Recibo amor y afecto'),
+            'item_06': ('6.- Tengo posibilidad de hablar con alguien de mis problemas de trabajo o en la casa'),
+            'item_07': ('7.- Tengo la posibilidad de hablar con alguien de mis problemas personales y familiares'),
+            'item_08': ('8.- Tengo la posibilidad de hablar con alguien de mis problemas económicos'),
+            'item_09': ('9.- Recibo invitaciones para distraerme y salir con otras personas'),
+            'item_10': ('10.- Recibo consejos útiles cuando me ocurre algún acontecimiento importante en mi vida'),
+            'item_11': ('11.- Recibo ayuda cuando estoy enfermo en la cama'),
+            }
 
 
 # 	####  ######   ######
@@ -329,29 +223,15 @@ class Icg_geAdminForm(forms.ModelForm):
     class Meta:
         model = Icg_ge
         fields = '__all__'
-    icg_ge = forms.ChoiceField(
-        choices = (
-            (0, '0.No evaluado'),
-            (1, '1.Normal, no enfermo'),
-            (2, '2.Dudosamente enfermo'),
-            (3, '3.Levemente enfermo'),
-            (4, '4.Moderadamente enfermo'),
-            (5, '5.Marcadamente enfermo'),
-            (6, '6.Gravemente enfermo'),
-            (7, '7.Entre los pac. mas extremadamente enfermos'),
-        ),
-        label = 'ICG Gravedad',
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-    )
-    quien_ge = forms.ChoiceField(
-    	choices = (
-    		('PSQ', 'Psiquiatra'),
-    		('PAC', 'Paciente'),
-    		),
-    	label = 'Aplicada por:',
-    	widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-    )
-
+        widgets = {
+            'icg_ge': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'quien_ge': forms.RadioSelect(renderer=HorizRadioRenderer),
+            }
+        labels = {
+            'icg_ge': ('ICG Gravedad'),
+            'quien_ge': ('Aplicada por:'),
+            }
+    	
 class Icg_meAdminForm(forms.ModelForm):
     class Meta:
         model = Icg_me
@@ -381,112 +261,8 @@ class Icg_meAdminForm(forms.ModelForm):
     
     
     
-# 	 ######   ######   #######           #######
-# 	##    ## ##    ## ##     ##         ##     ##
-# 	##       ##       ##     ##         ##     ##
-# 	##        ######  ##     ## #######  #######
-# 	##             ## ##  ## ##         ##     ##
-# 	##    ## ##    ## ##    ##          ##     ##
-# 	 ######   ######   ##### ##          #######
 
-class Csq8AdminForm(forms.ModelForm):
-    class Meta:
-        model = Csq8
-        fields = '__all__'
-        
-    autor = forms.ChoiceField(
-        widget=forms.RadioSelect,
-        )
-    item_01 = forms.ChoiceField(
-        label='1.-¿Cómo evaluaría la calidad de los servicios que ha recibido',
-        choices=(
-            ('4', 'Excelent'),
-            ('3', 'Buen'),
-            ('2', 'Regula'),
-            ('1', 'Mala'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_02 = forms.ChoiceField(
-        label='2.-¿Recibió la clase de servicio que usted requería?',
-        choices=(
-            ('4', 'No definitivamente'),
-            ('3', 'En muy pocos casos'),
-            ('2', 'Si en general'),
-            ('1', 'Si definitivamente'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_03 = forms.ChoiceField(
-        label='3.-¿Hasta que punto ha ayudado nuestro programa a solucionar sus problemas?',
-        choices=(
-            ('4', 'En casi todos'),
-            ('3', 'En la mayor parte'),
-            ('2', 'Solo en algunos'),
-            ('1', 'En ninguno'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_04 = forms.ChoiceField(
-        label='4.-¿Si un/a amigo/a estuviera en necesidad de ayuda similar, le recomendaría nuestro programa?',
-        choices=(
-            ('4', 'No definitivamente'),
-            ('3', 'No , creo que no'),
-            ('2', 'Si, creo que si'),
-            ('1', 'Si definitivamente'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_05 = forms.ChoiceField(
-        label='5.-¿Cómo de satisfecho/a esta usted con la cantidad de ayuda que ha recibido?',
-        choices=(
-            ('4', 'Nada satisfecho/a'),
-            ('3', 'Indiferente o moderadamente no satisfecho/a'),
-            ('2', 'Moderadamente satisfecho/a'),
-            ('1', 'Muy satisfecho/a'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_06 = forms.ChoiceField(
-        label='6.-¿Los servicios que ha recibido le han ayudado a enfrentarse mejor a sus problemas?',
-        choices=(
-            ('4', 'Si me ayudaron mucho'),
-            ('3', 'Si me ayudaron algo'),
-            ('2', 'No realmente no me ayudaron'),
-            ('1', 'No parecían poner las cosas peor'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_07 = forms.ChoiceField(
-        label='7.- ¿En general, cómo de satisfecho/a está usted con los servicios que ha recibido?',
-        choices=(
-            ('4', 'Muy satisfecho/a'),
-            ('3', 'Moderadamente satisfecho/a'),
-            ('2', 'Algo insatisfecho/a'),
-            ('1', 'Muy Insatisfecho/a'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_08 = forms.ChoiceField(
-        label='8.-¿Si necesitara ayuda otra vez volvería a nuestro programa?',
-        choices=(
-            ('4', 'No definitivamente'),
-            ('3', 'No posiblemente'),
-            ('2', 'Si, creo que si'),
-            ('1', 'Si con seguridad'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    item_09 = forms.CharField(
-        label='9.-Lo que más me ha gustado de la atención que he recibido ha sido:',
-        )
-    item_10 = forms.CharField(
-        label='10.-Creo que se tendría que mejorar:'
-        )
-
-
-
-#     ##     ## ########  ########   ######
+        ##     ## ########  ########   ######
 #     ##     ## ##     ## ##     ## ##    ##
 #     ##     ## ##     ## ##     ## ##
 #     ######### ##     ## ########   ######
@@ -1158,213 +934,49 @@ class YmrsAdminForm(forms.ModelForm):
    
 # WHO-DAS 2.0 36 items
 class Who_dasAdminForm(forms.ModelForm):
-    NADA = 00
-    LIKERT5 = (
-        (1, '1.Ninguna'),
-        (2, '2.Leve'),
-        (3, '3.Moderada'),
-        (4, '4.Severa'),
-        (5, '5.Extrema / no puede'),
-        (NADA, 'N/A'),
-        )
     class Meta:
         model = Who_das
         fields = '__all__'
-    d1_1 = forms.ChoiceField(
-        label = 'D1.1 ',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d1_2 = forms.ChoiceField(
-        label = 'D1.2',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d1_3 = forms.ChoiceField(
-        label = 'D1.3',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d1_4 = forms.ChoiceField(
-        label = 'D1.4',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d1_5 = forms.ChoiceField(
-        label = 'D1.5',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d1_6 = forms.ChoiceField(
-        label = 'D1.6',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d2_1 = forms.ChoiceField(
-        label = 'D2.1',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d2_2 = forms.ChoiceField(
-        label = 'D2.2',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d2_3 = forms.ChoiceField(
-        label = 'D2.3',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d2_4 = forms.ChoiceField(
-        label = 'D2.4',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d2_5 = forms.ChoiceField(
-        label = 'D2.5',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d3_1 = forms.ChoiceField(
-        label = 'D3.1',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d3_2 = forms.ChoiceField(
-        label = 'D3.2',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d3_3 = forms.ChoiceField(
-        label = 'D3.3',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d3_4 = forms.ChoiceField(
-        label = 'D3.4',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d4_1 = forms.ChoiceField(
-        label = 'D4.1',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d4_2 = forms.ChoiceField(
-        label = 'D4.2',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d4_3 = forms.ChoiceField(
-        label = 'D4.3',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d4_4 = forms.ChoiceField(
-        label = 'D4.4',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d4_5 = forms.ChoiceField(
-        label = 'D4.5',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d5_1 = forms.ChoiceField(
-        label = 'D5.1',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d5_2 = forms.ChoiceField(
-        label = 'D5.2',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d5_3 = forms.ChoiceField(
-        label = 'D5.3',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d5_4 = forms.ChoiceField(
-        label = 'D5.4',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d5_5 = forms.ChoiceField(
-        label = 'D5.5',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d5_6 = forms.ChoiceField(
-        label = 'D5.6',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    d5_7 = forms.ChoiceField(
-        label = 'D5.7',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d5_8 = forms.ChoiceField(
-        label = 'D5.8',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d6_1 = forms.ChoiceField(
-        label = 'D6.1',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d6_2 = forms.ChoiceField(
-        label = 'D6.2',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d6_3 = forms.ChoiceField(
-        label = 'D6.3',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d6_4 = forms.ChoiceField(
-        label = 'D6.4',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d6_5 = forms.ChoiceField(
-        label = 'D6.5',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d6_6 = forms.ChoiceField(
-        label = 'D6.6',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
-    d6_7 = forms.ChoiceField(
-        label = 'D6.7',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )      
-    d6_8 = forms.ChoiceField(
-        label = 'D6.8',
-        choices = LIKERT5,
-        widget = forms.RadioSelect(renderer=HorizRadioRenderer),
-        )   
-    h1 = forms.IntegerField(
-        label = 'H1',
-        widget = forms.NumberInput,
-        required = False,
-        )
-    h2 = forms.IntegerField(
-        label = 'H2',
-        widget = forms.NumberInput,
-        required = False,
-        )
-    h3 = forms.IntegerField(
-        label = 'H3',
-        widget = forms.NumberInput,
-        required = False,
-        )
+        widgets = {
+            'd1_1': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd1_2': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd1_3': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd1_4': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd1_5': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd1_6': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd2_1': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd2_2': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd2_3': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd2_4': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd2_5': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd3_1': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd3_2': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd3_3': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd3_4': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd4_1': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd4_2': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd4_3': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd4_4': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd4_5': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd5_1': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd5_2': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd5_3': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd5_4': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd5_5': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd5_6': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd5_7': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd5_8': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd6_1': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd6_2': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd6_3': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd6_4': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd6_5': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd6_6': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd6_7': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'd6_8': forms.RadioSelect(renderer=HorizRadioRenderer),
+        }
+        
+   
 
 
 # 	########    ###    ########  #### ########
