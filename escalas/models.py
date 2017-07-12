@@ -388,94 +388,76 @@ class Bprs(Escala):
         verbose_name = 'BPRS'
         verbose_name_plural = 'Escalas BPRS'
     item_01 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_02 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_03 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_04 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_05 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_06 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_07 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_08 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_09 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_10 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_11 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_12 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_13 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_14 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_15 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_16 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_17 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     item_18 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
         choices=LIKERT6,
+        default=0,
         )
     @property
     def total(self):
@@ -691,8 +673,8 @@ class Icg_ge(Escala):
         verbose_name = 'escala ICG_Gravedad'
         verbose_name_plural = 'escalas ICG_Gravedad'
     icg_ge = models.PositiveSmallIntegerField(
-        null = True,
-        choices = (
+        default=0,
+        choices=(
             (0, '0.No evaluado'),
             (1, '1.Normal, no enfermo'),
             (2, '2.Dudosamente enfermo'),
@@ -705,7 +687,7 @@ class Icg_ge(Escala):
         )
     quien_ge = models.CharField(
         max_length=3,
-        null = True,
+        default='PSQ',
         choices = (
     		('PSQ', 'Psiquiatra'),
     		('PAC', 'Paciente'),
@@ -719,11 +701,25 @@ class Icg_me(Escala):
         verbose_name = 'escala ICG_Mejoría'
         verbose_name_plural = 'escalas ICG_Mejoría'
     icg_me = models.PositiveSmallIntegerField(
-        null = True,
+        default=0,
+        choices = (
+            (0, '0.No evaluado'),
+            (1, '1.Mucho mejor'),
+            (2, '2.Moderadamente mejor'),
+            (3, '3.Levemente mejor'),
+            (4, '4.Sin cambios'),
+            (5, '5.Levemente peor'),
+            (6, '6.Moderadamente peor'),
+            (7, '7.Mucho peor'),
+            ),
         )
     quien_me = models.CharField(
         max_length=3,
-        null = True,
+        default='PSQ',
+        choices = (
+    		('PSQ', 'Psiquiatra'),
+    		('PAC', 'Paciente'),
+    		),
         )
     def __str__(self):
         return "%s: ICG_ME=%s" % (self.fecha, self.icg_me)
@@ -735,9 +731,6 @@ class Eeag(Escala):
     eeag = models.PositiveSmallIntegerField()
     def __str__(self):
         return "%s: EEAG=%s" % (self.fecha, self.eeag)
-
-
-
 
 
 
@@ -755,72 +748,157 @@ class Hdrs(Escala):
         verbose_name = 'escala Hamilton'
         verbose_name_plural = 'escalas Hamilton'
     item_01 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Estas sensaciones se indican solamente al ser preguntado'),
+            (2, '2.Estas sensaciones se relatan oral y espontáneamente'),
+            (3, '3.Sensaciones no comunicadas verbalmente, es decir, por la expresión facial, la postura, la voz y la tendencia al llanto'),
+            (4, '4.El paciente manifiesta estas sensaciones en su comunicación verbal y no verbal de forma espontánea'),
+            ),
         )
     item_02 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Se culpa a si mismos, cree haber decepcionado a la gente'),
+            (2, '2.Ideas de culpabilidad, o meditación sobre errores pasados o malas acciones'),
+            (3, '3.La enfermedad actual es un castigo. Ideas delirantes de culpabilidad'),
+            (4, '4.Oye  voces  acusatorias  o  de  denuncia  y/o  experiemtna  alucinaciones  visuales amenazadoras'),
+            ),
         )
     item_03 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Le parece que la vida no merece la pena ser vivida'),
+            (2, '2.Desearía estar muerto o tiene pensamientos sobre la posibilidad de morirse'),
+            (3, '3.Ideas de suicidio o amenazas'),
+            (4, '4.Intentos de suicidio (cualuqier intento serio se califica 4)'),
+            ),
         )
     item_04 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Dificultades ocasionales para dormirse, por ejemplo, más de media hora'),
+            (2, '2.Dificultades para dormirse cada noche'),
+            ),
         )
     item_05 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.El paciente s queja de estar inquieto durante la noche'),
+            (2, '2.Está despierto durante la noche; medicación, etc.'),
+            ),
         )
     item_06 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Se despierta a primeras horas de la madrugada pero vuelve a dormirse'),
+            (2, '2.No puede volver a dormirse si se levanta de la cama'),
+            ),
         )
     item_07 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Ideas  y  sentimientos  de  incapacidad.  Fatiga  o  debilidad  relcionadas  con  su actividad,trabajo o aficiones'),
+            (2, '2.Pérdida de interés en su actividad, aficiones, o trabajo, ,anifestado directamete por el enfermo o indirectamente por desatención, indecisión y vacilación'),
+            (3, '3.Disminución del tiempo dedicado a actividades o descenso en la productividad'),
+            (4, '4.Dejó de trabajar por la presente enfermedad'),
+            ),
         )
     item_08 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Palabra y pensamiento normales'),
+            (1, '1.Ligero retras en el diálogo'),
+            (2, '2.Evidente retraso en el diálogo'),
+            (3, '3.Diálogo difícil'),
+            (4, '4.Torpeza absoluta'),
+            ),
         )
     item_09 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ninguna'),
+            (1, '1.“Juega” con sus manos, cabellos, etc.'),
+            (2, '2.Se retuerce las manos, se muerde las uñas, los labios, se tira de los cabellos, etc.'),
+            ),
         )
     item_10 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.No hay dificultad'),
+            (1, '1.Tensión subjetiva e irritable'),
+            (2, '2.Preocupación por pequeñas cosas'),
+            (3, '3.Actitud aprensiva aparente en la expresión o en el habla'),
+            (4, '4.Terrores expresados sin preguntarle'),
+            ),
         )
     item_11 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Ligera'),
+            (2, '2.Moderada'),
+            (3, '3.Grave'),
+            (4, '4.Incapacitante'),
+            ),
         )
     item_12 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ninguno'),
+            (1, '1.Pérdida de apetito, pero come sin necesidad de que estimulen. Sensación de pesadez en el abdomen'),
+            (2, '2.Dificultad en comer si no se le insiste. Solicita o necesita laxantes o medicación intestinal para sus síntomas gastrointestinales'),
+            ),
         )
     item_13 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ninguno'),
+            (1, '1.Pesadez en las extremidades, espalda o cabeza. Dorsalgias, cefalalgias, algias musculares. Pérdida de energía y fatigabilidad'),
+            (2, '2.Cualquier síntoma bien definido'),
+            ),
         )
     item_14 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Débil'),
+            (2, '2.Grave'),
+            (3, '3.Incapacitante'),
+            ),
         )
     item_15 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.No la hay'),
+            (1, '1.Preocupado de sí mismo (corporalmente)'),
+            (2, '2.Preocupado por su sald'),
+            (3, '3.Se lamenta constantemente, solicita ayudas, etc.'),
+            (4, '4.Ideas delirantes hipocondríacas'),
+            ),
         )
     item_16 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.No hay pérdida de peso'),
+            (1, '1.Probable pérdida de peso asociada con la enfermedad actual'),
+            (2, '2.Pérdida de peso definida (según el enfermo)'),
+            ),
         )
     item_17 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0.Se da cuenta de que está deprimido y enfermo'),
+            (1, '1.Se da cuenta de sy enfermedad pero atribuye la causa a la mala alimentación, clima, exceso de trabajo, virus, etc.'),
+            (2, '2.Niega que esté enfermo'),
+            ),
         )
     @property
     def total(self):
@@ -844,48 +922,126 @@ class Madrs(Escala):
     class Meta:
         verbose_name = 'MADRS'
         verbose_name_plural = 'Escalas MADRS'
-
     item_01 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0. Sin tristeza'),
+            (1, '1.'),
+            (2, '2. Parece decaído/a pero se anima sin dificultad'),
+            (3, '3.'),
+            (4, '4. Parece triste y desgraciado/a la mayor parte del tiempo'),
+            (5, '5.'),
+            (6, '6.Parece siempre desgraciado/a. Extremadamente abatido/a'),
+            ),
         )
     item_02 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0. Tristeza esporádica según las circunstancias'),
+            (1, '1.'),
+            (2, '2. Triste o decaído/a, pero se anima sin dificultad'),
+            (3, '3.'),
+            (4, '4. Sentimientos generalizados de tristeza o melancolía. El estado de ánimo todavía se ve influido por circunstancias externas'),
+            (5, '5.'),
+            (6, '6. Abatimiento, desdicha o tristeza continuada o invariable'),
+            ),
         )
     item_03 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0. Apacible. Sólo tensión interna pasajera'),
+            (1, '1.'),
+            (2, '2. Sentimientos ocacionales de nerviosismo y maletar indefinido'),
+            (3, '3.'),
+            (4, '4. Sentimientos continuados de tensión interna o pánico intermitente que el sujeto sólo puede dominar con alguna dificultad'),
+            (5, '5.'),
+            (6, '6. Terror o angustia tenaz. Pánico irresistible'),
+            ),
         )
     item_04 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0. Duerme como siempre'),
+            (1, '1.'),
+            (2, '2. Ligera dificultad para dormirse o sueño ligeramente reducido, sueño ligero o perturbado'),
+            (3, '3.'),
+            (4, '4. Sueño reducido o interrumpido durante al menos 2 h'),
+            (5, '5.'),
+            (6, '6. Menos de 2 o 3 h de sueño'),
+            ),
         )
     item_05 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0. Apetito normal o aumentado'),
+            (1, '1.'),
+            (2, '2. Apetito ligeramente reducido'),
+            (3, '3.'),
+            (4, '4. Sin apetito. La comida es insípida'),
+            (5, '5.'),
+            (6, '6. Necesita persuasión para comer algo'),
+            ),
         )
     item_06 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (    
+            (0, '0. Ninguna dificultad para concentrarse'),
+            (1, '1.'),
+            (2, '2. Dificultades ocasionales para centrar los pensamientos'),
+            (3, '3.'),
+            (4, '4. Dificultades para concentrarse y seguir una idea que reduce la capacidad de leer o mantener una conversación'),
+            (5, '5.'),
+            (6, '6. Incapaz de leer o mantener una conversación si no es con gran dificultad'),
+            ),
         )
     item_07 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (    
+            (0, '0. Casi sin dificultad para empezar algo. Sin apatía'),
+            (1, '1.'),
+            (2, '2. Dificultades para empezar actividades'),
+            (3, '3.'),
+            (4, '4. Dificultades para empezar actividades rutinarias sencillas que se llevan a cabo con esfuerzo'),
+            (5, '5.'),
+            (6, '6. Lasitud total. Incapaz de hacer nada sin ayuda'),
+            ),
         )
     item_08 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (    
+            (0, '0. Interés normal por el entorno y por otras personas'),
+            (1, '1.'),
+            (2, '2. Menor capacidad para disfrutar de las cosas que normalmen te le interesan'),
+            (3, '3.'),
+            (4, '4. Pérdida de interés por el entorno. Pérdida de sentimientos respecto a los amigos y conocidos'),
+            (5, '5.'),
+            (6, '6. La experiencia de estar emocionalmente paralizado, incapacidad para sentir enfado, pena o placer y una total o incluso dolorosa falta de sentimientos hacia los parientes próximos y amigos'),
+            ),
         )
     item_09 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0. Sin pensamientos pesimistas'),
+            (1, '1.'),
+            (2, '2. Ideas variables de fracaso, autorreproche o autodesprecio'),
+            (3, '3.'),
+            (4, '4. Autoacusaciones persistentes o ideas definidas, pero aún racionales, de culpabilidad o pecado. Cada vez más pesimista respecto al futuro'),
+            (5, '5.'),
+            (6, '6. Alucinaciones de ruina, remordimiento o pecado irredimible. Autoacusaciones que son absurdas e inquebrantables'),
+            ),
         )
     item_10 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
+        choices = (
+            (0, '0. Disfruta de la vida o la acepta tal como viene'),
+            (1, '1.'),
+            (2, '2. Cansado de vivir. Sólo pensamientos suicidas pasajeros'),
+            (3, '3.'),
+            (4, '4. Probablemente  estaría  mejor  muerto/a. Los  pensamientos suicidas son habituales, y se considera el suicidio como una posible solución, pero sin ninguna intención o plan específico'),
+            (5, '5.'),
+            (6, '6. Planes explícitos de suicidio cuando se presente una oportunidad. Preparativos activos para el suicidio'),
+            ),
         )
-    
     @property
     def total(self):
         return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
@@ -905,37 +1061,45 @@ class Madrs(Escala):
 #      ##      ###   ##  ##   ##   #####    #####
 #
 class Panss(Escala):
+    LIKERT_PANSS = (
+    	(1, '1.Ausente'),
+    	(2, '2.Mínimo'),
+    	(3, '3.Ligero'),
+    	(4, '4.Moderado'),
+        (5, '5.Moderado severo'),
+        (6, '6.Severo'),
+        (7, '7.Extremo'),
+        )
     class Meta:
         verbose_name = 'PANSS'
         verbose_name_plural = 'Escalas PANSS'
-
     item_p01 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_p02 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_p03 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_p04 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_p05 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_p06 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_p07 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     @property
     def panss_sp(self):
@@ -943,32 +1107,32 @@ class Panss(Escala):
                 self.item_p05 + self.item_p06 + self.item_p07)
     
     item_n01 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_n02 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_n03 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_n04 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_n05 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_n06 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_n07 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     @property
     def panss_sn(self):
@@ -976,68 +1140,68 @@ class Panss(Escala):
                 self.item_n05 + self.item_n06 + self.item_n07)
 
     item_g01 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g02 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g03 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g04 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g05 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g06 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g07 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g08 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g09 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g10 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g11 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g12 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g13 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g14 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g15 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     item_g16 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=1,
+        choices=LIKERT_PANSS,
         )
     @property
     def panss_sg(self):
@@ -1068,46 +1232,139 @@ class Ymrs(Escala):
     item_01 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Posible o moderada, sólo cuando se le pregunta'),
+            (2, '2.Clara aunque subjetiva y apropiada al contenido: optimista, seguro de sí mismo/a, alegre'),
+            (3, '3.Elevada e inapropiada'),
+            (4, '4.Claramente eufórico/a, risa inadecuada, canta durante la entrevista, etc.'),
+            ),
         )
     item_02 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.Subjetivamente aumentada'),
+            (2, '2.Vigoroso/a, hipergestual'),
+            (3, '3.Energía excesiva, hiperactividad fluctuante, inquietud (puede ser calmado/a)'),
+            (4, '4.Agitación o hiperactividad constante (no puede ser calmado/a)'),
+            ),
         )
     item_03 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Normal, no aumentado'),
+            (1, '1.Posible o moderadamente aumentado'),
+            (2, '2.Claro aumento al preguntar'),
+            (3, '3.Referido como elevado de forma espontánea, contenido sexual del discurso, preocupación por temas sexuales'),
+            (4, '4.Actos o incitaciones sexuales evidentes (hacia pacientes, personal o entrevistador)'),
+            ),
         )
     item_04 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.No reducido'),
+            (1, '1.Disminución en menos de 1 ,hora'),
+            (2, '2.Disminución en más de 1 hora'),
+            (3, '3.Refiere disminución de la necesidad de dormir'),
+            (4, '4.Niega necesidad de dormir'),
+            ),
         )
     item_05 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Ausente'),
+            (1, '1.'),
+            (2, '2.Subjetivamente aumentada'),
+            (3, '3.'),
+            (4, '4.Irritabilidad fluctuante durante la entrevista, episodios recientes de rabia o enfado'),
+            (5, '5.'),
+            (6, '6.Predominantemente irritable durante la entrevista, brusco y cortante'),
+            (7, '7.'),
+            (8, '8.Hostil, no colaborador/a, entrevista imposible'),
+            ),
         )
     item_06 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.No aumentada'),
+            (1, '1.'),
+            (2, '2.Sensación de locuacidad'),
+            (3, '3.'),
+            (4, '4.Aumentada de forma fluctuante, verborrea ocasional'),
+            (5, '5.'),
+            (6, '6.Claramente aumentada en ritmo y cantidad, difícil de interrumpir, intrusiva'),
+            (7, '7.'),
+            (8, '8.Verborrea ininterrumpible y continua'),
+            ),
         )
     item_07 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Ausentes'),
+            (1, '1.Circunstancialidad, distraibilidad moderada, aceleración del pensamiento'),
+            (2, '2.Distraibilidad clara, descarrilamiento, taquipsiquia'),
+            (3, '3.Fuga de ideas, tangencialidad, discurso difícil de seguir, rimas, ecolalia'),
+            (4, '4.Incoherencia, ininteligibilidad, comunicación imposible'),
+            ),
         )
     item_08 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Ausentes'),
+            (1, '1.'),
+            (2, '2.Planes discutibles, nuevos intereses'),
+            (3, '3.'),
+            (4, '4.Proyectos especiales, misticismo'),
+            (5, '5.'),
+            (6, '6.Ideas grandiosas o paranoides, ideas de referencia'),
+            (7, '7.'),
+            (8, '8.Delirios, alucinaciones'),
+            ),
         )
     item_09 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Ausente, colaborador/a'),
+            (1, '1.'),
+            (2, '2.Sarcástico/a, enfático/a, lacónico/a'),
+            (3, '3.'),
+            (4, '4.Querulante, pone en guardia'),
+            (5, '5.'),
+            (6, '6.Amenaza al entrevistador, habla a gritos, entrevista difícil'),
+            (7, '7.'),
+            (8, '8.Claramente agresivo/a, destructivo/a, entrevista imposible'),
+            ),
         )
     item_10 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Higiene e indumentaria apropiada '),
+            (1, '1.Ligeramente descuidada'),
+            (2, '2.Mal arreglado/a, moderadamente despeinado/a, indumentaria sobrecargada'),
+            (3, '3.Despeinado/a, semidesnudo/a, maquillaje llamativo'),
+            (4, '4.Completamente desaseado/a, adornado/a, indumentaria extravagante'),
+            ),
         )
     item_11 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = (
+            (0, '0.Presente, admite la enfermedad, acepta tratamiento'),
+            (1, '1.Según él/ella, posiblemente enfermo/a'),
+            (2, '2.Admite cambio de conducta, pero niega enfermedad'),
+            (3, '3.Admite posible cambio de conducta, niega enfermedad'),
+            (4, '4.Niega cualquier cambio de conduct'),
+            ),
         )
     
     @property
@@ -1333,96 +1590,125 @@ class Who_das(Escala):
 #     ######## ##     ## ##     ## ####    ##
 
 class Zarit(Escala):
+    LIKERT_ZARIT= (
+        (0, '0. Nunca'),
+        (1, '1. Casi nunca'),
+        (2, '2. A veces'),
+        (3, '3. Bastantes veces'),
+        (4, '4. Siempre'),
+        )
     class Meta:
         verbose_name = 'ZARIT'
         verbose_name_plural = 'Escalas ZARIT'
     item_01 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_02 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_03 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_04 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_05 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_06 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_07 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_08 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_09 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_10 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_11 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_12 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_13 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_14 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_15 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_16 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_17 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_18 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_19 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_20 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_21 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     item_22 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
+        choices = LIKERT_ZARIT,
         )
     @property
     def total(self):
