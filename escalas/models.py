@@ -1230,8 +1230,7 @@ class Ymrs(Escala):
         verbose_name = 'escala Young de manía'
         verbose_name_plural = 'escalas Young de manía'
     item_01 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Ausente'),
             (1, '1.Posible o moderada, sólo cuando se le pregunta'),
@@ -1241,8 +1240,7 @@ class Ymrs(Escala):
             ),
         )
     item_02 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Ausente'),
             (1, '1.Subjetivamente aumentada'),
@@ -1252,8 +1250,7 @@ class Ymrs(Escala):
             ),
         )
     item_03 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Normal, no aumentado'),
             (1, '1.Posible o moderadamente aumentado'),
@@ -1263,8 +1260,7 @@ class Ymrs(Escala):
             ),
         )
     item_04 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.No reducido'),
             (1, '1.Disminución en menos de 1 ,hora'),
@@ -1274,8 +1270,7 @@ class Ymrs(Escala):
             ),
         )
     item_05 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Ausente'),
             (1, '1.'),
@@ -1289,8 +1284,7 @@ class Ymrs(Escala):
             ),
         )
     item_06 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.No aumentada'),
             (1, '1.'),
@@ -1304,8 +1298,7 @@ class Ymrs(Escala):
             ),
         )
     item_07 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Ausentes'),
             (1, '1.Circunstancialidad, distraibilidad moderada, aceleración del pensamiento'),
@@ -1315,8 +1308,7 @@ class Ymrs(Escala):
             ),
         )
     item_08 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Ausentes'),
             (1, '1.'),
@@ -1330,8 +1322,7 @@ class Ymrs(Escala):
             ),
         )
     item_09 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Ausente, colaborador/a'),
             (1, '1.'),
@@ -1345,8 +1336,7 @@ class Ymrs(Escala):
             ),
         )
     item_10 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Higiene e indumentaria apropiada '),
             (1, '1.Ligeramente descuidada'),
@@ -1356,8 +1346,7 @@ class Ymrs(Escala):
             ),
         )
     item_11 = models.PositiveSmallIntegerField(
-        null = True,
-        blank = True,
+        default=0,
         choices = (
             (0, '0.Presente, admite la enfermedad, acepta tratamiento'),
             (1, '1.Según él/ella, posiblemente enfermo/a'),
