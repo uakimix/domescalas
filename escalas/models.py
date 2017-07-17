@@ -1218,6 +1218,93 @@ class Panss(Escala):
                                                          str(self.total))
 
 
+#
+#     ######     ###    ######## ####  ######
+#    ##    ##   ## ##      ##     ##  ##    ##
+#    ##        ##   ##     ##     ##  ##
+#     ######  ##     ##    ##     ##   ######
+#          ## #########    ##     ##        ##
+#    ##    ## ##     ##    ##     ##  ##    ##
+#     ######  ##     ##    ##    ####  ######
+#
+
+class Satis(models.Model):
+    LIKERT_SATIS = (
+    	(1, '1.Muy Poca'),
+    	(2, '2.Poca'),
+    	(3, '3.Normal'),
+    	(4, '4.Bastante'),
+        (5, '5.Mucha'),
+        )
+    class Meta:
+        verbose_name = 'Satisfaccion'
+        verbose_name_plural = 'Escalas Satisfaccion'
+    autor = models.CharField(
+        max_length=3,
+        blank = True,
+        choices=(
+            ('PAC', 'Paciente'),
+            ('FAM', 'Familia'),
+            ),
+        )
+    item_01 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_02 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_03 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_04 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_05 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_06 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_07 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_08 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_09 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=LIKERT_SATIS,
+        )
+    item_10 = models.PositiveSmallIntegerField(
+        null = True,
+        blank = True,
+        choices=(
+    	    (1, '1.Siempre ingresaria en hosp'),
+    	    (2, '2.Casi siempre hosp '),
+    	    (3, '3.Me daría igual'),
+    	    (4, '4.Casi siempre dom'),
+            (5, '5.Siempre dom'),
+            ),
+        )
+
+
 #     ##    ## ##     ## ########   ######
 #      ##  ##  ###   ### ##     ## ##    ##
 #       ####   #### #### ##     ## ##

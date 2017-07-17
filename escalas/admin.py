@@ -195,6 +195,10 @@ class TratamientoAdmin(admin.ModelAdmin):
 @admin.register(Csq8)
 class Csq8Admin(admin.ModelAdmin):
     form = Csq8AdminForm
+    
+@admin.register(Satis)
+class Csq8Satis(admin.ModelAdmin):
+    form = SatisAdminForm
 
 
 @admin.register(Identificador)

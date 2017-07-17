@@ -156,7 +156,6 @@ class Csq8AdminForm(forms.ModelForm):
             'item_06': forms.RadioSelect(renderer=HorizRadioRenderer),
             'item_07': forms.RadioSelect(renderer=HorizRadioRenderer),
             'item_08': forms.RadioSelect(renderer=HorizRadioRenderer),
-            'item_09': forms.RadioSelect(renderer=HorizRadioRenderer),
             }
         labels = {
             'author' : ('Autor'),    
@@ -169,6 +168,7 @@ class Csq8AdminForm(forms.ModelForm):
             'item_07': ('7.- ¿En general, cómo de satisfecho/a está usted con los servicios que ha recibido?'),
             'item_08': ('8.-¿Si necesitara ayuda otra vez volvería a nuestro programa?'),
             'item_09': ('9.-Lo que más me ha gustado de la atención que he recibido ha sido:'),
+            'item_10': ('9.-Creo que se podría mejorar:'),
             }
    
 #     ########  ##     ## ##    ## ########
@@ -348,11 +348,9 @@ class MadrsAdminForm(forms.ModelForm):
 #
 
 class PanssAdminForm(forms.ModelForm):
-    
     class Meta:
         model = Panss
         fields = '__all__'
-        
         widgets = {
             'item_p01': forms.RadioSelect(renderer=HorizRadioRenderer),
             'item_p02': forms.RadioSelect(renderer=HorizRadioRenderer),
@@ -417,6 +415,49 @@ class PanssAdminForm(forms.ModelForm):
             'item_g15': ('15.- Preocupación.'),
             'item_g16': ('16.- Evitación social activa'),
         }
+
+#
+#     ######     ###    ######## ####  ######
+#    ##    ##   ## ##      ##     ##  ##    ##
+#    ##        ##   ##     ##     ##  ##
+#     ######  ##     ##    ##     ##   ######
+#          ## #########    ##     ##        ##
+#    ##    ## ##     ##    ##     ##  ##    ##
+#     ######  ##     ##    ##    ####  ######
+#
+class SatisAdminForm(forms.ModelForm):
+    class Meta:
+        model = Satis
+        fields = '__all__'
+        widgets = {
+            'autor': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_01': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_02': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_03': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_04': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_05': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_06': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_07': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_08': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_09': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_10': forms.RadioSelect(renderer=HorizRadioRenderer),
+            }
+        labels = {
+            'author' : ('Autor'),    
+            'item_01': ('1.-Confianza transmitida:'),
+            'item_02': ('2.-Comprensión mostrada:'),
+            'item_03': ('3.-Acompañamiento:'),
+            'item_04': ('4.-Comodidad / confort:'),
+            'item_05': ('5.-Seguridad percibida:'),
+            'item_06': ('6.-Accesibilidad ante urgencias:'),
+            'item_07': ('7.-Facilidad de integrar el tratamiento:'),
+            'item_08': ('8.-Adecuación a sus necesidades:'),
+            'item_09': ('9.-Plan terapéutico pactado:'),
+            'item_10': ('10.-Valore si, en caso de necesitar:'),
+            }
+
+
+
 
 #     ##    ## ##     ## ########   ######
 #      ##  ##  ###   ### ##     ## ##    ##
