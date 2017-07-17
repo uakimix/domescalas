@@ -493,83 +493,83 @@ class Csq8(models.Model):
         null = True,
         blank = True,
         choices=(
-            ('4', 'Excelente'),
-            ('3', 'Buen'),
-            ('2', 'Regula'),
-            ('1', 'Mala'),
+            (4, 'Excelente'),
+            (3, 'Buen'),
+            (2, 'Regula'),
+            (1, 'Mala'),
             ),
         )
     item_02 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
         choices=(
-            ('4', 'No definitivamente'),
-            ('3', 'En muy pocos casos'),
-            ('2', 'Si en general'),
-            ('1', 'Si definitivamente'),
+            (4, 'No definitivamente'),
+            (3, 'En muy pocos casos'),
+            (2, 'Si en general'),
+            (1, 'Si definitivamente'),
             ),
         )
     item_03 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
         choices=(
-            ('4', 'En casi todos'),
-            ('3', 'En la mayor parte'),
-            ('2', 'Solo en algunos'),
-            ('1', 'En ninguno'),
+            (4, 'En casi todos'),
+            (3, 'En la mayor parte'),
+            (2, 'Solo en algunos'),
+            (1, 'En ninguno'),
             ),
         )
     item_04 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
         choices=(
-            ('4', 'No definitivamente'),
-            ('3', 'No , creo que no'),
-            ('2', 'Si, creo que si'),
-            ('1', 'Si definitivamente'),
+            (4, 'No definitivamente'),
+            (3, 'No , creo que no'),
+            (2, 'Si, creo que si'),
+            (1, 'Si definitivamente'),
             ),
         )
     item_05 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
         choices=(
-            ('4', 'Nada satisfecho/a'),
-            ('3', 'Indiferente o moderadamente no satisfecho/a'),
-            ('2', 'Moderadamente satisfecho/a'),
-            ('1', 'Muy satisfecho/a'),
+            (4, 'Nada satisfecho/a'),
+            (3, 'Indiferente o moderadamente no satisfecho/a'),
+            (2, 'Moderadamente satisfecho/a'),
+            (1, 'Muy satisfecho/a'),
             ),
         )
     item_06 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
         choices=(
-            ('4', 'Si me ayudaron mucho'),
-            ('3', 'Si me ayudaron algo'),
-            ('2', 'No realmente no me ayudaron'),
-            ('1', 'No parecían poner las cosas peor'),
+            (4, 'Si me ayudaron mucho'),
+            (3, 'Si me ayudaron algo'),
+            (2, 'No realmente no me ayudaron'),
+            (1, 'No parecían poner las cosas peor'),
             ),
         )
     item_07 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
         choices=(
-            ('4', 'Muy satisfecho/a'),
-            ('3', 'Moderadamente satisfecho/a'),
-            ('2', 'Algo insatisfecho/a'),
-            ('1', 'Muy Insatisfecho/a'),
+            (4, 'Muy satisfecho/a'),
+            (3, 'Moderadamente satisfecho/a'),
+            (2, 'Algo insatisfecho/a'),
+            (1, 'Muy Insatisfecho/a'),
             ),
         )
     item_08 = models.PositiveSmallIntegerField(
         null = True,
         blank = True,
         choices=(
-            ('4', 'No definitivamente'),
-            ('3', 'No posiblemente'),
-            ('2', 'Si, creo que si'),
-            ('1', 'Si con seguridad'),
+            (4, 'No definitivamente'),
+            (3, 'No posiblemente'),
+            (2, 'Si, creo que si'),
+            (1, 'Si con seguridad'),
             ),
         )
-    item_09 = models.PositiveSmallIntegerField(
+    item_09 = models.TextField(
         null = True,
         blank = True,
         )
