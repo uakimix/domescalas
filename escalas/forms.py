@@ -544,6 +544,13 @@ class ZaritAdminForm(forms.ModelForm):
             'item_13': forms.RadioSelect(renderer=HorizRadioRenderer),
             'item_14': forms.RadioSelect(renderer=HorizRadioRenderer),
             'item_15': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_16': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_17': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_18': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_19': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_20': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_21': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'item_22': forms.RadioSelect(renderer=HorizRadioRenderer),
         }
         labels = {
             'item_01': ('1.- ¿Siente que su familiar solicita más ayuda de la que realmente necesita?'),
