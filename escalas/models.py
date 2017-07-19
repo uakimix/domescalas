@@ -345,19 +345,27 @@ class Bcis(Escala):
     
     @property
     def autoref(self):
-        return (self.item_01 + self.item_03 + self.item_04 + 
-                self.item_05 + self.item_06 + self.item_08 + 
-                self.item_12 + self.item_14 + self.item_15)
-    
+        try:
+            return (self.item_01 + self.item_03 + self.item_04 + 
+                    self.item_05 + self.item_06 + self.item_08 + 
+                    self.item_12 + self.item_14 + self.item_15)
+        except:
+            return ("incomplete")
     @property
     def autocert(self):
-        return (self.item_02 + self.item_07 +
-                self.item_09 + self.item_10 + self.item_11 +
-                self.item_13)
+        try:
+            return (self.item_02 + self.item_07 +
+                    self.item_09 + self.item_10 + self.item_11 +
+                    self.item_13)
+        except:
+            return ("incomplete")
     @property
     def comp(self):
-        return (self.autocert + self.autoref)
-
+        try:
+            return (self.autocert + self.autoref)
+        except:
+            return ("incomplete")
+            
     def __str__(self):
         return "%s: A.ref=%s / A.cert=%s / Comp.=%s" % (self.fecha,
               str(self.autoref),
@@ -654,9 +662,13 @@ class Duke(Escala):
         )
     @property
     def total(self):
-        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
-                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
-                self.item_09 + self.item_10 + self.item_11)
+        try:
+            return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
+                    self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
+                    self.item_09 + self.item_10 + self.item_11)
+        except:
+            return ("incomplete")
+            
     def __str__(self):
         return "%s: DUKE=%s" % (self.fecha, str(self.total))
         
@@ -1788,12 +1800,16 @@ class Zarit(Escala):
         )
     @property
     def total(self):
-        return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
-                self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
-                self.item_09 + self.item_10 + self.item_11 + self.item_12 + 
-                self.item_13 + self.item_14 + self.item_15 + self.item_16 + 
-                self.item_17 + self.item_18 + self.item_19 + self.item_20 +
-                self.item_21 + self.item_22)
+        try:
+            return (self.item_01 + self.item_02 + self.item_03 + self.item_04 + 
+                    self.item_05 + self.item_06 + self.item_07 + self.item_08 + 
+                    self.item_09 + self.item_10 + self.item_11 + self.item_12 + 
+                    self.item_13 + self.item_14 + self.item_15 + self.item_16 + 
+                    self.item_17 + self.item_18 + self.item_19 + self.item_20 +
+                    self.item_21 + self.item_22)
+        except:
+            return ("incomplete")
+            
     def __str__(self):
         return "%s: ZARIT=%s" % (self.fecha, str(self.total))
 
