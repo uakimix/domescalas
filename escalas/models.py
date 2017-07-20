@@ -129,6 +129,20 @@ class Identificador(models.Model):
             ),
         blank=True,
         )
+    rechazo = models.CharField(
+        verbose_name='¿rechazo ingreso?',
+        max_lenght=2,
+        choices=(
+            ('01', 'Riesgo autolítico'),
+            ('02', 'Falta de soporte familiar'),
+            ('03', 'Falta de voluntariedad'),
+            ('04', 'Sin criterio de ingreso agudo'),
+            ('99', 'Otros'),
+            ),
+        blank=True,
+        null=True,
+        )
+    
     def __str__(self):
         return self.codigo
 
@@ -362,7 +376,7 @@ class Bcis(Escala):
     @property
     def comp(self):
         try:
-            return (self.autocert + self.autoref)
+            return (self.autocert - self.autoref)
         except:
             return ("incomplete")
             
