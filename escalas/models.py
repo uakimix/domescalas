@@ -131,7 +131,7 @@ class Identificador(models.Model):
         )
     rechazo = models.CharField(
         verbose_name='¿rechazo ingreso?',
-        max_lenght=2,
+        max_length=2,
         choices=(
             ('01', 'Riesgo autolítico'),
             ('02', 'Falta de soporte familiar'),
