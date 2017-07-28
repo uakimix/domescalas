@@ -172,22 +172,16 @@ class Tratamiento(models.Model):
     identificador = models.ForeignKey(
         Identificador,
         )
-    # f_inicio = models.DateField(
-    #     verbose_name='Fecha de incio',
-    #     )
+    f_inicio = models.DateField(
+        verbose_name='Fecha de incio',
+        )
     farmaco = models.ForeignKey(
         Farmaco,
         )    
-    mg_dia_inicio = models.DecimalField(
-        max_digits=6,
-        decimal_places=2,
-        verbose_name='dosis inicio (mg/dia)',
-        null = True,
-        )
     mg_dia = models.DecimalField(
         max_digits=6,
         decimal_places=2,
-        verbose_name='dosis final (mg/dia)',
+        verbose_name='mg/dia',
         )
     depot = models.BooleanField(
         choices=(
@@ -195,30 +189,29 @@ class Tratamiento(models.Model):
             (True, 'Si'),
             )
         )
-    # f_termino = models.DateField(
-    #     verbose_name='Fecha de término',
-    #     blank=True,
-    #     null=True,
-    #     )
+    f_termino = models.DateField(
+        verbose_name='Fecha de término',
+        blank=True,
+        null=True,
+        )
     motivo = models.CharField(
         max_length=2,
         blank=True,
         null=True,
         choices=(
             ('01', 'Abandono de tratamiento'),
-            ('02', 'Falta de respuesta'),
+            ('02', 'Falta de eficacia'),
             ('03', 'Efecto adverso EP'),
             ('04', 'Efecto adverso digestivo'),
             ('05', 'Efecto adverso hematologico'),
             ('06', 'Efecto adverso autonómico'),
             ('07', 'Otro efecto adverso'),
-            ('08', 'Respuesta parcial'),
             ('99', 'NE'),
             )
         )
 
     def __str__(self):
-        return "%s %s mg/dia" % (self.farmaco, self.mg_dia)
+        return "%s:%s %s mg/dia" % (self.f_inicio, self.farmaco, self.mg_dia)
         
         
 
@@ -248,22 +241,17 @@ class Diagnostico_pac(models.Model):
     identificador = models.ForeignKey(
         Identificador,
         )
-    # f_dg = models.DateField(
-    #     verbose_name = "Fecha diagnostico",
-    #     )
-    dg_previo = models.ForeignKey(
-        Diagnostico,
-        related_name = "dg_previo",
-        verbose_name = "Diagnostico previo",
-        null = True,
+    f_dg = models.DateField(
+        verbose_name = "Fecha diagnostico",
         )
+    dg_previo = models.ForeignKey(
+        Diagosti)
+    
     diagnostico = models.ForeignKey(
         Diagnostico,
-        related_name = "dg_alta",
-        verbose_name = "Diagnostico al alta",
         )
     def __str__(self):
-        return "%s" % (self.diagnostico)
+        return "%s:%s" % (self.f_dg, self.diagnostico)
 
 
 

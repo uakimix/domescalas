@@ -13,21 +13,20 @@ class MyModelOptions(admin.ModelAdmin):
 class Diagnostico_pacInLine(admin.StackedInline):
     model = Diagnostico_pac
     extra = 0
-    fields = (('f_dg', 'diagnostico'),
+    fields = (('dg_previo', 'diagnostico'),
              )
 
-    raw_id_fields = ('diagnostico',)
+    raw_id_fields = ('diagnostico', 'dg_previo')
     autocomplete_lookup_fields = {
-        'fk': ['diagnostico'],
+        'fk': ['diagnostico', 'dg_previo'],
     }
 
 class TratamientoInLine(admin.StackedInline):
     model=Tratamiento
     form = TratamientoForm
     extra=0
-    fields=(('f_inicio', 'farmaco'),
-            ('mg_dia', 'depot'),
-            ('f_termino', 'motivo'),
+    fields=(('farmaco', 'mg_dia_inicio', 'mg_dia'),
+            ('depot', 'motivo'),
             )
     raw_id_fields = ('farmaco',)
     autocomplete_lookup_fields = {
@@ -244,7 +243,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
             }),
         ('Ingreso', {
           'fields': (
-            ('fecha_ingreso', 'procedencia', 'psiquiatra'),
+            ('fecha_ingreso', 'procedencia', 'psiquiatra', 'rechazo'),
             ('falta', 'dispalta')
             )
           }),
