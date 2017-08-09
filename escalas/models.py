@@ -234,6 +234,12 @@ class Diagnostico(models.Model):
     diagnostico=models.CharField(
         max_length=300,
         )
+        
+    dsm = models.CharField(
+        max_length=10,
+        blank= True,
+        )
+        
     def __str__(self):
         return self.diagnostico
         
