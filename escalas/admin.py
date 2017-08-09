@@ -181,7 +181,7 @@ class ZaritInline(admin.StackedInline):
     
 @admin.register(Diagnostico)
 class DiagnosticoAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('diagnostico', 'dsm',)
 
 @admin.register(Farmaco)
 class FarmacoAdmin(admin.ModelAdmin):
