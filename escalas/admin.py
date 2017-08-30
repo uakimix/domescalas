@@ -243,8 +243,8 @@ class IdentificadorAdmin(admin.ModelAdmin):
             }),
         ('Ingreso', {
           'fields': (
-            ('fecha_ingreso', 'procedencia', 'psiquiatra', 'rechazo'),
-            ('falta', 'dispalta')
+            ('fecha_ingreso', 'procedencia', 'psiquiatra'),
+            ('falta', 'rechazo', 'dispalta')
             )
           }),
         )

@@ -137,6 +137,7 @@ class Identificador(models.Model):
             ('02', 'Falta de soporte familiar'),
             ('03', 'Falta de voluntariedad'),
             ('04', 'Sin criterio de ingreso agudo'),
+            ('05', 'No acude'),
             ('99', 'Otros'),
             ),
         blank=True,
