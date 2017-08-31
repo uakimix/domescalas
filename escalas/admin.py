@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from datetime import date
+from django.utils.translation import ugettext_lazy as _
+from django.db.models import Q
 from django.contrib import admin
 from escalas.models import *
 from escalas.forms import *
@@ -200,6 +202,23 @@ class Csq8Satis(admin.ModelAdmin):
     form = SatisAdminForm
 
 
+
+
+# Filtro para ver los que rechazan ingreso y los que no
+class IngresoListFilter(admin.SimpleListFilter):
+    title = _('Ingresa')
+    parameter_name = 'ingresa'
+    def lookups(self, request, model_admin):
+        return (
+            ('si', _('Si')),
+            ('no', _('No')),
+        )
+    def queryset(self, request, queryset):
+        if self.value() == 'no':
+            return queryset.filter(rechazo__isnull=False).exclude(rechazo='')
+        if self.value() == 'si':
+            return queryset.filter(Q(rechazo__isnull=True) | Q(rechazo__exact=''))
+
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
     def _edad_(self,obj):
@@ -225,7 +244,8 @@ class IdentificadorAdmin(admin.ModelAdmin):
     _edad_.admin_order_field = '_edad_'
     
     date_hierarchy = 'fecha_ingreso'
-    list_filter = ('psiquiatra', 'rechazo',)
+    list_filter = ['psiquiatra', IngresoListFilter,]
+    
     list_display = ('fecha_ingreso', 'rechazo',  'codigo', 'sexo', '_edad_', 'sector', 'falta', 'dispalta', '_dg_', 'psiquiatra' )
     ordering = ('-fecha_ingreso',)
 
