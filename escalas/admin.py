@@ -225,7 +225,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
     _edad_.admin_order_field = '_edad_'
     
     date_hierarchy = 'fecha_ingreso'
-    list_filter = ('psiquiatra',)
+    list_filter = ('psiquiatra', 'rechazo',)
     list_display = ('fecha_ingreso', 'rechazo',  'codigo', 'sexo', '_edad_', 'sector', 'falta', 'dispalta', '_dg_', 'psiquiatra' )
     ordering = ('-fecha_ingreso',)
 
