@@ -17,6 +17,20 @@ class HorizRadioRenderer(forms.RadioSelect.renderer):
     def render(self):
             """Outputs radios"""
             return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
+            
+class Diagnostico_pacForm(forms.ModelForm):
+    class Meta:
+        model = Diagnostico_pac
+        fields = '__all__'
+    dg_tipo=forms.ChoiceField(
+        label = "tipo dg",
+        choices=(
+            ('ant', 'Previo'),
+            ('ppl', 'Principal'),
+            ('sec', 'Secundario'),
+            ),
+        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
+        )
 
 
 class TratamientoForm(forms.ModelForm):
@@ -31,7 +45,61 @@ class TratamientoForm(forms.ModelForm):
 		label='¿Depot?',
 		widget=forms.RadioSelect(renderer=HorizRadioRenderer),
 		)
-
+		
+class IdentificadorForm(forms.ModelForm):
+    class Meta:
+        model = Identificador
+        fields='__all__'
+    estado_alta=forms.ChoiceField(
+        label = "Estado al alta",
+        choices=(
+            ('mejor', "Mejoría"),
+            ('ind', "Indicación"),
+            ('peor', "Emperoamiento de síntomas"),
+            ('clau', "Claudicación cuidador"),
+            ('litic', "Ideacion autolitica"),
+            ('agit', "Agitacion"),
+            ),
+        )
+    cuidador=forms.ChoiceField(
+        label = "Cuidador ppal",
+        choices=(
+            ('padres', "Padres"),
+            ('pareja', "Pareja"),
+            ('familar', "Otro Familiar"),
+            ('amigo', "Amigo"),
+            ('no', "Sin soporte"),
+            ),
+        )
+    calidad_cuidador=forms.ChoiceField(
+        label="Calidad subjetiva cuidador",
+        choices=(
+            ('5', "Excelente"),
+            ('4', "Buena"),
+            ('3', "Regualar"),
+            ('2', "Mala"),
+            ('1', "Ninguna"),
+            ),
+        )
+    horas_cuidador=forms.ChoiceField(
+        label="Tiempo cuidador",
+        choices=(
+            ('convive', "Convivencia"),
+            ('mucho', "No convive, pero disponibilidad completa"),
+            ('parcial', "Parcial"),
+            ('nulo', "Nulo"),
+            ),
+        )
+   
+    def clean_falta(self):
+        fing = self.cleaned_data['fecha_ingreso']
+        falt = self.cleaned_data['falta']
+        if falt is None:
+            return
+        if falt < fing:
+            raise forms.ValidationError("Fecha de alta menor a la de ingreso!?")
+        
+        
 #     ########   ######  ####  ######
 #     ##     ## ##    ##  ##  ##    ##
 #     ##     ## ##        ##  ##

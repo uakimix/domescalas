@@ -14,13 +14,14 @@ class MyModelOptions(admin.ModelAdmin):
 
 class Diagnostico_pacInLine(admin.StackedInline):
     model = Diagnostico_pac
+    form = Diagnostico_pacForm
     extra = 0
-    fields = (('dg_previo', 'diagnostico'),
+    fields = (('diagnostico', 'dg_tipo'),
              )
 
-    raw_id_fields = ('diagnostico', 'dg_previo')
+    raw_id_fields = ('diagnostico',)
     autocomplete_lookup_fields = {
-        'fk': ['diagnostico', 'dg_previo'],
+        'fk': ['diagnostico',],
     }
 
 class TratamientoInLine(admin.StackedInline):
@@ -221,6 +222,7 @@ class IngresoListFilter(admin.SimpleListFilter):
 
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
+    form = IdentificadorForm
     def _edad_(self,obj):
         today = date.today()
         try:
@@ -252,7 +254,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': (
-                ('codigo', 'sector'),
+                ('codigo', 'sector', 'rechazo'),
                 )
             }),
         ('Demográficos', {
@@ -264,9 +266,15 @@ class IdentificadorAdmin(admin.ModelAdmin):
         ('Ingreso', {
           'fields': (
             ('fecha_ingreso', 'procedencia', 'psiquiatra'),
-            ('falta', 'rechazo', 'dispalta')
+            ('falta', 'dispalta', 'estado_alta')
             )
           }),
+        ('Cuidador', {
+            'fields': (
+                ('cuidador', 'horas_cuidador'),
+                ('calidad_cuidador', 'claudica_cuidador')
+                )
+        })
         )
 
     inlines = [

@@ -142,6 +142,35 @@ class Identificador(models.Model):
             ),
         blank=True,
         null=True,
+        help_text="Sólo llenar si rechaza ingreso.",
+        )
+    estado_alta = models.CharField(
+        max_length = 10,
+        blank=True,
+        null=True,
+        )
+    cuidador = models.CharField(
+        verbose_name="Cuidador",
+        max_length = 10,
+        blank=True,
+        null=True,
+        )
+    calidad_cuidador = models.CharField(
+        verbose_name="Calidad cuidador",
+        max_length = 10,
+        blank=True,
+        null=True,
+        )
+    horas_cuidador = models.CharField(
+        verbose_name = "Tiempo cuidador",
+        max_length = 10,
+        blank=True,
+        null=True,
+        )
+    claudica_cuidador = models.BooleanField(
+        verbose_name = "¿Claudicacion familiar?",
+        blank=True,
+        default=False,
         )
     
     def __str__(self):
@@ -257,20 +286,30 @@ class Diagnostico_pac(models.Model):
         )
     # f_dg = models.DateField(
     #     verbose_name = "Fecha diagnostico",
+    # )
+    #  dg_previo = models.ForeignKey(
+    #     Diagnostico,
+    #     related_name = "dg_previo",
+    #     verbose_name = "Diagnostico previo",
+    #     null = True,
     #     )
-    dg_previo = models.ForeignKey(
-        Diagnostico,
-        related_name = "dg_previo",
-        verbose_name = "Diagnostico previo",
-        null = True,
-        )
     diagnostico = models.ForeignKey(
         Diagnostico,
         related_name = "dg_alta",
         verbose_name = "Diagnostico al alta",
         )
+        
+    dg_tipo = models.CharField(
+        max_length=3,
+        choices=(
+            ('ant', 'Dg. Previo'),
+            ('ppl', 'Dg. Principal'),
+            ('sec', 'Dg. Secundario'),
+            ),
+        default = "ppl",
+        )
     def __str__(self):
-        return "%s" % (self.diagnostico)
+        return "%s: %s" % (self.dg_tipo, self.diagnostico)
 
 
 
