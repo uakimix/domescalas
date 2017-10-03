@@ -61,6 +61,7 @@ class IdentificadorForm(forms.ModelForm):
             ('litic', "Ideacion autolitica"),
             ('agit', "Agitacion"),
             ),
+        required=False,
         )
     cuidador=forms.ChoiceField(
         label = "Cuidador ppal",
@@ -72,6 +73,7 @@ class IdentificadorForm(forms.ModelForm):
             ('amigo', "Amigo"),
             ('no', "Sin soporte"),
             ),
+        required=False,
         )
     calidad_cuidador=forms.ChoiceField(
         label="Calidad subjetiva cuidador",
@@ -83,6 +85,7 @@ class IdentificadorForm(forms.ModelForm):
             ('2', "Mala"),
             ('1', "Ninguna"),
             ),
+        required=False,
         )
     horas_cuidador=forms.ChoiceField(
         label="Tiempo cuidador",
@@ -93,6 +96,7 @@ class IdentificadorForm(forms.ModelForm):
             ('parcial', "Parcial"),
             ('nulo', "Nulo"),
             ),
+        required=False,
         )
    
     def clean_falta(self):
