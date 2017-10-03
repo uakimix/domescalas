@@ -53,6 +53,7 @@ class IdentificadorForm(forms.ModelForm):
     estado_alta=forms.ChoiceField(
         label = "Estado al alta",
         choices=(
+            ('', '----'),
             ('mejor', "Mejoría"),
             ('ind', "Indicación"),
             ('peor', "Emperoamiento de síntomas"),
@@ -64,6 +65,7 @@ class IdentificadorForm(forms.ModelForm):
     cuidador=forms.ChoiceField(
         label = "Cuidador ppal",
         choices=(
+            ('', '----'),
             ('padres', "Padres"),
             ('pareja', "Pareja"),
             ('familar', "Otro Familiar"),
@@ -74,6 +76,7 @@ class IdentificadorForm(forms.ModelForm):
     calidad_cuidador=forms.ChoiceField(
         label="Calidad subjetiva cuidador",
         choices=(
+            ('', '----'),
             ('5', "Excelente"),
             ('4', "Buena"),
             ('3', "Regualar"),
@@ -84,6 +87,7 @@ class IdentificadorForm(forms.ModelForm):
     horas_cuidador=forms.ChoiceField(
         label="Tiempo cuidador",
         choices=(
+            ('', '----'),
             ('convive', "Convivencia"),
             ('mucho', "No convive, pero disponibilidad completa"),
             ('parcial', "Parcial"),
