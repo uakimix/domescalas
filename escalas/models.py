@@ -292,6 +292,7 @@ class Diagnostico_pac(models.Model):
         related_name = "dg_previo",
         verbose_name = "Diagnostico previo",
         null = True,
+        blank = True,
         )
     diagnostico = models.ForeignKey(
         Diagnostico,
