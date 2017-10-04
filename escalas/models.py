@@ -287,29 +287,23 @@ class Diagnostico_pac(models.Model):
     # f_dg = models.DateField(
     #     verbose_name = "Fecha diagnostico",
     # )
-    #  dg_previo = models.ForeignKey(
-    #     Diagnostico,
-    #     related_name = "dg_previo",
-    #     verbose_name = "Diagnostico previo",
-    #     null = True,
-    #     )
+    dg_previo = models.ForeignKey(
+        Diagnostico,
+        related_name = "dg_previo",
+        verbose_name = "Diagnostico previo",
+        null = True,
+        )
     diagnostico = models.ForeignKey(
         Diagnostico,
         related_name = "dg_alta",
         verbose_name = "Diagnostico al alta",
         )
-        
-    dg_tipo = models.CharField(
-        max_length=3,
-        choices=(
-            ('ant', 'Dg. Previo'),
-            ('ppl', 'Dg. Principal'),
-            ('sec', 'Dg. Secundario'),
-            ),
-        default = "ppl",
+    dg_tipo = models.BooleanField(
+        verbose_name ="Dg Principal",
+        default = False,
         )
     def __str__(self):
-        return "%s: %s" % (self.dg_tipo, self.diagnostico)
+        return ("%s") % self.diagnostico
 
 
 

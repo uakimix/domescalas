@@ -22,15 +22,15 @@ class Diagnostico_pacForm(forms.ModelForm):
     class Meta:
         model = Diagnostico_pac
         fields = '__all__'
-    dg_tipo=forms.ChoiceField(
-        label = "tipo dg",
-        choices=(
-            ('ant', 'Previo'),
-            ('ppl', 'Principal'),
-            ('sec', 'Secundario'),
-            ),
-        widget=forms.RadioSelect(renderer=HorizRadioRenderer),
-        )
+    # dg_tipo=forms.ChoiceField(
+    #     label = "tipo dg",
+    #     choices=(
+    #         ('ant', 'Previo'),
+    #         ('ppl', 'Principal'),
+    #         ('sec', 'Secundario'),
+    #         ),
+    #     widget=forms.RadioSelect(renderer=HorizRadioRenderer),
+    #     )
 
 
 class TratamientoForm(forms.ModelForm):

@@ -16,12 +16,12 @@ class Diagnostico_pacInLine(admin.StackedInline):
     model = Diagnostico_pac
     form = Diagnostico_pacForm
     extra = 0
-    fields = (('diagnostico', 'dg_tipo'),
+    fields = (('dg_previo', 'diagnostico', 'dg_tipo'),
              )
 
-    raw_id_fields = ('diagnostico',)
+    raw_id_fields = ('dg_previo', 'diagnostico',)
     autocomplete_lookup_fields = {
-        'fk': ['diagnostico',],
+        'fk': ['dg_previo', 'diagnostico',],
     }
 
 class TratamientoInLine(admin.StackedInline):
