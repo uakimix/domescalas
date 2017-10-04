@@ -16,7 +16,7 @@ class Diagnostico_pacInLine(admin.StackedInline):
     model = Diagnostico_pac
     form = Diagnostico_pacForm
     extra = 0
-    fields = (('dg_previo', 'diagnostico', 'dg_ppal'),
+    fields = (('dg_previo', 'diagnostico', 'dg_principal'),
              )
 
     raw_id_fields = ('dg_previo', 'diagnostico',)
