@@ -298,7 +298,7 @@ class Diagnostico_pac(models.Model):
         related_name = "dg_alta",
         verbose_name = "Diagnostico al alta",
         )
-    dg_tipo = models.BooleanField(
+    dg_ppal = models.BooleanField(
         verbose_name ="Dg Principal",
         default = False,
         )
