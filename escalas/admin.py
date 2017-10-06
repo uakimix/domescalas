@@ -233,7 +233,8 @@ class IdentificadorAdmin(admin.ModelAdmin):
             
     def _dg_(self, obj):
         try:
-            return obj.diagnostico_pac_set.filter(dg_principal=True)
+            diag = obj.diagnostico_pac_set.filter(dg_principal=True)
+            return diag.encode('utf-8')
         except:
             return
         

@@ -304,7 +304,8 @@ class Diagnostico_pac(models.Model):
         default = False,
         )
     def __str__(self):
-        return ("%s") % self.diagnostico
+        ret = ("%s") % self.diagnostico
+        return ret.encode('utf-8')
 
 
 
