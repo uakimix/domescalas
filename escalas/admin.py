@@ -233,7 +233,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
             
     def _dg_(self, obj):
         try:
-            return "<br>".join([str(k) for k in obj.diagnostico_pac_set.all()])
+            return ",".join(obj.diagnostico_pac_set.filter(dg_principal=True))
         except:
             return
         
