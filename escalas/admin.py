@@ -233,10 +233,9 @@ class IdentificadorAdmin(admin.ModelAdmin):
             
     def _dg_(self, obj):
         try:
-            diag = obj.diagnostico_pac_set.filter(dg_principal=True)
-            return diag.encode('utf-8')
+            return obj.diagnostico_pac_set.filter(dg_principal=True)
         except:
-            return
+            return "non"
         
     _dg_.allow_tags = True
     
