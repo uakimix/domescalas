@@ -106,7 +106,7 @@ class IdentificadorForm(forms.ModelForm):
             return
         if falt < fing:
             raise forms.ValidationError("Fecha de alta menor a la de ingreso!?")
-        
+        return falt
         
 #     ########   ######  ####  ######
 #     ##     ## ##    ##  ##  ##    ##
