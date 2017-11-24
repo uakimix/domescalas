@@ -42,6 +42,7 @@ class TratamientoForm(forms.ModelForm):
             (False, 'No'),
             (True, 'Si'),
             ),
+        initial=False,
 		label='¿Depot?',
 		widget=forms.RadioSelect(renderer=HorizRadioRenderer),
 		)

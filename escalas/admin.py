@@ -220,6 +220,7 @@ class IngresoListFilter(admin.SimpleListFilter):
         if self.value() == 'si':
             return queryset.filter(Q(rechazo__isnull=True) | Q(rechazo__exact=''))
 
+
 @admin.register(Identificador)
 class IdentificadorAdmin(admin.ModelAdmin):
     form = IdentificadorForm
@@ -233,9 +234,9 @@ class IdentificadorAdmin(admin.ModelAdmin):
             
     def _dg_(self, obj):
         try:
-            return obj.diagnostico_pac_set.filter(dg_principal=True)
+            return list(obj.diagnostico_pac_set.filter(dg_principal=True))
         except:
-            return "non"
+            return 
         
     _dg_.allow_tags = True
     
@@ -255,7 +256,7 @@ class IdentificadorAdmin(admin.ModelAdmin):
         (None, {
             'fields': (
                 ('codigo', 'sector', 'rechazo'),
-                )
+                )   
             }),
         ('Demográficos', {
           'fields': (
