@@ -5,10 +5,16 @@ services:
     image: postgres
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8989
+    command: gunicorn hello_django.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
       - "8090:8989"
     depends_on:
       - db
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - web
