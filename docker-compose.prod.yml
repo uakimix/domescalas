@@ -5,7 +5,7 @@ services:
     image: postgres
   web:
     build: .
-    command: gunicorn hello_django.wsgi:application --bind 0.0.0.0:8090
+    command: gunicorn domescalas.wsgi:application --bind 0.0.0.0:8090
     expose:
       - 8090
     volumes:
