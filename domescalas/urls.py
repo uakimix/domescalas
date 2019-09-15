@@ -20,3 +20,4 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^', admin.site.urls),
     ]
+
