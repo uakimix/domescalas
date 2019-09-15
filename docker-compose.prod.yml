@@ -5,9 +5,9 @@ services:
     image: postgres
   web:
     build: .
-    command: gunicorn hello_django.wsgi:application --bind 0.0.0.0:8080
+    command: gunicorn hello_django.wsgi:application --bind 0.0.0.0:8090
     expose:
-      - 8080
+      - 8090
     volumes:
       - .:/code
     ports:
