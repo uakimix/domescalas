@@ -6,10 +6,12 @@ services:
   web:
     build: .
     command: gunicorn hello_django.wsgi:application --bind 0.0.0.0:8000
+    expose:
+      - 8000
     volumes:
       - .:/code
     ports:
-      - "8090:8989"
+      - "8000:8989"
     depends_on:
       - db
   nginx:
