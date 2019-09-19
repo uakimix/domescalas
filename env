@@ -1,0 +1,8 @@
+DEBUG=0
+SECRET_KEY=wanchunfleroaquipofali
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=domescalas
+DB_USER=domescalas
+DB_HOST=db
+DB_PASS=Dom3sca7as
+DB_PORT=5432

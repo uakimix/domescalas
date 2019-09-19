@@ -126,6 +126,7 @@ class Identificador(models.Model):
             ('AKG', 'A. Keymer'),
             ('AMB', 'A. Martin'),
             ('SVC', 'S. Vieira'),
+            ('NBG', 'N. Bague'),
             ),
         blank=True,
         )

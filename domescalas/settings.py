@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qg5=89_x0*lln4u=0$%dz8@4p4b^wn#t60#h@pegkbp6cg==@$'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', default=0))
 
 ALLOWED_HOSTS = ["*"]
 
@@ -79,11 +79,12 @@ WSGI_APPLICATION = 'domescalas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
@@ -124,17 +125,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
 
-
-
-
-# CORS_REPLACE_HTTPS_REFERER      = False
-# HOST_SCHEME                     = "http://"
-# SECURE_PROXY_SSL_HEADER         = None
-# SECURE_SSL_REDIRECT             = False
-# SESSION_COOKIE_SECURE           = False
-# CSRF_COOKIE_SECURE              = False
-# SECURE_HSTS_SECONDS             = None
-# SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
-# SECURE_FRAME_DENY               = False
+STATIC_URL = '/staticfiles/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

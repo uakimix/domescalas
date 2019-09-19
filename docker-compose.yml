@@ -3,12 +3,42 @@ version: '3'
 services:
   db:
     image: postgres
+    env_file:
+      - env_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8989
+    command: gunicorn domescalas.wsgi:application --bind 0.0.0.0:8000
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
     volumes:
       - .:/code
-    ports:
-      - "8090:8989"
+      - static_volume:/code/staticfiles
+    env_file:
+      - env
     depends_on:
       - db
+  
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    volumes:
+      - static_volume:/code/staticfiles
+    depends_on:
+      - web
+
+volumes:
+  static_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/ludwig/docker/domescalas/staticfiles
+  
+  postgres_data:
+
