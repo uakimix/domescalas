@@ -1,4 +1,4 @@
-django==1.10.6
+django==1.11.28
 django-grappelli==2.9.1
 gunicorn>=19.7.0
 psycopg2==2.7
